@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: latency
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: latency
+    Term: Latency
+    Abbreviation: 
+    Category: 5
+    Difficulty: 0
+    ShortDefinition: The delay between sending an action and seeing its result across
+      a network.
+    SimpleExplanation: How long it takes for your input to reach the game and come
+      back.
+    WhyItMatters: High latency makes controls feel sluggish and can break competitive
+      fairness.
+    Example: A player fires on an enemy that has already moved on the server.
+    GameUses:
+    - Netcode tuning
+    - Competitive modes
+    - Input responsiveness
+    RelatedTermIds:
+    - tick-rate
+    - client-prediction
+    - rollback
+    Tags:
+    - networking
+    - ping
+    - responsiveness
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1705968000

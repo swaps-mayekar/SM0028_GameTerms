@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: mau
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: mau
+    Term: MAU
+    Abbreviation: mau
+    Category: 8
+    Difficulty: 0
+    ShortDefinition: 'Monthly Active Users: unique players who engage within a rolling
+      month.'
+    SimpleExplanation: How many different people played at least once this month.
+    WhyItMatters: MAU shows broader audience health beyond day-to-day volatility.
+    Example: A seasonal campaign lifts MAU even when daily numbers fluctuate.
+    GameUses:
+    - Portfolio reporting
+    - Retention analysis
+    - Investor updates
+    RelatedTermIds:
+    - dau
+    - ltv
+    Tags:
+    - analytics
+    - engagement
+    - kpi
+    Synonyms:
+    - monthly active users
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1706918400

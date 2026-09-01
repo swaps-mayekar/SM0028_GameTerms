@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: frustum-culling
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: frustum-culling
+    Term: Frustum Culling
+    Abbreviation: 
+    Category: 2
+    Difficulty: 1
+    ShortDefinition: Skipping objects outside the camera view volume before rendering.
+    SimpleExplanation: Ignore objects that are off-screen or behind the camera.
+    WhyItMatters: It avoids wasting GPU work on geometry the player will never see
+      in the current frame.
+    Example: Trees behind the camera are removed from the render queue.
+    GameUses:
+    - Open worlds
+    - Large scenes
+    - Performance budgets
+    RelatedTermIds:
+    - occlusion-culling
+    - draw-call
+    Tags:
+    - culling
+    - camera
+    - rendering
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 1
+    DiagramType: 3
+    AddedAtUnix: 1705104000

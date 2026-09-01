@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ba543bb255d434f9c8a984be950558, type: 3}
+  m_Name: UiTheme
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.UI.UiTheme
+  Background: {r: 0.07, g: 0.08, b: 0.11, a: 1}
+  Surface: {r: 0.11, g: 0.13, b: 0.17, a: 1}
+  SurfaceElevated: {r: 0.15, g: 0.17, b: 0.22, a: 1}
+  Border: {r: 0.24, g: 0.28, b: 0.36, a: 0.65}
+  Primary: {r: 0.36, g: 0.78, b: 1, a: 1}
+  PrimaryMuted: {r: 0.36, g: 0.78, b: 1, a: 0.18}
+  TextPrimary: {r: 0.94, g: 0.96, b: 0.98, a: 1}
+  TextSecondary: {r: 0.68, g: 0.73, b: 0.8, a: 1}
+  TextMuted: {r: 0.5, g: 0.56, b: 0.64, a: 1}
+  Accent: {r: 0.55, g: 0.72, b: 1, a: 1}
+  Favorite: {r: 0.98, g: 0.78, b: 0.24, a: 1}
+  SearchHighlight: {r: 0.36, g: 0.78, b: 1, a: 1}
+  SansRegular: {fileID: 11400000, guid: 8e47c7180cb5a4bd59f2c6a047350f99, type: 2}
+  SansSemiBold: {fileID: 11400000, guid: df8399570b67e4e0ea9d085fbf7f8758, type: 2}
+  SansBold: {fileID: 11400000, guid: 464527f6a53034f7bb2965be2ed728fa, type: 2}
+  MonoRegular: {fileID: 11400000, guid: c44f58b587e0b4098a7b0a4831bf8be2, type: 2}
+  PaddingSmall: 8
+  PaddingMedium: 16
+  PaddingLarge: 24
+  CornerRadius: 14
+  MinTouchTarget: 44
+  TitleSize: 30
+  SectionSize: 18
+  TermSize: 20
+  BodySize: 16
+  MetaSize: 13
+  ButtonSize: 15

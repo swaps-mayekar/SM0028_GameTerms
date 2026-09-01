@@ -1,0 +1,19 @@
+{
+    "name": "GameTerms.Editor",
+    "rootNamespace": "GameTerms.Editor",
+    "references": [
+        "GameTerms.Runtime",
+        "Unity.TextMeshPro"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

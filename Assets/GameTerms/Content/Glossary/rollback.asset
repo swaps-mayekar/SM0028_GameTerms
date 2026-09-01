@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: rollback
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: rollback
+    Term: Rollback
+    Abbreviation: ggpo
+    Category: 5
+    Difficulty: 2
+    ShortDefinition: Rewinding and replaying simulation frames when late network
+      inputs arrive.
+    SimpleExplanation: Undo a few frames and replay them with the correct inputs
+      once they arrive.
+    WhyItMatters: Rollback enables responsive fighting and action games over real-world
+      networks.
+    Example: A fighting game corrects a hit after the remote input finally reaches
+      the host.
+    GameUses:
+    - Fighting games
+    - Fast action multiplayer
+    - Peer-to-peer sessions
+    RelatedTermIds:
+    - client-prediction
+    - latency
+    Tags:
+    - netcode
+    - sync
+    - fighting
+    Synonyms:
+    - rollback netcode
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1706227200

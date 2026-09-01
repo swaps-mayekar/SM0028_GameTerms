@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: live-ops
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: live-ops
+    Term: Live Ops
+    Abbreviation: liveops
+    Category: 9
+    Difficulty: 1
+    ShortDefinition: Ongoing updates, events, and content that keep a shipped game
+      active and healthy.
+    SimpleExplanation: Running the game after launch with events, fixes, and fresh
+      content.
+    WhyItMatters: Live ops sustains engagement and revenue long after initial release.
+    Example: Weekly events, seasonal passes, and balance patches across the first
+      year.
+    GameUses:
+    - Service games
+    - Seasonal content
+    - Retention strategy
+    RelatedTermIds:
+    - soft-launch
+    - dau
+    - progression
+    Tags:
+    - operations
+    - updates
+    - retention
+    Synonyms:
+    - live operations
+    - liveops
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1707264000

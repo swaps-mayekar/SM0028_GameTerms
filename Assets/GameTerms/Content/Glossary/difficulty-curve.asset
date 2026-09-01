@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: difficulty-curve
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: difficulty-curve
+    Term: Difficulty Curve
+    Abbreviation: 
+    Category: 0
+    Difficulty: 1
+    ShortDefinition: How challenge rises across a game to match growing player skill.
+    SimpleExplanation: The shape of how hard the game gets from start to finish.
+    WhyItMatters: A well-shaped curve prevents boredom early and frustration late.
+    Example: Introduce one new enemy type per chapter while gradually reducing reaction
+      time windows.
+    GameUses:
+    - Level design
+    - Combat balancing
+    - Tutorial planning
+    RelatedTermIds:
+    - progression
+    - game-loop
+    Tags:
+    - balance
+    - pacing
+    - challenge
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1704412800

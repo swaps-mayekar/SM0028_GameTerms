@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: soft-launch
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: soft-launch
+    Term: Soft Launch
+    Abbreviation: 
+    Category: 9
+    Difficulty: 1
+    ShortDefinition: Releasing a game in limited regions or audiences to gather data
+      before global launch.
+    SimpleExplanation: A practice launch in a smaller market before going worldwide.
+    WhyItMatters: Soft launches reveal retention, monetization, and stability issues
+      with lower risk.
+    Example: Launch in two countries, tune onboarding for two weeks, then expand
+      globally.
+    GameUses:
+    - Mobile publishing
+    - Economy tuning
+    - Live readiness
+    RelatedTermIds:
+    - mvp
+    - live-ops
+    - ltv
+    Tags:
+    - publishing
+    - launch
+    - testing
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1707177600

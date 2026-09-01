@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: smoke-testing
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: smoke-testing
+    Term: Smoke Testing
+    Abbreviation: 
+    Category: 7
+    Difficulty: 0
+    ShortDefinition: A quick pass over critical paths to confirm a build is basically
+      functional.
+    SimpleExplanation: A fast sanity check before deeper testing begins.
+    WhyItMatters: Smoke tests catch catastrophic issues early and save QA time.
+    Example: Launch the build, start a match, complete a purchase flow, and exit
+      cleanly.
+    GameUses:
+    - Daily builds
+    - Release gates
+    - CI validation
+    RelatedTermIds:
+    - regression-testing
+    - stress-testing
+    Tags:
+    - qa
+    - build
+    - sanity
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1706659200

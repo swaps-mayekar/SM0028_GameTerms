@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: client-prediction
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: client-prediction
+    Term: Client Prediction
+    Abbreviation: 
+    Category: 5
+    Difficulty: 2
+    ShortDefinition: Letting the local client simulate actions immediately before
+      server confirmation.
+    SimpleExplanation: Move on your screen right away even though the server has
+      not confirmed yet.
+    WhyItMatters: Prediction hides network delay and keeps movement feeling responsive.
+    Example: A player jumps locally while waiting for the authoritative server position.
+    GameUses:
+    - Action games
+    - Platformers online
+    - Responsive controls
+    RelatedTermIds:
+    - latency
+    - rollback
+    - tick-rate
+    Tags:
+    - netcode
+    - responsiveness
+    - sync
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1706140800

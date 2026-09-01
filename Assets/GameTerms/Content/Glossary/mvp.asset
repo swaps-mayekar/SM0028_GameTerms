@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: mvp
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: mvp
+    Term: MVP
+    Abbreviation: mvp
+    Category: 9
+    Difficulty: 0
+    ShortDefinition: 'Minimum Viable Product: the smallest version that proves core
+      value to players.'
+    SimpleExplanation: The leanest playable version that tests whether the idea works.
+    WhyItMatters: An MVP reduces wasted production by validating fun and market fit
+      early.
+    Example: Ship one dungeon loop with basic progression before building the full
+      world map.
+    GameUses:
+    - Prototype validation
+    - Pitching
+    - Scope control
+    RelatedTermIds:
+    - vertical-slice
+    - soft-launch
+    Tags:
+    - production
+    - scope
+    - prototype
+    Synonyms:
+    - minimum viable product
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1707091200

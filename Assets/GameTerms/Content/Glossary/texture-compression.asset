@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: texture-compression
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: texture-compression
+    Term: Texture Compression
+    Abbreviation: 
+    Category: 6
+    Difficulty: 1
+    ShortDefinition: Reducing texture memory footprint using GPU-friendly compressed
+      formats.
+    SimpleExplanation: Shrink image files so they use less RAM and load faster on
+      device.
+    WhyItMatters: Compression is critical for fitting art within mobile memory budgets.
+    Example: Authoring albedo maps in ASTC for iOS and ETC2 for Android targets.
+    GameUses:
+    - Mobile builds
+    - Asset pipelines
+    - Memory budgeting
+    RelatedTermIds:
+    - memory-pressure
+    - normal-map
+    - uv-mapping
+    Tags:
+    - textures
+    - memory
+    - mobile
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1706400000

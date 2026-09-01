@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: game-loop
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: game-loop
+    Term: Game Loop
+    Abbreviation: 
+    Category: 0
+    Difficulty: 0
+    ShortDefinition: The full cycle of player input, game response, feedback, and
+      state change.
+    SimpleExplanation: What the player does, what the game does back, and how the
+      world updates before the next action.
+    WhyItMatters: Understanding the loop helps designers tune pacing, rewards, and
+      failure recovery.
+    Example: Move, attack, receive damage feedback, earn loot, upgrade gear, repeat.
+    GameUses:
+    - Combat tuning
+    - Tutorial pacing
+    - Progression planning
+    RelatedTermIds:
+    - core-loop
+    - progression
+    - difficulty-curve
+    Tags:
+    - design
+    - feedback
+    - systems
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1704153600

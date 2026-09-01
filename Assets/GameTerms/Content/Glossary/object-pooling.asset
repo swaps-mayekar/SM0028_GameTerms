@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: object-pooling
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: object-pooling
+    Term: Object Pooling
+    Abbreviation: pool
+    Category: 1
+    Difficulty: 1
+    ShortDefinition: A technique where reusable objects are created in advance and
+      activated when needed instead of repeatedly creating and destroying them.
+    SimpleExplanation: Keep a collection of reusable objects instead of constantly
+      creating new ones.
+    WhyItMatters: Pooling reduces allocation spikes and garbage collection pressure
+      during intense gameplay.
+    Example: Reuse bullet instances by disabling them after impact and returning
+      them to a pool.
+    GameUses:
+    - Shooters
+    - Particle effects
+    - Mobile performance
+    RelatedTermIds:
+    - garbage-collection
+    - draw-call
+    Tags:
+    - performance
+    - memory
+    - optimization
+    Synonyms:
+    - pooling
+    - object pool
+    CodeExample: 'GameObject obj = pool.Get();
+
+      obj.SetActive(true);'
+    HasDiagram: 1
+    DiagramType: 2
+    AddedAtUnix: 1704499200

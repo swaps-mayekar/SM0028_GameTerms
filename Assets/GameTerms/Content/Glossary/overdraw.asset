@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: overdraw
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: overdraw
+    Term: Overdraw
+    Abbreviation: 
+    Category: 2
+    Difficulty: 2
+    ShortDefinition: Rendering the same screen pixel multiple times due to overlapping
+      transparent or layered geometry.
+    SimpleExplanation: Drawing on top of the same pixel again and again.
+    WhyItMatters: High overdraw can crush fill-rate performance, especially on mobile
+      GPUs.
+    Example: Multiple fullscreen particle layers stacking in the same view.
+    GameUses:
+    - VFX budgeting
+    - UI transparency review
+    - Mobile tuning
+    RelatedTermIds:
+    - draw-call
+    - occlusion-culling
+    Tags:
+    - rendering
+    - gpu
+    - fill rate
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1705276800

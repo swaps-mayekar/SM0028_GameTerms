@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: progression
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: progression
+    Term: Progression
+    Abbreviation: 
+    Category: 0
+    Difficulty: 0
+    ShortDefinition: How players unlock new abilities, content, or power over time.
+    SimpleExplanation: The path that makes players feel stronger, smarter, or more
+      capable as they keep playing.
+    WhyItMatters: Strong progression creates motivation and helps structure content
+      delivery.
+    Example: Unlock new biomes after defeating bosses and crafting better gear.
+    GameUses:
+    - RPG systems
+    - Level gating
+    - Live content rollout
+    RelatedTermIds:
+    - difficulty-curve
+    - core-loop
+    - live-ops
+    Tags:
+    - design
+    - retention
+    - rewards
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1704326400
