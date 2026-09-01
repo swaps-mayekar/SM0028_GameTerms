@@ -48,6 +48,7 @@ namespace GameTerms.UI
             var button = buttonGo.GetComponent<Button>();
             button.targetGraphic = image;
             button.onClick.AddListener(() => onClick?.Invoke());
+            buttonGo.AddComponent<ScrollDragForwarder>();
 
             var layout = buttonGo.AddComponent<LayoutElement>();
             layout.minHeight = theme.MinTouchTarget;
@@ -113,6 +114,7 @@ namespace GameTerms.UI
             var outline = card.gameObject.AddComponent<Outline>();
             outline.effectColor = theme.Border;
             outline.effectDistance = new Vector2(1f, -1f);
+            card.gameObject.AddComponent<ScrollDragForwarder>();
             return card;
         }
 

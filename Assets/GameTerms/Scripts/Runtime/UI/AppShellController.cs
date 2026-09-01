@@ -146,6 +146,7 @@ namespace GameTerms.UI
 
             RebuildPanel();
             UpdateBottomNav();
+            Canvas.ForceUpdateCanvases();
 
             yield return null;
             if (contentCanvasGroup != null)
@@ -198,6 +199,9 @@ namespace GameTerms.UI
             scroll.movementType = ScrollRect.MovementType.Clamped;
 
             var viewport = factory.CreateRoot(scrollRoot, "Viewport");
+            var viewportImage = viewport.gameObject.AddComponent<Image>();
+            viewportImage.color = Color.clear;
+            viewportImage.raycastTarget = true;
             viewport.gameObject.AddComponent<RectMask2D>();
             scroll.viewport = viewport;
             UiFactory.Stretch(viewport);
