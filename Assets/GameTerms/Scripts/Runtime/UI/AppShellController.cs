@@ -44,9 +44,19 @@ namespace GameTerms.UI
             services = new AppServices(database, glossaryJson);
             navigator = new AppNavigator();
             BuildUi();
-            navigator.Changed += Refresh;
+            navigator.Changed += OnNavigatorChanged;
             services.Favorites.Changed += Refresh;
             services.RecentlyViewed.Changed += Refresh;
+            Refresh();
+        }
+
+        private void OnNavigatorChanged()
+        {
+            if (navigator.CurrentScreen == AppScreen.TermDetail && !string.IsNullOrEmpty(navigator.SelectedTermId))
+            {
+                services.RecentlyViewed.RecordView(navigator.SelectedTermId);
+            }
+
             Refresh();
         }
 
@@ -54,7 +64,7 @@ namespace GameTerms.UI
         {
             if (navigator != null)
             {
-                navigator.Changed -= Refresh;
+                navigator.Changed -= OnNavigatorChanged;
             }
 
             if (services?.Favorites != null)
@@ -397,7 +407,6 @@ namespace GameTerms.UI
                 return;
             }
 
-            services.RecentlyViewed.RecordView(term.Id);
             var content = CreateScrollPanel("TermDetailPanel");
             AddBackButton(content);
 

@@ -6,11 +6,15 @@ namespace GameTerms.UI
 {
     /// <summary>
     /// Forwards drag and scroll events to the parent ScrollRect so lists remain scrollable
-    /// when the pointer starts on a button or card.
+    /// when the pointer starts on a button or card, without blocking taps/clicks.
     /// </summary>
-    public sealed class ScrollDragForwarder : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IScrollHandler
+    public sealed class ScrollDragForwarder : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler, IScrollHandler
     {
+        private const float DragThresholdPixels = 12f;
+
         private ScrollRect scrollRect;
+        private bool forwarding;
+        private Vector2 pointerDownPosition;
 
         private ScrollRect ParentScrollRect
         {
@@ -25,19 +29,43 @@ namespace GameTerms.UI
             }
         }
 
-        public void OnBeginDrag(PointerEventData eventData)
+        public void OnPointerDown(PointerEventData eventData)
         {
-            ParentScrollRect?.OnBeginDrag(eventData);
+            pointerDownPosition = eventData.position;
+            forwarding = false;
         }
 
         public void OnDrag(PointerEventData eventData)
         {
-            ParentScrollRect?.OnDrag(eventData);
+            var scroll = ParentScrollRect;
+            if (scroll == null)
+            {
+                return;
+            }
+
+            if (!forwarding)
+            {
+                if (Vector2.Distance(eventData.position, pointerDownPosition) < DragThresholdPixels)
+                {
+                    return;
+                }
+
+                forwarding = true;
+                eventData.eligibleForClick = false;
+                scroll.OnBeginDrag(eventData);
+            }
+
+            scroll.OnDrag(eventData);
         }
 
-        public void OnEndDrag(PointerEventData eventData)
+        public void OnPointerUp(PointerEventData eventData)
         {
-            ParentScrollRect?.OnEndDrag(eventData);
+            if (forwarding)
+            {
+                ParentScrollRect?.OnEndDrag(eventData);
+            }
+
+            forwarding = false;
         }
 
         public void OnScroll(PointerEventData eventData)

@@ -30,7 +30,17 @@ namespace GameTerms
                 return;
             }
 
-            snapshot.RecentlyViewedTermIds.Remove(termId);
+            var index = snapshot.RecentlyViewedTermIds.IndexOf(termId);
+            if (index == 0)
+            {
+                return;
+            }
+
+            if (index > 0)
+            {
+                snapshot.RecentlyViewedTermIds.RemoveAt(index);
+            }
+
             snapshot.RecentlyViewedTermIds.Insert(0, termId);
 
             if (snapshot.RecentlyViewedTermIds.Count > MaxRecentCount)

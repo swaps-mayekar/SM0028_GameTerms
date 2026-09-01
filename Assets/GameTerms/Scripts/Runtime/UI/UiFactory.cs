@@ -111,6 +111,7 @@ namespace GameTerms.UI
         public RectTransform CreateCard(RectTransform parent, string name = "Card")
         {
             var card = CreatePanel(parent, theme.Surface, theme.CornerRadius, name);
+            card.GetComponent<Image>().raycastTarget = true;
             var outline = card.gameObject.AddComponent<Outline>();
             outline.effectColor = theme.Border;
             outline.effectDistance = new Vector2(1f, -1f);
