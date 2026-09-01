@@ -24,6 +24,9 @@ MonoBehaviour:
   Accent: {r: 0.55, g: 0.72, b: 1, a: 1}
   Favorite: {r: 0.98, g: 0.78, b: 0.24, a: 1}
   SearchHighlight: {r: 0.36, g: 0.78, b: 1, a: 1}
+  Shadow: {r: 0, g: 0, b: 0, a: 0.25}
+  NavActive: {r: 0.36, g: 0.78, b: 1, a: 1}
+  NavInactive: {r: 0.5, g: 0.56, b: 0.64, a: 1}
   SansRegular: {fileID: 11400000, guid: 8e47c7180cb5a4bd59f2c6a047350f99, type: 2}
   SansSemiBold: {fileID: 11400000, guid: df8399570b67e4e0ea9d085fbf7f8758, type: 2}
   SansBold: {fileID: 11400000, guid: 464527f6a53034f7bb2965be2ed728fa, type: 2}
@@ -39,3 +42,6 @@ MonoBehaviour:
   BodySize: 16
   MetaSize: 13
   ButtonSize: 15
+  NavIconSize: 20
+  NavLabelSize: 11
+  NavHeight: 54

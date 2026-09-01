@@ -141,7 +141,7 @@ namespace GameTerms
             return !string.IsNullOrWhiteSpace(value) && Normalize(value).Contains(query, StringComparison.Ordinal);
         }
 
-        public static string HighlightMatches(string text, string query)
+        public static string HighlightMatches(string text, string query, string highlightHex = "#5CC8FF")
         {
             if (string.IsNullOrWhiteSpace(text) || string.IsNullOrWhiteSpace(query))
             {
@@ -157,7 +157,7 @@ namespace GameTerms
             }
 
             var end = index + normalizedQuery.Length;
-            return $"{text[..index]}<color=#5CC8FF>{text[index..end]}</color>{text[end..]}";
+            return $"{text[..index]}<color={highlightHex}>{text[index..end]}</color>{text[end..]}";
         }
     }
 }

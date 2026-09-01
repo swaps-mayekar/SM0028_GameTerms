@@ -19,6 +19,9 @@ namespace GameTerms.UI
         public Color Accent = new(0.55f, 0.72f, 1f);
         public Color Favorite = new(0.98f, 0.78f, 0.24f);
         public Color SearchHighlight = new(0.36f, 0.78f, 1f);
+        public Color Shadow = new(0f, 0f, 0f, 0.25f);
+        public Color NavActive = new(0.36f, 0.78f, 1f);
+        public Color NavInactive = new(0.5f, 0.56f, 0.64f);
 
         [Header("Typography")]
         public TMP_FontAsset SansRegular;
@@ -40,6 +43,9 @@ namespace GameTerms.UI
         public float BodySize = 16f;
         public float MetaSize = 13f;
         public float ButtonSize = 15f;
+        public float NavIconSize = 18f;
+        public float NavLabelSize = 10f;
+        public float NavHeight = 54f;
 
         public float GetResponsiveSize(float baseSize, float screenWidth)
         {
@@ -50,6 +56,11 @@ namespace GameTerms.UI
         public float GetContentMaxWidth(float screenWidth)
         {
             return screenWidth >= 768f ? 720f : screenWidth;
+        }
+
+        public string GetSearchHighlightHex()
+        {
+            return $"#{ColorUtility.ToHtmlStringRGB(SearchHighlight)}";
         }
     }
 }

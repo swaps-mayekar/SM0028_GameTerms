@@ -5,6 +5,32 @@ using UnityEngine.UI;
 
 namespace GameTerms.UI
 {
+    public sealed class NavTabButton
+    {
+        public AppTab Tab { get; }
+        public Button Button { get; }
+        public Image Background { get; }
+        public TextMeshProUGUI Icon { get; }
+        public TextMeshProUGUI Label { get; }
+
+        public NavTabButton(AppTab tab, Button button, Image background, TextMeshProUGUI icon, TextMeshProUGUI label)
+        {
+            Tab = tab;
+            Button = button;
+            Background = background;
+            Icon = icon;
+            Label = label;
+        }
+
+        public void SetSelected(bool selected, UiTheme theme)
+        {
+            Background.color = selected ? theme.PrimaryMuted : Color.clear;
+            var textColor = selected ? theme.NavActive : theme.NavInactive;
+            Icon.color = textColor;
+            Label.color = textColor;
+        }
+    }
+
     public sealed class UiFactory
     {
         private readonly UiTheme theme;
@@ -25,6 +51,18 @@ namespace GameTerms.UI
             return rect;
         }
 
+        public RectTransform CreateLayoutChild(RectTransform parent, string name)
+        {
+            var go = new GameObject(name, typeof(RectTransform));
+            var rect = go.GetComponent<RectTransform>();
+            rect.SetParent(parent, false);
+            rect.anchorMin = new Vector2(0f, 1f);
+            rect.anchorMax = new Vector2(1f, 1f);
+            rect.pivot = new Vector2(0.5f, 1f);
+            rect.sizeDelta = Vector2.zero;
+            return rect;
+        }
+
         public Image CreateImage(RectTransform parent, Color color, string name = "Image")
         {
             var go = new GameObject(name, typeof(RectTransform), typeof(Image));
@@ -36,41 +74,97 @@ namespace GameTerms.UI
             return image;
         }
 
-        public Button CreateButton(RectTransform parent, string label, Action onClick, bool primary = false)
+        public Button CreateButton(RectTransform parent, string label, Action onClick, bool primary = false, bool selected = false)
         {
             var buttonGo = new GameObject("Button", typeof(RectTransform), typeof(Image), typeof(Button));
             var rect = buttonGo.GetComponent<RectTransform>();
             rect.SetParent(parent, false);
             var image = buttonGo.GetComponent<Image>();
-            image.color = primary ? theme.Primary : theme.SurfaceElevated;
+            var normalColor = primary || selected ? theme.Primary : theme.SurfaceElevated;
+            image.color = normalColor;
             image.raycastTarget = true;
+            RoundedRectUtility.Apply(image);
 
             var button = buttonGo.GetComponent<Button>();
             button.targetGraphic = image;
             button.onClick.AddListener(() => onClick?.Invoke());
+            ApplyButtonColors(button, normalColor);
             buttonGo.AddComponent<ScrollDragForwarder>();
 
             var layout = buttonGo.AddComponent<LayoutElement>();
             layout.minHeight = theme.MinTouchTarget;
+            layout.flexibleWidth = 1f;
 
-            var text = CreateText(rect, label, primary ? theme.Background : theme.TextPrimary, theme.ButtonSize, theme.SansSemiBold, TextAlignmentOptions.Center);
+            var textColor = primary || selected ? theme.Background : theme.TextPrimary;
+            var text = CreateText(rect, label, textColor, theme.ButtonSize, theme.SansSemiBold, TextAlignmentOptions.Center);
             Stretch(text.rectTransform);
 
             return button;
         }
 
-        public TMP_InputField CreateSearchField(RectTransform parent, Action<string> onChanged)
+        public NavTabButton CreateNavButton(RectTransform parent, string icon, string label, AppTab tab, Action onClick)
         {
-            var container = CreatePanel(parent, theme.Surface, 12f, "SearchField");
+            var buttonGo = new GameObject($"Nav_{label}", typeof(RectTransform), typeof(Button), typeof(LayoutElement));
+            var rect = buttonGo.GetComponent<RectTransform>();
+            rect.SetParent(parent, false);
+
+            var buttonLayout = buttonGo.GetComponent<LayoutElement>();
+            buttonLayout.flexibleWidth = 1f;
+            buttonLayout.minHeight = 40f;
+
+            var background = CreateImage(rect, Color.clear, "Background");
+            RoundedRectUtility.Apply(background);
+            background.raycastTarget = true;
+            Stretch(background.rectTransform);
+            background.gameObject.AddComponent<LayoutElement>().ignoreLayout = true;
+
+            var button = buttonGo.GetComponent<Button>();
+            button.targetGraphic = background;
+            button.onClick.AddListener(() => onClick?.Invoke());
+            ApplyButtonColors(button, Color.clear);
+
+            var layout = buttonGo.AddComponent<VerticalLayoutGroup>();
+            layout.childAlignment = TextAnchor.MiddleCenter;
+            layout.spacing = 1f;
+            layout.padding = new RectOffset(2, 2, 3, 3);
+            layout.childControlWidth = true;
+            layout.childControlHeight = true;
+            layout.childForceExpandWidth = true;
+            layout.childForceExpandHeight = false;
+
+            var iconLabel = CreateText(rect, icon, theme.NavInactive, theme.NavIconSize, theme.SansRegular, TextAlignmentOptions.Center);
+            var iconLayout = iconLabel.gameObject.AddComponent<LayoutElement>();
+            iconLayout.minHeight = 18f;
+            iconLayout.preferredHeight = 18f;
+
+            var textLabel = CreateText(rect, label, theme.NavInactive, theme.NavLabelSize, theme.SansSemiBold, TextAlignmentOptions.Center);
+            var textLayout = textLabel.gameObject.AddComponent<LayoutElement>();
+            textLayout.minHeight = 12f;
+            textLayout.preferredHeight = 12f;
+
+            return new NavTabButton(tab, button, background, iconLabel, textLabel);
+        }
+
+        public TMP_InputField CreateSearchField(RectTransform parent, Action<string> onChanged, string initialValue = null)
+        {
+            var container = CreatePanel(parent, theme.Surface, "SearchField");
+            var containerLayout = container.gameObject.AddComponent<LayoutElement>();
+            containerLayout.minHeight = theme.MinTouchTarget;
+
             var layout = container.gameObject.AddComponent<HorizontalLayoutGroup>();
-            layout.padding = new RectOffset(12, 12, 10, 10);
+            layout.padding = new RectOffset(14, 14, 10, 10);
             layout.childAlignment = TextAnchor.MiddleLeft;
             layout.childControlHeight = true;
             layout.childForceExpandHeight = true;
-            layout.spacing = 8f;
+            layout.spacing = 10f;
 
-            var icon = CreateText(container, "⌕", theme.TextMuted, theme.BodySize, theme.SansRegular, TextAlignmentOptions.MidlineLeft);
-            icon.rectTransform.sizeDelta = new Vector2(20f, 20f);
+            var searchIcon = CreateText(container, "⌕", theme.TextMuted, theme.BodySize, theme.SansRegular, TextAlignmentOptions.MidlineLeft);
+            var searchIconLayout = searchIcon.gameObject.GetComponent<LayoutElement>();
+            searchIconLayout.flexibleWidth = 0f;
+            searchIconLayout.minWidth = 20f;
+            searchIconLayout.preferredWidth = 20f;
+            searchIconLayout.minHeight = 20f;
+            searchIconLayout.preferredHeight = 20f;
 
             var inputGo = new GameObject("Input", typeof(RectTransform), typeof(Image), typeof(TMP_InputField));
             inputGo.transform.SetParent(container, false);
@@ -94,6 +188,12 @@ namespace GameTerms.UI
             input.fontAsset = theme.SansRegular;
             input.onValueChanged.AddListener(value => onChanged?.Invoke(value));
 
+            if (!string.IsNullOrEmpty(initialValue))
+            {
+                input.SetTextWithoutNotify(initialValue);
+                text.text = initialValue;
+            }
+
             var inputLayout = inputGo.AddComponent<LayoutElement>();
             inputLayout.flexibleWidth = 1f;
             inputLayout.minHeight = theme.MinTouchTarget;
@@ -101,27 +201,82 @@ namespace GameTerms.UI
             return input;
         }
 
-        public RectTransform CreatePanel(RectTransform parent, Color color, float radius, string name = "Panel")
+        public RectTransform CreatePanel(RectTransform parent, Color color, string name = "Panel")
         {
             var image = CreateImage(parent, color, name);
-            var rect = image.rectTransform;
-            return rect;
+            image.raycastTarget = false;
+            RoundedRectUtility.Apply(image);
+            var layout = image.gameObject.AddComponent<LayoutElement>();
+            layout.flexibleWidth = 1f;
+            return image.rectTransform;
         }
 
         public RectTransform CreateCard(RectTransform parent, string name = "Card")
         {
-            var card = CreatePanel(parent, theme.Surface, theme.CornerRadius, name);
+            var card = CreatePanel(parent, theme.Surface, name);
             card.GetComponent<Image>().raycastTarget = true;
-            var outline = card.gameObject.AddComponent<Outline>();
-            outline.effectColor = theme.Border;
-            outline.effectDistance = new Vector2(1f, -1f);
             card.gameObject.AddComponent<ScrollDragForwarder>();
             return card;
         }
 
+        public Button CreateFavoriteButton(RectTransform parent, bool isFavorite, Action onClick)
+        {
+            var buttonGo = new GameObject("FavoriteButton", typeof(RectTransform), typeof(Image), typeof(Button));
+            var rect = buttonGo.GetComponent<RectTransform>();
+            rect.SetParent(parent, false);
+
+            var image = buttonGo.GetComponent<Image>();
+            image.color = isFavorite ? new Color(theme.Favorite.r, theme.Favorite.g, theme.Favorite.b, 0.18f) : theme.SurfaceElevated;
+            image.raycastTarget = true;
+            RoundedRectUtility.Apply(image);
+
+            var button = buttonGo.GetComponent<Button>();
+            button.targetGraphic = image;
+            button.onClick.AddListener(() => onClick?.Invoke());
+            ApplyButtonColors(button, image.color);
+
+            var layout = buttonGo.AddComponent<LayoutElement>();
+            layout.minWidth = theme.MinTouchTarget;
+            layout.minHeight = theme.MinTouchTarget;
+            layout.preferredWidth = theme.MinTouchTarget;
+
+            var icon = isFavorite ? "★" : "☆";
+            var color = isFavorite ? theme.Favorite : theme.TextSecondary;
+            var text = CreateText(rect, icon, color, theme.SectionSize, theme.SansRegular, TextAlignmentOptions.Center);
+            Stretch(text.rectTransform);
+
+            return button;
+        }
+
+        public Button CreateBackButton(RectTransform parent, Action onClick)
+        {
+            var buttonGo = new GameObject("BackButton", typeof(RectTransform), typeof(Image), typeof(Button));
+            var rect = buttonGo.GetComponent<RectTransform>();
+            rect.SetParent(parent, false);
+
+            var image = buttonGo.GetComponent<Image>();
+            image.color = theme.SurfaceElevated;
+            image.raycastTarget = true;
+            RoundedRectUtility.Apply(image);
+
+            var button = buttonGo.GetComponent<Button>();
+            button.targetGraphic = image;
+            button.onClick.AddListener(() => onClick?.Invoke());
+            ApplyButtonColors(button, theme.SurfaceElevated);
+
+            var layout = buttonGo.AddComponent<LayoutElement>();
+            layout.minHeight = theme.MinTouchTarget;
+
+            var text = CreateText(rect, "←  Back", theme.TextPrimary, theme.ButtonSize, theme.SansSemiBold, TextAlignmentOptions.MidlineLeft);
+            text.margin = new Vector4(16f, 0f, 16f, 0f);
+            Stretch(text.rectTransform);
+
+            return button;
+        }
+
         public TextMeshProUGUI CreateText(RectTransform parent, string text, Color color, float size, TMP_FontAsset font, TextAlignmentOptions alignment)
         {
-            var go = new GameObject("Text", typeof(RectTransform), typeof(TextMeshProUGUI));
+            var go = new GameObject("Text", typeof(RectTransform), typeof(TextMeshProUGUI), typeof(LayoutElement));
             var rect = go.GetComponent<RectTransform>();
             rect.SetParent(parent, false);
             var label = go.GetComponent<TextMeshProUGUI>();
@@ -132,7 +287,21 @@ namespace GameTerms.UI
             label.alignment = alignment;
             label.richText = true;
             label.raycastTarget = false;
+            label.enableWordWrapping = true;
+
+            var layout = go.GetComponent<LayoutElement>();
+            layout.flexibleWidth = 1f;
+
             return label;
+        }
+
+        public void CreateScreenHeader(RectTransform parent, string title, string subtitle = null)
+        {
+            CreateText(parent, title, theme.TextPrimary, theme.TitleSize, theme.SansBold, TextAlignmentOptions.MidlineLeft);
+            if (!string.IsNullOrWhiteSpace(subtitle))
+            {
+                CreateText(parent, subtitle, theme.TextSecondary, theme.BodySize, theme.SansRegular, TextAlignmentOptions.MidlineLeft);
+            }
         }
 
         public RectTransform CreateSectionHeader(RectTransform parent, string title)
@@ -145,7 +314,7 @@ namespace GameTerms.UI
 
         public RectTransform CreateDifficultyBadge(RectTransform parent, DifficultyLevel difficulty)
         {
-            var container = CreatePanel(parent, theme.SurfaceElevated, 8f, "DifficultyBadge");
+            var container = CreatePanel(parent, theme.SurfaceElevated, "DifficultyBadge");
             var layout = container.gameObject.AddComponent<HorizontalLayoutGroup>();
             layout.padding = new RectOffset(10, 10, 6, 6);
             layout.spacing = 6f;
@@ -157,17 +326,39 @@ namespace GameTerms.UI
             return container;
         }
 
-        public RectTransform CreateEmptyState(RectTransform parent, string title, string message)
+        public RectTransform CreateEmptyState(RectTransform parent, string title, string message, string icon = "○")
         {
-            var container = CreateRoot(parent, "EmptyState");
+            var container = CreateLayoutChild(parent, "EmptyState");
             var layout = container.gameObject.AddComponent<VerticalLayoutGroup>();
             layout.childAlignment = TextAnchor.MiddleCenter;
-            layout.spacing = 8f;
+            layout.spacing = 10f;
             layout.padding = new RectOffset(24, 24, 48, 48);
+            layout.childControlWidth = true;
+            layout.childForceExpandWidth = true;
+
+            var iconBox = CreatePanel(container, theme.PrimaryMuted, "EmptyIcon");
+            var iconBoxLayout = iconBox.gameObject.GetComponent<LayoutElement>();
+            iconBoxLayout.minWidth = 56f;
+            iconBoxLayout.minHeight = 56f;
+            iconBoxLayout.preferredWidth = 56f;
+            iconBoxLayout.preferredHeight = 56f;
+            iconBoxLayout.flexibleWidth = 0f;
+            var iconText = CreateText(iconBox, icon, theme.Primary, theme.SectionSize, theme.SansSemiBold, TextAlignmentOptions.Center);
+            UiFactory.Stretch(iconText.rectTransform);
 
             CreateText(container, title, theme.TextPrimary, theme.SectionSize, theme.SansSemiBold, TextAlignmentOptions.Center);
             CreateText(container, message, theme.TextSecondary, theme.BodySize, theme.SansRegular, TextAlignmentOptions.Center);
             return container;
+        }
+
+        public RectTransform CreateDivider(RectTransform parent)
+        {
+            var divider = CreateImage(parent, theme.Border, "Divider");
+            divider.rectTransform.sizeDelta = new Vector2(0f, 1f);
+            var layout = divider.gameObject.AddComponent<LayoutElement>();
+            layout.minHeight = 1f;
+            layout.preferredHeight = 1f;
+            return divider.rectTransform;
         }
 
         public static void Stretch(RectTransform rect)
@@ -176,6 +367,18 @@ namespace GameTerms.UI
             rect.anchorMax = Vector2.one;
             rect.offsetMin = Vector2.zero;
             rect.offsetMax = Vector2.zero;
+        }
+
+        private void ApplyButtonColors(Button button, Color normalColor)
+        {
+            var colors = button.colors;
+            colors.normalColor = normalColor;
+            colors.highlightedColor = Color.Lerp(normalColor, Color.white, 0.08f);
+            colors.pressedColor = Color.Lerp(normalColor, Color.black, 0.12f);
+            colors.selectedColor = normalColor;
+            colors.disabledColor = new Color(normalColor.r, normalColor.g, normalColor.b, 0.4f);
+            colors.fadeDuration = 0.1f;
+            button.colors = colors;
         }
     }
 }
