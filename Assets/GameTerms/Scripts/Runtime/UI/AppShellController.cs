@@ -516,10 +516,10 @@ namespace GameTerms.UI
             }
 
             var fallback = TMP_Settings.defaultFontAsset;
-            theme.SansRegular ??= fallback;
-            theme.SansSemiBold ??= fallback;
-            theme.SansBold ??= fallback;
-            theme.MonoRegular ??= fallback;
+            theme.SansRegular = FontAssetUtility.GetUsableFont(theme.SansRegular, fallback);
+            theme.SansSemiBold = FontAssetUtility.GetUsableFont(theme.SansSemiBold, theme.SansRegular);
+            theme.SansBold = FontAssetUtility.GetUsableFont(theme.SansBold, theme.SansRegular);
+            theme.MonoRegular = FontAssetUtility.GetUsableFont(theme.MonoRegular, theme.SansRegular);
         }
     }
 }

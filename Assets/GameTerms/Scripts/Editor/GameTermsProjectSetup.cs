@@ -35,55 +35,7 @@ namespace GameTerms.Editor
 
         private static (TMP_FontAsset regular, TMP_FontAsset semiBold, TMP_FontAsset bold, TMP_FontAsset mono) GenerateFontAssets()
         {
-            var outputFolder = "Assets/GameTerms/UI/Fonts/TMP";
-            EnsureFolder("Assets/GameTerms/UI/Fonts");
-            EnsureFolder(outputFolder);
-
-            var regular = CreateFont("Assets/GameTerms/UI/Fonts/IBMPlexSans-Regular.ttf", $"{outputFolder}/IBMPlexSans-Regular SDF.asset");
-            var semiBold = CreateFont("Assets/GameTerms/UI/Fonts/IBMPlexSans-SemiBold.ttf", $"{outputFolder}/IBMPlexSans-SemiBold SDF.asset");
-            var bold = CreateFont("Assets/GameTerms/UI/Fonts/IBMPlexSans-Bold.ttf", $"{outputFolder}/IBMPlexSans-Bold SDF.asset");
-            var mono = CreateFont("Assets/GameTerms/UI/Fonts/IBMPlexMono-Regular.ttf", $"{outputFolder}/IBMPlexMono-Regular SDF.asset");
-            return (regular, semiBold, bold, mono);
-        }
-
-        private static TMP_FontAsset CreateFont(string ttfPath, string assetPath)
-        {
-            var existing = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(assetPath);
-            if (existing != null)
-            {
-                return existing;
-            }
-
-            var font = AssetDatabase.LoadAssetAtPath<Font>(ttfPath);
-            if (font == null)
-            {
-                Debug.LogWarning($"Missing font at {ttfPath}");
-                return TMP_Settings.defaultFontAsset;
-            }
-
-            var fontAsset = TMP_FontAsset.CreateFontAsset(
-                font,
-                90,
-                9,
-                UnityEngine.TextCore.LowLevel.GlyphRenderMode.SDFAA,
-                1024,
-                1024,
-                AtlasPopulationMode.Static);
-
-            if (fontAsset.atlasTexture != null)
-            {
-                fontAsset.atlasTexture.name = $"{font.name} Atlas";
-                AssetDatabase.AddObjectToAsset(fontAsset.atlasTexture, fontAsset);
-            }
-
-            if (fontAsset.material != null)
-            {
-                fontAsset.material.name = $"{font.name} Material";
-                AssetDatabase.AddObjectToAsset(fontAsset.material, fontAsset);
-            }
-
-            AssetDatabase.CreateAsset(fontAsset, assetPath);
-            return fontAsset;
+            return FontAssetGenerator.GenerateAll();
         }
 
         private static UiTheme GenerateTheme((TMP_FontAsset regular, TMP_FontAsset semiBold, TMP_FontAsset bold, TMP_FontAsset mono) fonts)
