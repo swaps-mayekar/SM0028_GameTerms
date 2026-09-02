@@ -15,10 +15,10 @@ namespace GameTerms.Editor
         {
             EnsureFolder(OutputFolder);
 
-            var regular = CreateOrRebuild("Assets/GameTerms/UI/Fonts/IBMPlexSans-Regular.ttf", $"{OutputFolder}/IBMPlexSans-Regular SDF.asset");
-            var semiBold = CreateOrRebuild("Assets/GameTerms/UI/Fonts/IBMPlexSans-SemiBold.ttf", $"{OutputFolder}/IBMPlexSans-SemiBold SDF.asset");
-            var bold = CreateOrRebuild("Assets/GameTerms/UI/Fonts/IBMPlexSans-Bold.ttf", $"{OutputFolder}/IBMPlexSans-Bold SDF.asset");
-            var mono = CreateOrRebuild("Assets/GameTerms/UI/Fonts/IBMPlexMono-Regular.ttf", $"{OutputFolder}/IBMPlexMono-Regular SDF.asset");
+            var regular = CreateOrRebuild("Assets/GameTerms/UI/Fonts/IBMPlexSans-Regular.ttf", OutputFolder + "/IBMPlexSans-Regular SDF.asset");
+            var semiBold = CreateOrRebuild("Assets/GameTerms/UI/Fonts/IBMPlexSans-SemiBold.ttf", OutputFolder + "/IBMPlexSans-SemiBold SDF.asset");
+            var bold = CreateOrRebuild("Assets/GameTerms/UI/Fonts/IBMPlexSans-Bold.ttf", OutputFolder + "/IBMPlexSans-Bold SDF.asset");
+            var mono = CreateOrRebuild("Assets/GameTerms/UI/Fonts/IBMPlexMono-Regular.ttf", OutputFolder + "/IBMPlexMono-Regular SDF.asset");
 
             UpdateTheme(regular, semiBold, bold, mono);
             AssetDatabase.SaveAssets();
@@ -30,15 +30,16 @@ namespace GameTerms.Editor
         {
             EnsureFolder(OutputFolder);
             return (
-                CreateOrRebuild("Assets/GameTerms/UI/Fonts/IBMPlexSans-Regular.ttf", $"{OutputFolder}/IBMPlexSans-Regular SDF.asset"),
-                CreateOrRebuild("Assets/GameTerms/UI/Fonts/IBMPlexSans-SemiBold.ttf", $"{OutputFolder}/IBMPlexSans-SemiBold SDF.asset"),
-                CreateOrRebuild("Assets/GameTerms/UI/Fonts/IBMPlexSans-Bold.ttf", $"{OutputFolder}/IBMPlexSans-Bold SDF.asset"),
-                CreateOrRebuild("Assets/GameTerms/UI/Fonts/IBMPlexMono-Regular.ttf", $"{OutputFolder}/IBMPlexMono-Regular SDF.asset")
+                CreateOrRebuild("Assets/GameTerms/UI/Fonts/IBMPlexSans-Regular.ttf", OutputFolder + "/IBMPlexSans-Regular SDF.asset"),
+                CreateOrRebuild("Assets/GameTerms/UI/Fonts/IBMPlexSans-SemiBold.ttf", OutputFolder + "/IBMPlexSans-SemiBold SDF.asset"),
+                CreateOrRebuild("Assets/GameTerms/UI/Fonts/IBMPlexSans-Bold.ttf", OutputFolder + "/IBMPlexSans-Bold SDF.asset"),
+                CreateOrRebuild("Assets/GameTerms/UI/Fonts/IBMPlexMono-Regular.ttf", OutputFolder + "/IBMPlexMono-Regular SDF.asset")
             );
         }
 
         private static TMP_FontAsset CreateOrRebuild(string ttfPath, string assetPath)
         {
+            var characterSet = GetCharacterSet();
             var sourceFont = AssetDatabase.LoadAssetAtPath<Font>(ttfPath);
             if (sourceFont == null)
             {
@@ -47,7 +48,7 @@ namespace GameTerms.Editor
             }
 
             var existing = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(assetPath);
-            if (existing != null && IsValid(existing))
+            if (existing != null && IsValid(existing, characterSet))
             {
                 return existing;
             }
@@ -67,7 +68,8 @@ namespace GameTerms.Editor
                 AtlasPopulationMode.Static);
 
             fontAsset.atlasPopulationMode = AtlasPopulationMode.Static;
-            fontAsset.TryAddCharacters(GetCharacterSet(), out var missing);
+            fontAsset.fallbackFontAssetTable.Clear();
+            fontAsset.TryAddCharacters(characterSet, out var missing);
 
             if (missing != null && missing.Length > 0)
             {
@@ -116,13 +118,26 @@ namespace GameTerms.Editor
             }
         }
 
-        private static bool IsValid(TMP_FontAsset fontAsset)
+        private static bool IsValid(TMP_FontAsset fontAsset, string characterSet)
         {
-            return fontAsset != null
-                   && fontAsset.atlasTexture != null
-                   && fontAsset.atlasPopulationMode == AtlasPopulationMode.Static
-                   && fontAsset.characterTable != null
-                   && fontAsset.characterTable.Count > 0;
+            if (fontAsset == null
+                || fontAsset.atlasTexture == null
+                || fontAsset.atlasPopulationMode != AtlasPopulationMode.Static
+                || fontAsset.characterTable == null
+                || fontAsset.characterTable.Count == 0)
+            {
+                return false;
+            }
+
+            foreach (var character in characterSet)
+            {
+                if (!fontAsset.HasCharacter(character))
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         private static string GetCharacterSet()
@@ -133,7 +148,7 @@ namespace GameTerms.Editor
                 builder.Append((char)c);
             }
 
-            builder.Append("←→★☆⌕•");
+            builder.Append('•');
             builder.Append("ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÑÒÓÔÕÖØÙÚÛÜÝàáâãäåæçèéêëìíîïñòóôõöøùúûüý");
             return builder.ToString();
         }

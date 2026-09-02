@@ -10,10 +10,10 @@ namespace GameTerms.UI
         public AppTab Tab { get; }
         public Button Button { get; }
         public Image Background { get; }
-        public TextMeshProUGUI Icon { get; }
+        public Image Icon { get; }
         public TextMeshProUGUI Label { get; }
 
-        public NavTabButton(AppTab tab, Button button, Image background, TextMeshProUGUI icon, TextMeshProUGUI label)
+        public NavTabButton(AppTab tab, Button button, Image background, Image icon, TextMeshProUGUI label)
         {
             Tab = tab;
             Button = button;
@@ -102,7 +102,7 @@ namespace GameTerms.UI
             return button;
         }
 
-        public NavTabButton CreateNavButton(RectTransform parent, string icon, string label, AppTab tab, Action onClick)
+        public NavTabButton CreateNavButton(RectTransform parent, UiIconId icon, string label, AppTab tab, Action onClick)
         {
             var buttonGo = new GameObject($"Nav_{label}", typeof(RectTransform), typeof(Button), typeof(LayoutElement));
             var rect = buttonGo.GetComponent<RectTransform>();
@@ -132,8 +132,8 @@ namespace GameTerms.UI
             layout.childForceExpandWidth = true;
             layout.childForceExpandHeight = false;
 
-            var iconLabel = CreateText(rect, icon, theme.NavInactive, theme.NavIconSize, theme.SansRegular, TextAlignmentOptions.Center);
-            var iconLayout = iconLabel.gameObject.AddComponent<LayoutElement>();
+            var iconImage = CreateIcon(rect, icon, theme.NavInactive, theme.NavIconSize, "Icon");
+            var iconLayout = iconImage.gameObject.GetComponent<LayoutElement>();
             iconLayout.minHeight = 18f;
             iconLayout.preferredHeight = 18f;
 
@@ -142,7 +142,7 @@ namespace GameTerms.UI
             textLayout.minHeight = 12f;
             textLayout.preferredHeight = 12f;
 
-            return new NavTabButton(tab, button, background, iconLabel, textLabel);
+            return new NavTabButton(tab, button, background, iconImage, textLabel);
         }
 
         public TMP_InputField CreateSearchField(RectTransform parent, Action<string> onChanged, string initialValue = null)
@@ -158,7 +158,7 @@ namespace GameTerms.UI
             layout.childForceExpandHeight = true;
             layout.spacing = 10f;
 
-            var searchIcon = CreateText(container, "⌕", theme.TextMuted, theme.BodySize, theme.SansRegular, TextAlignmentOptions.MidlineLeft);
+            var searchIcon = CreateIcon(container, UiIconId.Search, theme.TextMuted, theme.BodySize, "SearchIcon");
             var searchIconLayout = searchIcon.gameObject.GetComponent<LayoutElement>();
             searchIconLayout.flexibleWidth = 0f;
             searchIconLayout.minWidth = 20f;
@@ -240,12 +240,33 @@ namespace GameTerms.UI
             layout.minHeight = theme.MinTouchTarget;
             layout.preferredWidth = theme.MinTouchTarget;
 
-            var icon = isFavorite ? "★" : "☆";
-            var color = isFavorite ? theme.Favorite : theme.TextSecondary;
-            var text = CreateText(rect, icon, color, theme.SectionSize, theme.SansRegular, TextAlignmentOptions.Center);
-            Stretch(text.rectTransform);
+            var iconColor = isFavorite ? theme.Favorite : theme.TextSecondary;
+            var iconImage = CreateIcon(rect, isFavorite ? UiIconId.StarFilled : UiIconId.StarOutline, iconColor, theme.SectionSize, "FavoriteIcon");
+            Stretch(iconImage.rectTransform);
 
             return button;
+        }
+
+        public Image CreateIcon(RectTransform parent, UiIconId icon, Color color, float size, string name = "Icon")
+        {
+            var image = CreateImage(parent, color, name);
+            image.sprite = UiIconUtility.Get(icon);
+            image.preserveAspect = true;
+
+            if (image.gameObject.GetComponent<LayoutElement>() == null)
+            {
+                image.gameObject.AddComponent<LayoutElement>();
+            }
+
+            var layout = image.gameObject.GetComponent<LayoutElement>();
+            var dimension = theme.GetResponsiveSize(size, screenWidth);
+            layout.flexibleWidth = 0f;
+            layout.minWidth = dimension;
+            layout.preferredWidth = dimension;
+            layout.minHeight = dimension;
+            layout.preferredHeight = dimension;
+
+            return image;
         }
 
         public Button CreateBackButton(RectTransform parent, Action onClick)
@@ -267,9 +288,18 @@ namespace GameTerms.UI
             var layout = buttonGo.AddComponent<LayoutElement>();
             layout.minHeight = theme.MinTouchTarget;
 
-            var text = CreateText(rect, "←  Back", theme.TextPrimary, theme.ButtonSize, theme.SansSemiBold, TextAlignmentOptions.MidlineLeft);
-            text.margin = new Vector4(16f, 0f, 16f, 0f);
-            Stretch(text.rectTransform);
+            var content = CreateLayoutChild(rect, "Content");
+            Stretch(content);
+            var contentLayout = content.gameObject.AddComponent<HorizontalLayoutGroup>();
+            contentLayout.padding = new RectOffset(16, 16, 0, 0);
+            contentLayout.spacing = 8f;
+            contentLayout.childAlignment = TextAnchor.MiddleLeft;
+            contentLayout.childControlHeight = true;
+            contentLayout.childForceExpandHeight = true;
+
+            var backIcon = CreateIcon(content, UiIconId.Back, theme.TextPrimary, theme.ButtonSize, "BackIcon");
+            backIcon.gameObject.GetComponent<LayoutElement>().flexibleWidth = 0f;
+            CreateText(content, "Back", theme.TextPrimary, theme.ButtonSize, theme.SansSemiBold, TextAlignmentOptions.MidlineLeft);
 
             return button;
         }
@@ -287,7 +317,7 @@ namespace GameTerms.UI
             label.alignment = alignment;
             label.richText = true;
             label.raycastTarget = false;
-            label.enableWordWrapping = true;
+            label.textWrappingMode = TextWrappingModes.Normal;
 
             var layout = go.GetComponent<LayoutElement>();
             layout.flexibleWidth = 1f;
@@ -320,13 +350,32 @@ namespace GameTerms.UI
             layout.spacing = 6f;
             layout.childAlignment = TextAnchor.MiddleLeft;
 
-            CreateText(container, DifficultyMetadata.GetIcon(difficulty), DifficultyMetadata.GetColor(difficulty), theme.MetaSize, theme.SansSemiBold, TextAlignmentOptions.MidlineLeft);
-            CreateText(container, DifficultyMetadata.GetLabel(difficulty), DifficultyMetadata.GetColor(difficulty), theme.MetaSize, theme.SansSemiBold, TextAlignmentOptions.MidlineLeft);
+            var dots = CreateLayoutChild(container, "Dots");
+            var dotsLayout = dots.gameObject.AddComponent<HorizontalLayoutGroup>();
+            dotsLayout.spacing = 3f;
+            dotsLayout.childAlignment = TextAnchor.MiddleLeft;
+            dots.gameObject.AddComponent<LayoutElement>().flexibleWidth = 0f;
+
+            var dotColor = DifficultyMetadata.GetColor(difficulty);
+            var dotCount = difficulty switch
+            {
+                DifficultyLevel.Beginner => 1,
+                DifficultyLevel.Intermediate => 2,
+                DifficultyLevel.Advanced => 3,
+                _ => 1
+            };
+
+            for (var i = 0; i < dotCount; i++)
+            {
+                CreateIcon(dots, UiIconId.Dot, dotColor, theme.MetaSize, $"Dot_{i}");
+            }
+
+            CreateText(container, DifficultyMetadata.GetLabel(difficulty), dotColor, theme.MetaSize, theme.SansSemiBold, TextAlignmentOptions.MidlineLeft);
 
             return container;
         }
 
-        public RectTransform CreateEmptyState(RectTransform parent, string title, string message, string icon = "○")
+        public RectTransform CreateEmptyState(RectTransform parent, string title, string message, UiIconId icon)
         {
             var container = CreateLayoutChild(parent, "EmptyState");
             var layout = container.gameObject.AddComponent<VerticalLayoutGroup>();
@@ -343,8 +392,14 @@ namespace GameTerms.UI
             iconBoxLayout.preferredWidth = 56f;
             iconBoxLayout.preferredHeight = 56f;
             iconBoxLayout.flexibleWidth = 0f;
-            var iconText = CreateText(iconBox, icon, theme.Primary, theme.SectionSize, theme.SansSemiBold, TextAlignmentOptions.Center);
-            UiFactory.Stretch(iconText.rectTransform);
+
+            var iconImage = CreateIcon(iconBox, icon, theme.Primary, theme.SectionSize, "EmptyIconImage");
+            var iconImageLayout = iconImage.gameObject.GetComponent<LayoutElement>();
+            iconImageLayout.minWidth = 24f;
+            iconImageLayout.preferredWidth = 24f;
+            iconImageLayout.minHeight = 24f;
+            iconImageLayout.preferredHeight = 24f;
+            Stretch(iconImage.rectTransform);
 
             CreateText(container, title, theme.TextPrimary, theme.SectionSize, theme.SansSemiBold, TextAlignmentOptions.Center);
             CreateText(container, message, theme.TextSecondary, theme.BodySize, theme.SansRegular, TextAlignmentOptions.Center);

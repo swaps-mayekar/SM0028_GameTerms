@@ -152,9 +152,9 @@ namespace GameTerms.UI
             layout.padding = new RectOffset(8, 8, 4, 6);
 
             navButtons.Clear();
-            navButtons.Add(factory.CreateNavButton(buttonRow, "⌂", "Home", AppTab.Home, () => navigator.ShowTab(AppTab.Home)));
-            navButtons.Add(factory.CreateNavButton(buttonRow, "▦", "Categories", AppTab.Categories, () => navigator.ShowTab(AppTab.Categories)));
-            navButtons.Add(factory.CreateNavButton(buttonRow, "★", "Favorites", AppTab.Favorites, () => navigator.ShowTab(AppTab.Favorites)));
+            navButtons.Add(factory.CreateNavButton(buttonRow, UiIconId.Home, "Home", AppTab.Home, () => navigator.ShowTab(AppTab.Home)));
+            navButtons.Add(factory.CreateNavButton(buttonRow, UiIconId.Categories, "Categories", AppTab.Categories, () => navigator.ShowTab(AppTab.Categories)));
+            navButtons.Add(factory.CreateNavButton(buttonRow, UiIconId.StarOutline, "Favorites", AppTab.Favorites, () => navigator.ShowTab(AppTab.Favorites)));
 
             return nav;
         }
@@ -410,7 +410,7 @@ namespace GameTerms.UI
             var favoriteIds = services.Favorites.GetFavoriteIds();
             if (favoriteIds.Count == 0)
             {
-                factory.CreateEmptyState(content, "No favorites yet", "Tap the star on any term to save it here.", "☆");
+                factory.CreateEmptyState(content, "No favorites yet", "Tap the star on any term to save it here.", UiIconId.StarOutline);
                 return;
             }
 
@@ -447,7 +447,7 @@ namespace GameTerms.UI
             var results = services.Search.Search(query);
             if (results.Count == 0)
             {
-                factory.CreateEmptyState(content, "No terms found", "Try a different keyword or browse categories.", "⌕");
+                factory.CreateEmptyState(content, "No terms found", "Try a different keyword or browse categories.", UiIconId.Search);
                 return;
             }
 

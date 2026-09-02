@@ -15,17 +15,6 @@ namespace GameTerms
             };
         }
 
-        public static string GetIcon(DifficultyLevel difficulty)
-        {
-            return difficulty switch
-            {
-                DifficultyLevel.Beginner => "●",
-                DifficultyLevel.Intermediate => "●●",
-                DifficultyLevel.Advanced => "●●●",
-                _ => "●"
-            };
-        }
-
         public static Color GetColor(DifficultyLevel difficulty)
         {
             return difficulty switch
