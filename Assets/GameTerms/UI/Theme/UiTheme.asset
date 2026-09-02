@@ -22,7 +22,7 @@ MonoBehaviour:
   TextSecondary: {r: 0.68, g: 0.73, b: 0.8, a: 1}
   TextMuted: {r: 0.5, g: 0.56, b: 0.64, a: 1}
   Accent: {r: 0.55, g: 0.72, b: 1, a: 1}
-  Favorite: {r: 0.98, g: 0.78, b: 0.24, a: 1}
+  Favorite: {r: 0.96, g: 0.42, b: 0.52, a: 1}
   SearchHighlight: {r: 0.36, g: 0.78, b: 1, a: 1}
   Shadow: {r: 0, g: 0, b: 0, a: 0.25}
   NavActive: {r: 0.36, g: 0.78, b: 1, a: 1}

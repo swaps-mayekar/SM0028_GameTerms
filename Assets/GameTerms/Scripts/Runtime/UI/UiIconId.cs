@@ -4,8 +4,8 @@ namespace GameTerms.UI
     {
         Home,
         Categories,
-        StarFilled,
-        StarOutline,
+        HeartFilled,
+        HeartOutline,
         Search,
         Back,
         Dot

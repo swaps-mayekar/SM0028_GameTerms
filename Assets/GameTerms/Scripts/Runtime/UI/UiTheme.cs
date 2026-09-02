@@ -17,7 +17,7 @@ namespace GameTerms.UI
         public Color TextSecondary = new(0.68f, 0.73f, 0.8f);
         public Color TextMuted = new(0.5f, 0.56f, 0.64f);
         public Color Accent = new(0.55f, 0.72f, 1f);
-        public Color Favorite = new(0.98f, 0.78f, 0.24f);
+        public Color Favorite = new(0.96f, 0.42f, 0.52f);
         public Color SearchHighlight = new(0.36f, 0.78f, 1f);
         public Color Shadow = new(0f, 0f, 0f, 0.25f);
         public Color NavActive = new(0.36f, 0.78f, 1f);

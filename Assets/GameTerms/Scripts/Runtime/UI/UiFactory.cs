@@ -241,7 +241,7 @@ namespace GameTerms.UI
             layout.preferredWidth = theme.MinTouchTarget;
 
             var iconColor = isFavorite ? theme.Favorite : theme.TextSecondary;
-            var iconImage = CreateIcon(rect, isFavorite ? UiIconId.StarFilled : UiIconId.StarOutline, iconColor, theme.SectionSize, "FavoriteIcon");
+            var iconImage = CreateIcon(rect, isFavorite ? UiIconId.HeartFilled : UiIconId.HeartOutline, iconColor, theme.SectionSize, "FavoriteIcon");
             Stretch(iconImage.rectTransform);
 
             return button;

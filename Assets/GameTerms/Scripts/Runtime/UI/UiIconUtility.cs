@@ -61,8 +61,8 @@ namespace GameTerms.UI
             {
                 UiIconId.Home => HomeAlpha(x, y),
                 UiIconId.Categories => CategoriesAlpha(x, y),
-                UiIconId.StarFilled => StarAlpha(x, y, filled: true),
-                UiIconId.StarOutline => StarAlpha(x, y, filled: false),
+                UiIconId.HeartFilled => HeartAlpha(x, y, filled: true),
+                UiIconId.HeartOutline => HeartAlpha(x, y, filled: false),
                 UiIconId.Search => SearchAlpha(x, y),
                 UiIconId.Back => BackAlpha(x, y),
                 UiIconId.Dot => SoftCircle(x, y, 0.22f),
@@ -72,9 +72,20 @@ namespace GameTerms.UI
 
         private static float HomeAlpha(float x, float y)
         {
-            var body = Box(x, y, 0.42f, 0.28f, new Vector2(0f, -0.18f));
-            var roof = Triangle(x, y, new Vector2(0f, 0.34f), new Vector2(-0.46f, -0.02f), new Vector2(0.46f, -0.02f));
-            return Mathf.Max(body, roof);
+            const float stroke = 0.078f;
+            var roofLeft = Capsule(x, y, new Vector2(0f, 0.48f), new Vector2(-0.56f, -0.02f), stroke);
+            var roofRight = Capsule(x, y, new Vector2(0f, 0.48f), new Vector2(0.56f, -0.02f), stroke);
+            var eaves = Capsule(x, y, new Vector2(-0.56f, -0.02f), new Vector2(0.56f, -0.02f), stroke);
+            var leftWall = Capsule(x, y, new Vector2(-0.4f, -0.02f), new Vector2(-0.4f, -0.58f), stroke);
+            var rightWall = Capsule(x, y, new Vector2(0.4f, -0.02f), new Vector2(0.4f, -0.58f), stroke);
+            var floor = Capsule(x, y, new Vector2(-0.4f, -0.58f), new Vector2(0.4f, -0.58f), stroke);
+            var doorLeft = Capsule(x, y, new Vector2(-0.14f, -0.58f), new Vector2(-0.14f, -0.22f), stroke * 0.85f);
+            var doorRight = Capsule(x, y, new Vector2(0.14f, -0.58f), new Vector2(0.14f, -0.22f), stroke * 0.85f);
+            var doorTop = Capsule(x, y, new Vector2(-0.14f, -0.22f), new Vector2(0.14f, -0.22f), stroke * 0.85f);
+
+            return Mathf.Max(
+                Mathf.Max(Mathf.Max(roofLeft, roofRight), Mathf.Max(eaves, Mathf.Max(leftWall, rightWall))),
+                Mathf.Max(floor, Mathf.Max(doorLeft, Mathf.Max(doorRight, doorTop))));
         }
 
         private static float CategoriesAlpha(float x, float y)
@@ -87,19 +98,34 @@ namespace GameTerms.UI
                 Mathf.Max(RoundedBox(x, y, cell, cell, new Vector2(-offset, -offset), 0.08f), RoundedBox(x, y, cell, cell, new Vector2(offset, -offset), 0.08f)));
         }
 
-        private static float StarAlpha(float x, float y, bool filled)
+        private static float HeartAlpha(float x, float y, bool filled)
         {
-            var angle = Mathf.Atan2(y, x);
-            var distance = Mathf.Sqrt(x * x + y * y);
-            var spikes = 5f;
-            var outer = 0.95f;
-            var inner = 0.38f;
-            var sector = Mathf.Repeat(angle + Mathf.PI * 0.5f, Mathf.PI * 2f / spikes);
-            var halfSector = Mathf.PI / spikes;
-            var t = Mathf.Abs(sector - halfSector) / halfSector;
-            var radius = Mathf.Lerp(outer, inner, t);
-            var edge = filled ? radius - distance : Mathf.Abs(distance - radius) - 0.07f;
-            return SoftEdge(edge * 18f);
+            var distance = HeartDistance(x * 0.92f, y * 0.92f + 0.52f);
+            if (filled)
+            {
+                return SoftEdge(-distance * 22f);
+            }
+
+            return SoftEdge((0.09f - Mathf.Abs(distance)) * 22f);
+        }
+
+        /// <summary>
+        /// Inigo Quilez 2D heart SDF, expecting the heart tip near the origin and lobes near y = 1.
+        /// </summary>
+        private static float HeartDistance(float x, float y)
+        {
+            x = Mathf.Abs(x);
+            if (y + x > 1f)
+            {
+                var q = new Vector2(x - 0.25f, y - 0.75f);
+                return q.magnitude - Mathf.Sqrt(2f) * 0.25f;
+            }
+
+            var toTop = new Vector2(x, y - 1f);
+            var m = Mathf.Max(x + y, 0f) * 0.5f;
+            var toDiag = new Vector2(x - m, y - m);
+            var minSq = Mathf.Min(Vector2.Dot(toTop, toTop), Vector2.Dot(toDiag, toDiag));
+            return Mathf.Sqrt(minSq) * Mathf.Sign(x - y);
         }
 
         private static float SearchAlpha(float x, float y)
@@ -117,15 +143,6 @@ namespace GameTerms.UI
             return Mathf.Max(shaft, Mathf.Max(top, bottom));
         }
 
-        private static float Box(float x, float y, float halfWidth, float halfHeight, Vector2 center)
-        {
-            var dx = Mathf.Abs(x - center.x) - halfWidth;
-            var dy = Mathf.Abs(y - center.y) - halfHeight;
-            var outside = Mathf.Max(dx, dy);
-            var inside = Mathf.Min(Mathf.Max(dx, dy), 0f);
-            return SoftEdge(-(outside + inside) * 20f);
-        }
-
         private static float RoundedBox(float x, float y, float halfWidth, float halfHeight, Vector2 center, float radius)
         {
             var px = x - center.x;
@@ -136,23 +153,6 @@ namespace GameTerms.UI
             var ay = Mathf.Max(dy, 0f);
             var distance = Mathf.Min(Mathf.Max(dx, dy), 0f) + Mathf.Sqrt(ax * ax + ay * ay) - radius;
             return SoftEdge(-distance * 20f);
-        }
-
-        private static float Triangle(float x, float y, Vector2 a, Vector2 b, Vector2 c)
-        {
-            var w1 = Sign(x, y, a, b);
-            var w2 = Sign(x, y, b, c);
-            var w3 = Sign(x, y, c, a);
-            var inside = w1 < 0f && w2 < 0f && w3 < 0f;
-            if (inside)
-            {
-                return 1f;
-            }
-
-            var edge = Mathf.Max(
-                Mathf.Max(EdgeDistance(x, y, a, b), EdgeDistance(x, y, b, c)),
-                EdgeDistance(x, y, c, a));
-            return SoftEdge(-edge * 22f);
         }
 
         private static float SoftCircle(float x, float y, float radius)
@@ -168,19 +168,6 @@ namespace GameTerms.UI
             var h = Mathf.Clamp01(Vector2.Dot(pa, ba) / Vector2.Dot(ba, ba));
             var distance = (pa - ba * h).magnitude - radius;
             return SoftEdge(-distance * 20f);
-        }
-
-        private static float EdgeDistance(float x, float y, Vector2 a, Vector2 b)
-        {
-            var p = new Vector2(x, y);
-            var ab = b - a;
-            var t = Mathf.Clamp01(Vector2.Dot(p - a, ab) / Vector2.Dot(ab, ab));
-            return Vector2.Distance(p, a + ab * t);
-        }
-
-        private static float Sign(float x, float y, Vector2 a, Vector2 b)
-        {
-            return (x - b.x) * (a.y - b.y) - (a.x - b.x) * (y - b.y);
         }
 
         private static float SoftEdge(float value)
