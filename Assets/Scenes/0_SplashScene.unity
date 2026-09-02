@@ -241,8 +241,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.Bootstrap.SplashController
   mainSceneName: 1_MainScene
-  minimumDisplaySeconds: 1.4
-  theme: {fileID: 0}
 --- !u!4 &1805596880
 Transform:
   m_ObjectHideFlags: 0
