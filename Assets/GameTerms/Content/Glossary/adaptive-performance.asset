@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: adaptive-performance
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: adaptive-performance
+    Term: Adaptive Performance
+    Abbreviation: 
+    Category: 6
+    Difficulty: 1
+    ShortDefinition: Dynamically lowering visual or simulation quality to maintain stable frame rate on device.
+    SimpleExplanation: The game quietly reduces effects or resolution when the phone starts struggling.
+    WhyItMatters: Adaptive performance helps sustain playable frame rates during long or demanding sessions.
+    Example: Shadow quality drops after sustained GPU load while keeping gameplay at 30 FPS.
+    GameUses:
+    - Mobile optimization
+    - Thermal management
+    - Battery-conscious tuning
+    RelatedTermIds:
+    - thermal-throttling
+    - memory-pressure
+    - level-of-detail
+    Tags:
+    - mobile
+    - performance
+    - scaling
+    Synonyms:
+    - 
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1707264000

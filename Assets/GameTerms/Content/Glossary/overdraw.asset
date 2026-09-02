@@ -18,11 +18,9 @@ MonoBehaviour:
     Abbreviation: 
     Category: 2
     Difficulty: 2
-    ShortDefinition: Rendering the same screen pixel multiple times due to overlapping
-      transparent or layered geometry.
+    ShortDefinition: Rendering the same screen pixel multiple times due to overlapping transparent or layered geometry.
     SimpleExplanation: Drawing on top of the same pixel again and again.
-    WhyItMatters: High overdraw can crush fill-rate performance, especially on mobile
-      GPUs.
+    WhyItMatters: High overdraw can crush fill-rate performance, especially on mobile GPUs.
     Example: Multiple fullscreen particle layers stacking in the same view.
     GameUses:
     - VFX budgeting
@@ -35,8 +33,9 @@ MonoBehaviour:
     - rendering
     - gpu
     - fill rate
-    Synonyms: []
+    Synonyms:
+    - 
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1705276800
+    AddedAtUnix: 1705622400

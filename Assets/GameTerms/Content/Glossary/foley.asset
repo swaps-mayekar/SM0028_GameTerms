@@ -18,12 +18,9 @@ MonoBehaviour:
     Abbreviation: 
     Category: 4
     Difficulty: 0
-    ShortDefinition: Everyday sound effects recorded to match on-screen physical
-      actions.
-    SimpleExplanation: Custom recorded sounds for footsteps, cloth, impacts, and
-      object handling.
-    WhyItMatters: Foley makes interactions feel tactile and grounded in the game
-      world.
+    ShortDefinition: Everyday sound effects recorded to match on-screen physical actions.
+    SimpleExplanation: Custom recorded sounds for footsteps, cloth, impacts, and object handling.
+    WhyItMatters: Foley makes interactions feel tactile and grounded in the game world.
     Example: Recording leather creaks and metal clanks for a character gear swap.
     GameUses:
     - Character interaction
@@ -36,8 +33,9 @@ MonoBehaviour:
     - sound design
     - sfx
     - immersion
-    Synonyms: []
+    Synonyms:
+    - 
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1705708800
+    AddedAtUnix: 1706227200

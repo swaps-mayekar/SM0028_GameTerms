@@ -18,8 +18,7 @@ MonoBehaviour:
     Abbreviation: mau
     Category: 8
     Difficulty: 0
-    ShortDefinition: 'Monthly Active Users: unique players who engage within a rolling
-      month.'
+    ShortDefinition: Monthly Active Users: unique players who engage within a rolling month.
     SimpleExplanation: How many different people played at least once this month.
     WhyItMatters: MAU shows broader audience health beyond day-to-day volatility.
     Example: A seasonal campaign lifts MAU even when daily numbers fluctuate.
@@ -39,4 +38,4 @@ MonoBehaviour:
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1706918400
+    AddedAtUnix: 1707782400

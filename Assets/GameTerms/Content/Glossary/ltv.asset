@@ -18,13 +18,10 @@ MonoBehaviour:
     Abbreviation: ltv
     Category: 8
     Difficulty: 1
-    ShortDefinition: 'Lifetime Value: estimated revenue or value a player generates
-      over their relationship with a game.'
-    SimpleExplanation: How much a player is worth across their entire time with the
-      game.
+    ShortDefinition: Lifetime Value: estimated revenue or value a player generates over their relationship with a game.
+    SimpleExplanation: How much a player is worth across their entire time with the game.
     WhyItMatters: LTV guides acquisition spend, pricing, and retention investment.
-    Example: If average LTV is $12, paid campaigns must stay below that to remain
-      profitable.
+    Example: If average LTV is $12, paid campaigns must stay below that to remain profitable.
     GameUses:
     - Monetization strategy
     - UA budgeting
@@ -33,6 +30,7 @@ MonoBehaviour:
     - dau
     - mau
     - soft-launch
+    - retention
     Tags:
     - analytics
     - monetization
@@ -42,4 +40,4 @@ MonoBehaviour:
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1707004800
+    AddedAtUnix: 1707868800

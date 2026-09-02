@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: juice
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: juice
+    Term: Juice
+    Abbreviation: 
+    Category: 0
+    Difficulty: 0
+    ShortDefinition: Exaggerated visual, audio, and haptic feedback that makes actions feel satisfying.
+    SimpleExplanation: The extra pop, shake, and sound that makes hitting a button or landing a jump feel great.
+    WhyItMatters: Juice improves game feel and helps players understand cause and effect without extra UI.
+    Example: Screen shake, particle bursts, and a punchy sound when the player collects a coin.
+    GameUses:
+    - Combat feedback
+    - UI polish
+    - Mobile touch response
+    RelatedTermIds:
+    - core-loop
+    - game-loop
+    Tags:
+    - feel
+    - feedback
+    - polish
+    Synonyms:
+    - 
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1704499200

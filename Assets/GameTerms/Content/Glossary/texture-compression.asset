@@ -18,10 +18,8 @@ MonoBehaviour:
     Abbreviation: 
     Category: 6
     Difficulty: 1
-    ShortDefinition: Reducing texture memory footprint using GPU-friendly compressed
-      formats.
-    SimpleExplanation: Shrink image files so they use less RAM and load faster on
-      device.
+    ShortDefinition: Reducing texture memory footprint using GPU-friendly compressed formats.
+    SimpleExplanation: Shrink image files so they use less RAM and load faster on device.
     WhyItMatters: Compression is critical for fitting art within mobile memory budgets.
     Example: Authoring albedo maps in ASTC for iOS and ETC2 for Android targets.
     GameUses:
@@ -36,8 +34,9 @@ MonoBehaviour:
     - textures
     - memory
     - mobile
-    Synonyms: []
+    Synonyms:
+    - 
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1706400000
+    AddedAtUnix: 1707091200

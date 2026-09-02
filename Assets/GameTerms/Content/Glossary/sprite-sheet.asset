@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: sprite-sheet
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: sprite-sheet
+    Term: Sprite Sheet
+    Abbreviation: 
+    Category: 3
+    Difficulty: 0
+    ShortDefinition: A single image containing multiple frames or icons arranged for efficient rendering.
+    SimpleExplanation: One texture file that holds many animation frames or UI icons together.
+    WhyItMatters: Sprite sheets reduce draw calls and simplify 2D animation workflows.
+    Example: A character walk cycle stored as eight frames in one PNG atlas.
+    GameUses:
+    - 2D animation
+    - UI atlasing
+    - Mobile 2D games
+    RelatedTermIds:
+    - uv-mapping
+    - texture-compression
+    - draw-call
+    Tags:
+    - 2d
+    - animation
+    - textures
+    Synonyms:
+    - texture atlas
+    - sprite atlas
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1706140800

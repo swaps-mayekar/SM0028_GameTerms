@@ -18,14 +18,10 @@ MonoBehaviour:
     Abbreviation: 
     Category: 1
     Difficulty: 1
-    ShortDefinition: A model where an object exists in one state at a time and transitions
-      based on rules.
-    SimpleExplanation: A system that switches behavior cleanly between modes like
-      idle, run, jump, or attack.
-    WhyItMatters: State machines make complex character and AI behavior easier to
-      debug and extend.
-    Example: An enemy transitions from patrol to chase when the player enters detection
-      range.
+    ShortDefinition: A model where an object exists in one state at a time and transitions based on rules.
+    SimpleExplanation: A system that switches behavior cleanly between modes like idle, run, jump, or attack.
+    WhyItMatters: State machines make complex character and AI behavior easier to debug and extend.
+    Example: An enemy transitions from patrol to chase when the player enters detection range.
     GameUses:
     - Character controllers
     - AI behavior
@@ -37,8 +33,9 @@ MonoBehaviour:
     - architecture
     - ai
     - logic
-    Synonyms: []
+    Synonyms:
+    - 
     CodeExample: 
     HasDiagram: 1
-    DiagramType: 5
-    AddedAtUnix: 1704672000
+    DiagramType: 2
+    AddedAtUnix: 1704844800

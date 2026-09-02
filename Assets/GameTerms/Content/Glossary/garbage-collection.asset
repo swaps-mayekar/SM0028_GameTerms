@@ -18,12 +18,9 @@ MonoBehaviour:
     Abbreviation: gc
     Category: 1
     Difficulty: 1
-    ShortDefinition: Automatic memory cleanup that reclaims unused objects during
-      runtime.
-    SimpleExplanation: The system that finds memory you are no longer using and frees
-      it for you.
-    WhyItMatters: Collection pauses can cause frame hitches, especially on mobile
-      and console targets.
+    ShortDefinition: Automatic memory cleanup that reclaims unused objects during runtime.
+    SimpleExplanation: The system that finds memory you are no longer using and frees it for you.
+    WhyItMatters: Collection pauses can cause frame hitches, especially on mobile and console targets.
     Example: Allocating new strings every frame can trigger frequent GC spikes.
     GameUses:
     - Performance profiling
@@ -41,4 +38,4 @@ MonoBehaviour:
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1704585600
+    AddedAtUnix: 1704758400

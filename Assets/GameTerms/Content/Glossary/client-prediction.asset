@@ -18,10 +18,8 @@ MonoBehaviour:
     Abbreviation: 
     Category: 5
     Difficulty: 2
-    ShortDefinition: Letting the local client simulate actions immediately before
-      server confirmation.
-    SimpleExplanation: Move on your screen right away even though the server has
-      not confirmed yet.
+    ShortDefinition: Letting the local client simulate actions immediately before server confirmation.
+    SimpleExplanation: Move on your screen right away even though the server has not confirmed yet.
     WhyItMatters: Prediction hides network delay and keeps movement feeling responsive.
     Example: A player jumps locally while waiting for the authoritative server position.
     GameUses:
@@ -36,8 +34,9 @@ MonoBehaviour:
     - netcode
     - responsiveness
     - sync
-    Synonyms: []
+    Synonyms:
+    - 
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1706140800
+    AddedAtUnix: 1706745600

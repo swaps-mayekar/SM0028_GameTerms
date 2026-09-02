@@ -18,10 +18,8 @@ MonoBehaviour:
     Abbreviation: 
     Category: 4
     Difficulty: 1
-    ShortDefinition: Sound that exists within the game world and can be heard by
-      characters.
-    SimpleExplanation: Audio that comes from something in the scene, like a radio
-      or monster roar.
+    ShortDefinition: Sound that exists within the game world and can be heard by characters.
+    SimpleExplanation: Audio that comes from something in the scene, like a radio or monster roar.
     WhyItMatters: Diegetic audio strengthens world believability and spatial storytelling.
     Example: An alarm siren inside a facility that characters react to.
     GameUses:
@@ -35,8 +33,9 @@ MonoBehaviour:
     - sound design
     - immersion
     - spatial
-    Synonyms: []
+    Synonyms:
+    - 
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1705795200
+    AddedAtUnix: 1706313600

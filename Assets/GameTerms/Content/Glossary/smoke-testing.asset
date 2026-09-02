@@ -18,12 +18,10 @@ MonoBehaviour:
     Abbreviation: 
     Category: 7
     Difficulty: 0
-    ShortDefinition: A quick pass over critical paths to confirm a build is basically
-      functional.
+    ShortDefinition: A quick pass over critical paths to confirm a build is basically functional.
     SimpleExplanation: A fast sanity check before deeper testing begins.
     WhyItMatters: Smoke tests catch catastrophic issues early and save QA time.
-    Example: Launch the build, start a match, complete a purchase flow, and exit
-      cleanly.
+    Example: Launch the build, start a match, complete a purchase flow, and exit cleanly.
     GameUses:
     - Daily builds
     - Release gates
@@ -35,8 +33,9 @@ MonoBehaviour:
     - qa
     - build
     - sanity
-    Synonyms: []
+    Synonyms:
+    - 
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1706659200
+    AddedAtUnix: 1707436800

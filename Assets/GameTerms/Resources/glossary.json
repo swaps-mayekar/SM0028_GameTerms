@@ -28,7 +28,7 @@
                 "primary loop"
             ],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
             "AddedAtUnix": 1704067200
         },
@@ -59,7 +59,7 @@
             ],
             "Synonyms": [],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
             "AddedAtUnix": 1704153600
         },
@@ -89,7 +89,7 @@
             ],
             "Synonyms": [],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
             "AddedAtUnix": 1704240000
         },
@@ -120,7 +120,7 @@
             ],
             "Synonyms": [],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
             "AddedAtUnix": 1704326400
         },
@@ -150,9 +150,70 @@
             ],
             "Synonyms": [],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
             "AddedAtUnix": 1704412800
+        },
+        {
+            "Id": "juice",
+            "Term": "Juice",
+            "Abbreviation": "",
+            "Category": 0,
+            "Difficulty": 0,
+            "ShortDefinition": "Exaggerated visual, audio, and haptic feedback that makes actions feel satisfying.",
+            "SimpleExplanation": "The extra pop, shake, and sound that makes hitting a button or landing a jump feel great.",
+            "WhyItMatters": "Juice improves game feel and helps players understand cause and effect without extra UI.",
+            "Example": "Screen shake, particle bursts, and a punchy sound when the player collects a coin.",
+            "GameUses": [
+                "Combat feedback",
+                "UI polish",
+                "Mobile touch response"
+            ],
+            "RelatedTermIds": [
+                "core-loop",
+                "game-loop"
+            ],
+            "Tags": [
+                "feel",
+                "feedback",
+                "polish"
+            ],
+            "Synonyms": [],
+            "CodeExample": "",
+            "HasDiagram": null,
+            "DiagramType": 0,
+            "AddedAtUnix": 1704499200
+        },
+        {
+            "Id": "onboarding",
+            "Term": "Onboarding",
+            "Abbreviation": "",
+            "Category": 0,
+            "Difficulty": 0,
+            "ShortDefinition": "The guided early experience that teaches core mechanics and motivates continued play.",
+            "SimpleExplanation": "How the game introduces itself and teaches players what to do in the first minutes.",
+            "WhyItMatters": "Strong onboarding improves day-one retention and reduces early drop-off.",
+            "Example": "A tutorial level that teaches movement, combat, and inventory without long text blocks.",
+            "GameUses": [
+                "First-time user experience",
+                "Tutorial design",
+                "Retention tuning"
+            ],
+            "RelatedTermIds": [
+                "progression",
+                "mvp",
+                "retention"
+            ],
+            "Tags": [
+                "tutorial",
+                "retention",
+                "ux"
+            ],
+            "Synonyms": [],
+            "CodeExample": "",
+            "HasDiagram": null,
+            "DiagramType": 0,
+            "AddedAtUnix": 1704585600
         },
         {
             "Id": "object-pooling",
@@ -184,8 +245,8 @@
             ],
             "CodeExample": "GameObject obj = pool.Get();\nobj.SetActive(true);",
             "HasDiagram": true,
-            "DiagramType": 2,
-            "AddedAtUnix": 1704499200
+            "DiagramType": 1,
+            "AddedAtUnix": 1704672000
         },
         {
             "Id": "garbage-collection",
@@ -215,9 +276,9 @@
                 "gc"
             ],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
-            "AddedAtUnix": 1704585600
+            "AddedAtUnix": 1704758400
         },
         {
             "Id": "state-machine",
@@ -246,8 +307,8 @@
             "Synonyms": [],
             "CodeExample": "",
             "HasDiagram": true,
-            "DiagramType": 5,
-            "AddedAtUnix": 1704672000
+            "DiagramType": 2,
+            "AddedAtUnix": 1704844800
         },
         {
             "Id": "serialization",
@@ -275,9 +336,9 @@
             ],
             "Synonyms": [],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
-            "AddedAtUnix": 1704758400
+            "AddedAtUnix": 1704931200
         },
         {
             "Id": "dependency-injection",
@@ -296,7 +357,8 @@
             ],
             "RelatedTermIds": [
                 "state-machine",
-                "serialization"
+                "serialization",
+                "ecs"
             ],
             "Tags": [
                 "architecture",
@@ -307,9 +369,71 @@
                 "di"
             ],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
-            "AddedAtUnix": 1704844800
+            "AddedAtUnix": 1705017600
+        },
+        {
+            "Id": "fixed-timestep",
+            "Term": "Fixed Timestep",
+            "Abbreviation": "",
+            "Category": 1,
+            "Difficulty": 1,
+            "ShortDefinition": "Updating simulation logic at a constant interval independent of frame rate.",
+            "SimpleExplanation": "Run physics and gameplay logic on a steady clock so results stay consistent.",
+            "WhyItMatters": "Fixed timesteps keep physics stable and make networked games easier to synchronize.",
+            "Example": "Run physics at 50 Hz while rendering as fast as the GPU allows.",
+            "GameUses": [
+                "Physics simulation",
+                "Deterministic gameplay",
+                "Multiplayer sync"
+            ],
+            "RelatedTermIds": [
+                "state-machine",
+                "tick-rate"
+            ],
+            "Tags": [
+                "physics",
+                "simulation",
+                "timing"
+            ],
+            "Synonyms": [],
+            "CodeExample": "",
+            "HasDiagram": null,
+            "DiagramType": 0,
+            "AddedAtUnix": 1705104000
+        },
+        {
+            "Id": "ecs",
+            "Term": "Entity Component System",
+            "Abbreviation": "ecs",
+            "Category": 1,
+            "Difficulty": 2,
+            "ShortDefinition": "An architecture where gameplay data lives in components and behavior runs in systems over entities.",
+            "SimpleExplanation": "Store traits in small data chunks and let systems process matching groups efficiently.",
+            "WhyItMatters": "ECS can improve performance and scale for large numbers of similar game objects.",
+            "Example": "A movement system updates every entity that has position and velocity components.",
+            "GameUses": [
+                "Large-scale simulation",
+                "Performance-critical gameplay",
+                "Data-oriented design"
+            ],
+            "RelatedTermIds": [
+                "dependency-injection",
+                "object-pooling"
+            ],
+            "Tags": [
+                "architecture",
+                "performance",
+                "data"
+            ],
+            "Synonyms": [
+                "ecs"
+            ],
+            "CodeExample": "",
+            "HasDiagram": null,
+            "DiagramType": 0,
+            "AddedAtUnix": 1705190400
         },
         {
             "Id": "draw-call",
@@ -340,9 +464,9 @@
                 "draw"
             ],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
-            "AddedAtUnix": 1704931200
+            "AddedAtUnix": 1705276800
         },
         {
             "Id": "occlusion-culling",
@@ -372,8 +496,8 @@
             "Synonyms": [],
             "CodeExample": "",
             "HasDiagram": true,
-            "DiagramType": 1,
-            "AddedAtUnix": 1705017600
+            "DiagramType": 3,
+            "AddedAtUnix": 1705363200
         },
         {
             "Id": "frustum-culling",
@@ -402,8 +526,8 @@
             "Synonyms": [],
             "CodeExample": "",
             "HasDiagram": true,
-            "DiagramType": 3,
-            "AddedAtUnix": 1705104000
+            "DiagramType": 4,
+            "AddedAtUnix": 1705449600
         },
         {
             "Id": "level-of-detail",
@@ -434,8 +558,8 @@
             ],
             "CodeExample": "",
             "HasDiagram": true,
-            "DiagramType": 4,
-            "AddedAtUnix": 1705190400
+            "DiagramType": 5,
+            "AddedAtUnix": 1705536000
         },
         {
             "Id": "overdraw",
@@ -463,9 +587,41 @@
             ],
             "Synonyms": [],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
-            "AddedAtUnix": 1705276800
+            "AddedAtUnix": 1705622400
+        },
+        {
+            "Id": "pbr",
+            "Term": "Physically Based Rendering",
+            "Abbreviation": "pbr",
+            "Category": 2,
+            "Difficulty": 1,
+            "ShortDefinition": "A shading approach that mimics how light interacts with real-world materials.",
+            "SimpleExplanation": "Materials react to light in a realistic, consistent way across different scenes.",
+            "WhyItMatters": "PBR helps art look cohesive under varied lighting and reduces guesswork for artists.",
+            "Example": "Metal reflects sharply while rough wood scatters light softly using the same shader model.",
+            "GameUses": [
+                "Material authoring",
+                "Lighting pipelines",
+                "Cross-platform visuals"
+            ],
+            "RelatedTermIds": [
+                "normal-map",
+                "draw-call"
+            ],
+            "Tags": [
+                "rendering",
+                "materials",
+                "lighting"
+            ],
+            "Synonyms": [
+                "pbr"
+            ],
+            "CodeExample": "",
+            "HasDiagram": null,
+            "DiagramType": 0,
+            "AddedAtUnix": 1705708800
         },
         {
             "Id": "normal-map",
@@ -493,9 +649,9 @@
             ],
             "Synonyms": [],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
-            "AddedAtUnix": 1705363200
+            "AddedAtUnix": 1705795200
         },
         {
             "Id": "rigging",
@@ -523,9 +679,9 @@
             ],
             "Synonyms": [],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
-            "AddedAtUnix": 1705449600
+            "AddedAtUnix": 1705881600
         },
         {
             "Id": "skinning",
@@ -553,9 +709,9 @@
             ],
             "Synonyms": [],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
-            "AddedAtUnix": 1705536000
+            "AddedAtUnix": 1705968000
         },
         {
             "Id": "uv-mapping",
@@ -574,7 +730,8 @@
             ],
             "RelatedTermIds": [
                 "normal-map",
-                "texture-compression"
+                "texture-compression",
+                "sprite-sheet"
             ],
             "Tags": [
                 "texturing",
@@ -583,9 +740,43 @@
             ],
             "Synonyms": [],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
-            "AddedAtUnix": 1705622400
+            "AddedAtUnix": 1706054400
+        },
+        {
+            "Id": "sprite-sheet",
+            "Term": "Sprite Sheet",
+            "Abbreviation": "",
+            "Category": 3,
+            "Difficulty": 0,
+            "ShortDefinition": "A single image containing multiple frames or icons arranged for efficient rendering.",
+            "SimpleExplanation": "One texture file that holds many animation frames or UI icons together.",
+            "WhyItMatters": "Sprite sheets reduce draw calls and simplify 2D animation workflows.",
+            "Example": "A character walk cycle stored as eight frames in one PNG atlas.",
+            "GameUses": [
+                "2D animation",
+                "UI atlasing",
+                "Mobile 2D games"
+            ],
+            "RelatedTermIds": [
+                "uv-mapping",
+                "texture-compression",
+                "draw-call"
+            ],
+            "Tags": [
+                "2d",
+                "animation",
+                "textures"
+            ],
+            "Synonyms": [
+                "texture atlas",
+                "sprite atlas"
+            ],
+            "CodeExample": "",
+            "HasDiagram": null,
+            "DiagramType": 0,
+            "AddedAtUnix": 1706140800
         },
         {
             "Id": "foley",
@@ -613,9 +804,9 @@
             ],
             "Synonyms": [],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
-            "AddedAtUnix": 1705708800
+            "AddedAtUnix": 1706227200
         },
         {
             "Id": "diegetic-audio",
@@ -643,9 +834,9 @@
             ],
             "Synonyms": [],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
-            "AddedAtUnix": 1705795200
+            "AddedAtUnix": 1706313600
         },
         {
             "Id": "audio-ducking",
@@ -664,7 +855,8 @@
             ],
             "RelatedTermIds": [
                 "foley",
-                "diegetic-audio"
+                "diegetic-audio",
+                "adaptive-music"
             ],
             "Tags": [
                 "mixing",
@@ -673,9 +865,39 @@
             ],
             "Synonyms": [],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
-            "AddedAtUnix": 1705881600
+            "AddedAtUnix": 1706400000
+        },
+        {
+            "Id": "adaptive-music",
+            "Term": "Adaptive Music",
+            "Abbreviation": "",
+            "Category": 4,
+            "Difficulty": 1,
+            "ShortDefinition": "Music that changes layers or intensity based on gameplay state.",
+            "SimpleExplanation": "The soundtrack reacts to combat, exploration, or story moments in real time.",
+            "WhyItMatters": "Adaptive music keeps emotional pacing aligned with player actions without jarring loops.",
+            "Example": "Combat drums layer in when enemies appear and fade when the fight ends.",
+            "GameUses": [
+                "Combat pacing",
+                "Exploration ambience",
+                "Cinematic transitions"
+            ],
+            "RelatedTermIds": [
+                "audio-ducking",
+                "diegetic-audio"
+            ],
+            "Tags": [
+                "music",
+                "dynamic",
+                "immersion"
+            ],
+            "Synonyms": [],
+            "CodeExample": "",
+            "HasDiagram": null,
+            "DiagramType": 0,
+            "AddedAtUnix": 1706486400
         },
         {
             "Id": "latency",
@@ -704,9 +926,9 @@
             ],
             "Synonyms": [],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
-            "AddedAtUnix": 1705968000
+            "AddedAtUnix": 1706572800
         },
         {
             "Id": "tick-rate",
@@ -734,9 +956,9 @@
             ],
             "Synonyms": [],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
-            "AddedAtUnix": 1706054400
+            "AddedAtUnix": 1706659200
         },
         {
             "Id": "client-prediction",
@@ -765,9 +987,9 @@
             ],
             "Synonyms": [],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
-            "AddedAtUnix": 1706140800
+            "AddedAtUnix": 1706745600
         },
         {
             "Id": "rollback",
@@ -786,7 +1008,8 @@
             ],
             "RelatedTermIds": [
                 "client-prediction",
-                "latency"
+                "latency",
+                "authoritative-server"
             ],
             "Tags": [
                 "netcode",
@@ -797,9 +1020,40 @@
                 "rollback netcode"
             ],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
-            "AddedAtUnix": 1706227200
+            "AddedAtUnix": 1706832000
+        },
+        {
+            "Id": "authoritative-server",
+            "Term": "Authoritative Server",
+            "Abbreviation": "",
+            "Category": 5,
+            "Difficulty": 1,
+            "ShortDefinition": "A server that owns the true game state and validates player actions.",
+            "SimpleExplanation": "The server decides what really happened, not each player's device.",
+            "WhyItMatters": "Authority prevents cheating and keeps multiplayer outcomes consistent.",
+            "Example": "The server confirms a hit before damage is applied, even if a client predicted it locally.",
+            "GameUses": [
+                "Competitive multiplayer",
+                "Anti-cheat design",
+                "Persistent online worlds"
+            ],
+            "RelatedTermIds": [
+                "client-prediction",
+                "tick-rate",
+                "latency"
+            ],
+            "Tags": [
+                "server",
+                "netcode",
+                "security"
+            ],
+            "Synonyms": [],
+            "CodeExample": "",
+            "HasDiagram": null,
+            "DiagramType": 0,
+            "AddedAtUnix": 1706918400
         },
         {
             "Id": "thermal-throttling",
@@ -827,9 +1081,9 @@
             ],
             "Synonyms": [],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
-            "AddedAtUnix": 1706313600
+            "AddedAtUnix": 1707004800
         },
         {
             "Id": "texture-compression",
@@ -858,9 +1112,9 @@
             ],
             "Synonyms": [],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
-            "AddedAtUnix": 1706400000
+            "AddedAtUnix": 1707091200
         },
         {
             "Id": "memory-pressure",
@@ -880,7 +1134,8 @@
             "RelatedTermIds": [
                 "garbage-collection",
                 "texture-compression",
-                "thermal-throttling"
+                "thermal-throttling",
+                "adaptive-performance"
             ],
             "Tags": [
                 "memory",
@@ -889,9 +1144,40 @@
             ],
             "Synonyms": [],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
-            "AddedAtUnix": 1706486400
+            "AddedAtUnix": 1707177600
+        },
+        {
+            "Id": "adaptive-performance",
+            "Term": "Adaptive Performance",
+            "Abbreviation": "",
+            "Category": 6,
+            "Difficulty": 1,
+            "ShortDefinition": "Dynamically lowering visual or simulation quality to maintain stable frame rate on device.",
+            "SimpleExplanation": "The game quietly reduces effects or resolution when the phone starts struggling.",
+            "WhyItMatters": "Adaptive performance helps sustain playable frame rates during long or demanding sessions.",
+            "Example": "Shadow quality drops after sustained GPU load while keeping gameplay at 30 FPS.",
+            "GameUses": [
+                "Mobile optimization",
+                "Thermal management",
+                "Battery-conscious tuning"
+            ],
+            "RelatedTermIds": [
+                "thermal-throttling",
+                "memory-pressure",
+                "level-of-detail"
+            ],
+            "Tags": [
+                "mobile",
+                "performance",
+                "scaling"
+            ],
+            "Synonyms": [],
+            "CodeExample": "",
+            "HasDiagram": null,
+            "DiagramType": 0,
+            "AddedAtUnix": 1707264000
         },
         {
             "Id": "regression-testing",
@@ -919,9 +1205,9 @@
             ],
             "Synonyms": [],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
-            "AddedAtUnix": 1706572800
+            "AddedAtUnix": 1707350400
         },
         {
             "Id": "smoke-testing",
@@ -949,9 +1235,9 @@
             ],
             "Synonyms": [],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
-            "AddedAtUnix": 1706659200
+            "AddedAtUnix": 1707436800
         },
         {
             "Id": "stress-testing",
@@ -970,7 +1256,8 @@
             ],
             "RelatedTermIds": [
                 "regression-testing",
-                "memory-pressure"
+                "memory-pressure",
+                "playtesting"
             ],
             "Tags": [
                 "qa",
@@ -979,9 +1266,40 @@
             ],
             "Synonyms": [],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
-            "AddedAtUnix": 1706745600
+            "AddedAtUnix": 1707523200
+        },
+        {
+            "Id": "playtesting",
+            "Term": "Playtesting",
+            "Abbreviation": "",
+            "Category": 7,
+            "Difficulty": 0,
+            "ShortDefinition": "Observing real players use a build to evaluate fun, clarity, and usability.",
+            "SimpleExplanation": "Watch people play and learn what confuses, frustrates, or delights them.",
+            "WhyItMatters": "Playtesting surfaces design issues that automated tests and internal reviews miss.",
+            "Example": "Five testers fail to find the objective until the tutorial arrow is added.",
+            "GameUses": [
+                "UX validation",
+                "Tutorial tuning",
+                "Balance feedback"
+            ],
+            "RelatedTermIds": [
+                "smoke-testing",
+                "onboarding",
+                "regression-testing"
+            ],
+            "Tags": [
+                "qa",
+                "feedback",
+                "design"
+            ],
+            "Synonyms": [],
+            "CodeExample": "",
+            "HasDiagram": null,
+            "DiagramType": 0,
+            "AddedAtUnix": 1707609600
         },
         {
             "Id": "dau",
@@ -1012,9 +1330,9 @@
                 "daily active users"
             ],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
-            "AddedAtUnix": 1706832000
+            "AddedAtUnix": 1707696000
         },
         {
             "Id": "mau",
@@ -1044,9 +1362,9 @@
                 "monthly active users"
             ],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
-            "AddedAtUnix": 1706918400
+            "AddedAtUnix": 1707782400
         },
         {
             "Id": "ltv",
@@ -1066,7 +1384,8 @@
             "RelatedTermIds": [
                 "dau",
                 "mau",
-                "soft-launch"
+                "soft-launch",
+                "retention"
             ],
             "Tags": [
                 "analytics",
@@ -1077,9 +1396,41 @@
                 "lifetime value"
             ],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
-            "AddedAtUnix": 1707004800
+            "AddedAtUnix": 1707868800
+        },
+        {
+            "Id": "retention",
+            "Term": "Retention",
+            "Abbreviation": "",
+            "Category": 8,
+            "Difficulty": 0,
+            "ShortDefinition": "The rate at which players return to a game after their first session.",
+            "SimpleExplanation": "How many people come back tomorrow, next week, or next month.",
+            "WhyItMatters": "Retention shows whether onboarding, content, and updates keep players engaged.",
+            "Example": "Day-7 retention rises after improving the first-hour tutorial and daily rewards.",
+            "GameUses": [
+                "Live ops planning",
+                "Onboarding tuning",
+                "KPI reporting"
+            ],
+            "RelatedTermIds": [
+                "dau",
+                "mau",
+                "onboarding",
+                "live-ops"
+            ],
+            "Tags": [
+                "analytics",
+                "engagement",
+                "kpi"
+            ],
+            "Synonyms": [],
+            "CodeExample": "",
+            "HasDiagram": null,
+            "DiagramType": 0,
+            "AddedAtUnix": 1707955200
         },
         {
             "Id": "mvp",
@@ -1109,9 +1460,9 @@
                 "minimum viable product"
             ],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
-            "AddedAtUnix": 1707091200
+            "AddedAtUnix": 1708041600
         },
         {
             "Id": "soft-launch",
@@ -1140,9 +1491,9 @@
             ],
             "Synonyms": [],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
-            "AddedAtUnix": 1707177600
+            "AddedAtUnix": 1708128000
         },
         {
             "Id": "live-ops",
@@ -1162,7 +1513,8 @@
             "RelatedTermIds": [
                 "soft-launch",
                 "dau",
-                "progression"
+                "progression",
+                "retention"
             ],
             "Tags": [
                 "operations",
@@ -1174,9 +1526,40 @@
                 "liveops"
             ],
             "CodeExample": "",
-            "HasDiagram": false,
+            "HasDiagram": null,
             "DiagramType": 0,
-            "AddedAtUnix": 1707264000
+            "AddedAtUnix": 1708214400
+        },
+        {
+            "Id": "scope-creep",
+            "Term": "Scope Creep",
+            "Abbreviation": "",
+            "Category": 9,
+            "Difficulty": 0,
+            "ShortDefinition": "When a project's feature list grows beyond the original plan without matching time or budget.",
+            "SimpleExplanation": "The game keeps gaining new ideas faster than the team can build them.",
+            "WhyItMatters": "Scope creep delays launches, burns teams out, and dilutes the core experience.",
+            "Example": "A small puzzle game adds multiplayer, crafting, and a battle pass before the first release.",
+            "GameUses": [
+                "Production planning",
+                "Milestone scoping",
+                "Stakeholder alignment"
+            ],
+            "RelatedTermIds": [
+                "mvp",
+                "vertical-slice",
+                "soft-launch"
+            ],
+            "Tags": [
+                "production",
+                "scope",
+                "planning"
+            ],
+            "Synonyms": [],
+            "CodeExample": "",
+            "HasDiagram": null,
+            "DiagramType": 0,
+            "AddedAtUnix": 1708300800
         }
     ]
 }

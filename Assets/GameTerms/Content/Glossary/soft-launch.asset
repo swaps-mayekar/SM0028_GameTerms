@@ -18,13 +18,10 @@ MonoBehaviour:
     Abbreviation: 
     Category: 9
     Difficulty: 1
-    ShortDefinition: Releasing a game in limited regions or audiences to gather data
-      before global launch.
+    ShortDefinition: Releasing a game in limited regions or audiences to gather data before global launch.
     SimpleExplanation: A practice launch in a smaller market before going worldwide.
-    WhyItMatters: Soft launches reveal retention, monetization, and stability issues
-      with lower risk.
-    Example: Launch in two countries, tune onboarding for two weeks, then expand
-      globally.
+    WhyItMatters: Soft launches reveal retention, monetization, and stability issues with lower risk.
+    Example: Launch in two countries, tune onboarding for two weeks, then expand globally.
     GameUses:
     - Mobile publishing
     - Economy tuning
@@ -37,8 +34,9 @@ MonoBehaviour:
     - publishing
     - launch
     - testing
-    Synonyms: []
+    Synonyms:
+    - 
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1707177600
+    AddedAtUnix: 1708128000

@@ -18,12 +18,9 @@ MonoBehaviour:
     Abbreviation: 
     Category: 0
     Difficulty: 0
-    ShortDefinition: The repeating cycle of actions players perform most often during
-      play.
-    SimpleExplanation: The main thing players do again and again because it feels
-      good and moves them forward.
-    WhyItMatters: A clear core loop keeps sessions focused and helps teams prioritize
-      features that reinforce the primary experience.
+    ShortDefinition: The repeating cycle of actions players perform most often during play.
+    SimpleExplanation: The main thing players do again and again because it feels good and moves them forward.
+    WhyItMatters: A clear core loop keeps sessions focused and helps teams prioritize features that reinforce the primary experience.
     Example: In a farming game, plant crops, wait, harvest, sell, and upgrade tools.
     GameUses:
     - Session design

@@ -18,8 +18,7 @@ MonoBehaviour:
     Abbreviation: 
     Category: 2
     Difficulty: 1
-    ShortDefinition: A rendering optimization that skips objects hidden behind other
-      geometry.
+    ShortDefinition: A rendering optimization that skips objects hidden behind other geometry.
     SimpleExplanation: Do not render things the player cannot see.
     WhyItMatters: Rendering invisible objects wastes GPU resources.
     Example: Rooms behind a closed door are excluded from the render list.
@@ -35,8 +34,9 @@ MonoBehaviour:
     - culling
     - optimization
     - visibility
-    Synonyms: []
+    Synonyms:
+    - 
     CodeExample: 
     HasDiagram: 1
-    DiagramType: 1
-    AddedAtUnix: 1705017600
+    DiagramType: 3
+    AddedAtUnix: 1705363200

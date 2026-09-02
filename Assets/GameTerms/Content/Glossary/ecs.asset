@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: ecs
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: ecs
+    Term: Entity Component System
+    Abbreviation: ecs
+    Category: 1
+    Difficulty: 2
+    ShortDefinition: An architecture where gameplay data lives in components and behavior runs in systems over entities.
+    SimpleExplanation: Store traits in small data chunks and let systems process matching groups efficiently.
+    WhyItMatters: ECS can improve performance and scale for large numbers of similar game objects.
+    Example: A movement system updates every entity that has position and velocity components.
+    GameUses:
+    - Large-scale simulation
+    - Performance-critical gameplay
+    - Data-oriented design
+    RelatedTermIds:
+    - dependency-injection
+    - object-pooling
+    Tags:
+    - architecture
+    - performance
+    - data
+    Synonyms:
+    - ecs
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1705190400

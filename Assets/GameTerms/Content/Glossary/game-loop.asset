@@ -18,12 +18,9 @@ MonoBehaviour:
     Abbreviation: 
     Category: 0
     Difficulty: 0
-    ShortDefinition: The full cycle of player input, game response, feedback, and
-      state change.
-    SimpleExplanation: What the player does, what the game does back, and how the
-      world updates before the next action.
-    WhyItMatters: Understanding the loop helps designers tune pacing, rewards, and
-      failure recovery.
+    ShortDefinition: The full cycle of player input, game response, feedback, and state change.
+    SimpleExplanation: What the player does, what the game does back, and how the world updates before the next action.
+    WhyItMatters: Understanding the loop helps designers tune pacing, rewards, and failure recovery.
     Example: Move, attack, receive damage feedback, earn loot, upgrade gear, repeat.
     GameUses:
     - Combat tuning
@@ -37,7 +34,8 @@ MonoBehaviour:
     - design
     - feedback
     - systems
-    Synonyms: []
+    Synonyms:
+    - 
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0

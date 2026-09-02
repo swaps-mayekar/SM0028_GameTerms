@@ -18,14 +18,10 @@ MonoBehaviour:
     Abbreviation: ggpo
     Category: 5
     Difficulty: 2
-    ShortDefinition: Rewinding and replaying simulation frames when late network
-      inputs arrive.
-    SimpleExplanation: Undo a few frames and replay them with the correct inputs
-      once they arrive.
-    WhyItMatters: Rollback enables responsive fighting and action games over real-world
-      networks.
-    Example: A fighting game corrects a hit after the remote input finally reaches
-      the host.
+    ShortDefinition: Rewinding and replaying simulation frames when late network inputs arrive.
+    SimpleExplanation: Undo a few frames and replay them with the correct inputs once they arrive.
+    WhyItMatters: Rollback enables responsive fighting and action games over real-world networks.
+    Example: A fighting game corrects a hit after the remote input finally reaches the host.
     GameUses:
     - Fighting games
     - Fast action multiplayer
@@ -33,6 +29,7 @@ MonoBehaviour:
     RelatedTermIds:
     - client-prediction
     - latency
+    - authoritative-server
     Tags:
     - netcode
     - sync
@@ -42,4 +39,4 @@ MonoBehaviour:
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1706227200
+    AddedAtUnix: 1706832000

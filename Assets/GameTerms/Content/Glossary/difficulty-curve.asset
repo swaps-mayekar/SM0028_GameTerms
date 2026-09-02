@@ -21,8 +21,7 @@ MonoBehaviour:
     ShortDefinition: How challenge rises across a game to match growing player skill.
     SimpleExplanation: The shape of how hard the game gets from start to finish.
     WhyItMatters: A well-shaped curve prevents boredom early and frustration late.
-    Example: Introduce one new enemy type per chapter while gradually reducing reaction
-      time windows.
+    Example: Introduce one new enemy type per chapter while gradually reducing reaction time windows.
     GameUses:
     - Level design
     - Combat balancing
@@ -34,7 +33,8 @@ MonoBehaviour:
     - balance
     - pacing
     - challenge
-    Synonyms: []
+    Synonyms:
+    - 
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0

@@ -18,10 +18,8 @@ MonoBehaviour:
     Abbreviation: 
     Category: 3
     Difficulty: 1
-    ShortDefinition: A texture that fakes fine surface detail by altering how light
-      interacts with a mesh.
-    SimpleExplanation: A flat image that makes a surface look bumpy or detailed without
-      extra geometry.
+    ShortDefinition: A texture that fakes fine surface detail by altering how light interacts with a mesh.
+    SimpleExplanation: A flat image that makes a surface look bumpy or detailed without extra geometry.
     WhyItMatters: Normal maps add visual richness while keeping polygon counts practical.
     Example: Brick wall detail is painted into a normal map on a simple plane.
     GameUses:
@@ -35,8 +33,9 @@ MonoBehaviour:
     - texturing
     - lighting
     - materials
-    Synonyms: []
+    Synonyms:
+    - 
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1705363200
+    AddedAtUnix: 1705795200

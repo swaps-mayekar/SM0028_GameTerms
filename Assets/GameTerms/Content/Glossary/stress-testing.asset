@@ -18,12 +18,9 @@ MonoBehaviour:
     Abbreviation: 
     Category: 7
     Difficulty: 2
-    ShortDefinition: Pushing a system beyond normal load to find breaking points
-      and stability issues.
-    SimpleExplanation: Hammer the game harder than players normally would to see
-      what fails.
-    WhyItMatters: Stress testing reveals crashes, memory leaks, and server limits
-      before launch.
+    ShortDefinition: Pushing a system beyond normal load to find breaking points and stability issues.
+    SimpleExplanation: Hammer the game harder than players normally would to see what fails.
+    WhyItMatters: Stress testing reveals crashes, memory leaks, and server limits before launch.
     Example: Spawn thousands of projectiles and AI units to measure frame time collapse.
     GameUses:
     - Server capacity
@@ -32,12 +29,14 @@ MonoBehaviour:
     RelatedTermIds:
     - regression-testing
     - memory-pressure
+    - playtesting
     Tags:
     - qa
     - performance
     - stability
-    Synonyms: []
+    Synonyms:
+    - 
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1706745600
+    AddedAtUnix: 1707523200

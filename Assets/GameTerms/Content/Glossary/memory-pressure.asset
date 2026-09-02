@@ -18,14 +18,10 @@ MonoBehaviour:
     Abbreviation: 
     Category: 6
     Difficulty: 1
-    ShortDefinition: When available device memory is low enough that the OS may reclaim
-      app resources.
-    SimpleExplanation: The device is running low on RAM and may force your app to
-      free memory or close.
-    WhyItMatters: Memory pressure causes crashes, reloads, and degraded performance
-      on mobile.
-    Example: Background apps are purged and your game reloads textures after a large
-      scene load.
+    ShortDefinition: When available device memory is low enough that the OS may reclaim app resources.
+    SimpleExplanation: The device is running low on RAM and may force your app to free memory or close.
+    WhyItMatters: Memory pressure causes crashes, reloads, and degraded performance on mobile.
+    Example: Background apps are purged and your game reloads textures after a large scene load.
     GameUses:
     - Mobile stability
     - Asset streaming
@@ -34,12 +30,14 @@ MonoBehaviour:
     - garbage-collection
     - texture-compression
     - thermal-throttling
+    - adaptive-performance
     Tags:
     - memory
     - mobile
     - stability
-    Synonyms: []
+    Synonyms:
+    - 
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1706486400
+    AddedAtUnix: 1707177600

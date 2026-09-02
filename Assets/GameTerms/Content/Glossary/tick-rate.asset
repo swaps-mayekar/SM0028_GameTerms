@@ -18,11 +18,9 @@ MonoBehaviour:
     Abbreviation: 
     Category: 5
     Difficulty: 1
-    ShortDefinition: How many times per second the server updates simulation and
-      networking state.
+    ShortDefinition: How many times per second the server updates simulation and networking state.
     SimpleExplanation: How often the server processes the game world each second.
-    WhyItMatters: Higher tick rates can improve precision but increase server and
-      bandwidth cost.
+    WhyItMatters: Higher tick rates can improve precision but increase server and bandwidth cost.
     Example: A shooter server running 60 simulation ticks per second.
     GameUses:
     - Server architecture
@@ -35,8 +33,9 @@ MonoBehaviour:
     - server
     - simulation
     - networking
-    Synonyms: []
+    Synonyms:
+    - 
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1706054400
+    AddedAtUnix: 1706659200

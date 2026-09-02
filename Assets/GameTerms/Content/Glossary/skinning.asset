@@ -18,8 +18,7 @@ MonoBehaviour:
     Abbreviation: 
     Category: 3
     Difficulty: 1
-    ShortDefinition: Binding mesh vertices to bones so the model follows skeletal
-      animation.
+    ShortDefinition: Binding mesh vertices to bones so the model follows skeletal animation.
     SimpleExplanation: Connecting a character mesh to its skeleton so it bends correctly.
     WhyItMatters: Poor skin weights create ugly deformation and break immersion.
     Example: Elbow vertices follow upper and lower arm bones with blended influence.
@@ -34,8 +33,9 @@ MonoBehaviour:
     - animation
     - weights
     - characters
-    Synonyms: []
+    Synonyms:
+    - 
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1705536000
+    AddedAtUnix: 1705968000

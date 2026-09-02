@@ -19,12 +19,9 @@ MonoBehaviour:
     Category: 7
     Difficulty: 1
     ShortDefinition: Checking that recent changes did not break existing features.
-    SimpleExplanation: Re-test old features after new work to make sure nothing got
-      worse.
-    WhyItMatters: Regression coverage protects live quality as teams ship frequent
-      updates.
-    Example: Re-run login, inventory, and combat flows after a patch changes save
-      data.
+    SimpleExplanation: Re-test old features after new work to make sure nothing got worse.
+    WhyItMatters: Regression coverage protects live quality as teams ship frequent updates.
+    Example: Re-run login, inventory, and combat flows after a patch changes save data.
     GameUses:
     - Patch validation
     - Live ops releases
@@ -36,8 +33,9 @@ MonoBehaviour:
     - qa
     - testing
     - quality
-    Synonyms: []
+    Synonyms:
+    - 
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1706572800
+    AddedAtUnix: 1707350400

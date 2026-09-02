@@ -18,12 +18,9 @@ MonoBehaviour:
     Abbreviation: 
     Category: 5
     Difficulty: 0
-    ShortDefinition: The delay between sending an action and seeing its result across
-      a network.
-    SimpleExplanation: How long it takes for your input to reach the game and come
-      back.
-    WhyItMatters: High latency makes controls feel sluggish and can break competitive
-      fairness.
+    ShortDefinition: The delay between sending an action and seeing its result across a network.
+    SimpleExplanation: How long it takes for your input to reach the game and come back.
+    WhyItMatters: High latency makes controls feel sluggish and can break competitive fairness.
     Example: A player fires on an enemy that has already moved on the server.
     GameUses:
     - Netcode tuning
@@ -37,8 +34,9 @@ MonoBehaviour:
     - networking
     - ping
     - responsiveness
-    Synonyms: []
+    Synonyms:
+    - 
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1705968000
+    AddedAtUnix: 1706572800

@@ -95,6 +95,36 @@ namespace GameTerms.Editor
                 RelatedTermIds = new List<string> { "progression", "game-loop" }
             });
 
+            Add(new GlossaryTermData
+            {
+                Id = "juice",
+                Term = "Juice",
+                Category = GlossaryCategory.GameDesign,
+                Difficulty = DifficultyLevel.Beginner,
+                ShortDefinition = "Exaggerated visual, audio, and haptic feedback that makes actions feel satisfying.",
+                SimpleExplanation = "The extra pop, shake, and sound that makes hitting a button or landing a jump feel great.",
+                WhyItMatters = "Juice improves game feel and helps players understand cause and effect without extra UI.",
+                Example = "Screen shake, particle bursts, and a punchy sound when the player collects a coin.",
+                GameUses = new List<string> { "Combat feedback", "UI polish", "Mobile touch response" },
+                Tags = new List<string> { "feel", "feedback", "polish" },
+                RelatedTermIds = new List<string> { "core-loop", "game-loop" }
+            });
+
+            Add(new GlossaryTermData
+            {
+                Id = "onboarding",
+                Term = "Onboarding",
+                Category = GlossaryCategory.GameDesign,
+                Difficulty = DifficultyLevel.Beginner,
+                ShortDefinition = "The guided early experience that teaches core mechanics and motivates continued play.",
+                SimpleExplanation = "How the game introduces itself and teaches players what to do in the first minutes.",
+                WhyItMatters = "Strong onboarding improves day-one retention and reduces early drop-off.",
+                Example = "A tutorial level that teaches movement, combat, and inventory without long text blocks.",
+                GameUses = new List<string> { "First-time user experience", "Tutorial design", "Retention tuning" },
+                Tags = new List<string> { "tutorial", "retention", "ux" },
+                RelatedTermIds = new List<string> { "progression", "mvp", "retention" }
+            });
+
             // Programming
             Add(new GlossaryTermData
             {
@@ -179,7 +209,39 @@ namespace GameTerms.Editor
                 GameUses = new List<string> { "Service architecture", "Unit testing", "Modular gameplay code" },
                 Tags = new List<string> { "architecture", "testing", "services" },
                 Synonyms = new List<string> { "di" },
-                RelatedTermIds = new List<string> { "state-machine", "serialization" }
+                RelatedTermIds = new List<string> { "state-machine", "serialization", "ecs" }
+            });
+
+            Add(new GlossaryTermData
+            {
+                Id = "fixed-timestep",
+                Term = "Fixed Timestep",
+                Category = GlossaryCategory.Programming,
+                Difficulty = DifficultyLevel.Intermediate,
+                ShortDefinition = "Updating simulation logic at a constant interval independent of frame rate.",
+                SimpleExplanation = "Run physics and gameplay logic on a steady clock so results stay consistent.",
+                WhyItMatters = "Fixed timesteps keep physics stable and make networked games easier to synchronize.",
+                Example = "Run physics at 50 Hz while rendering as fast as the GPU allows.",
+                GameUses = new List<string> { "Physics simulation", "Deterministic gameplay", "Multiplayer sync" },
+                Tags = new List<string> { "physics", "simulation", "timing" },
+                RelatedTermIds = new List<string> { "state-machine", "tick-rate" }
+            });
+
+            Add(new GlossaryTermData
+            {
+                Id = "ecs",
+                Term = "Entity Component System",
+                Abbreviation = "ecs",
+                Category = GlossaryCategory.Programming,
+                Difficulty = DifficultyLevel.Advanced,
+                ShortDefinition = "An architecture where gameplay data lives in components and behavior runs in systems over entities.",
+                SimpleExplanation = "Store traits in small data chunks and let systems process matching groups efficiently.",
+                WhyItMatters = "ECS can improve performance and scale for large numbers of similar game objects.",
+                Example = "A movement system updates every entity that has position and velocity components.",
+                GameUses = new List<string> { "Large-scale simulation", "Performance-critical gameplay", "Data-oriented design" },
+                Tags = new List<string> { "architecture", "performance", "data" },
+                Synonyms = new List<string> { "ecs" },
+                RelatedTermIds = new List<string> { "dependency-injection", "object-pooling" }
             });
 
             // Graphics & Rendering
@@ -267,6 +329,23 @@ namespace GameTerms.Editor
                 RelatedTermIds = new List<string> { "draw-call", "occlusion-culling" }
             });
 
+            Add(new GlossaryTermData
+            {
+                Id = "pbr",
+                Term = "Physically Based Rendering",
+                Abbreviation = "pbr",
+                Category = GlossaryCategory.GraphicsAndRendering,
+                Difficulty = DifficultyLevel.Intermediate,
+                ShortDefinition = "A shading approach that mimics how light interacts with real-world materials.",
+                SimpleExplanation = "Materials react to light in a realistic, consistent way across different scenes.",
+                WhyItMatters = "PBR helps art look cohesive under varied lighting and reduces guesswork for artists.",
+                Example = "Metal reflects sharply while rough wood scatters light softly using the same shader model.",
+                GameUses = new List<string> { "Material authoring", "Lighting pipelines", "Cross-platform visuals" },
+                Tags = new List<string> { "rendering", "materials", "lighting" },
+                Synonyms = new List<string> { "pbr" },
+                RelatedTermIds = new List<string> { "normal-map", "draw-call" }
+            });
+
             // Art & Animation
             Add(new GlossaryTermData
             {
@@ -325,7 +404,23 @@ namespace GameTerms.Editor
                 Example = "A character torso is unwrapped so armor details align across mesh islands.",
                 GameUses = new List<string> { "Texturing", "Material authoring", "Asset optimization" },
                 Tags = new List<string> { "texturing", "pipeline", "art" },
-                RelatedTermIds = new List<string> { "normal-map", "texture-compression" }
+                RelatedTermIds = new List<string> { "normal-map", "texture-compression", "sprite-sheet" }
+            });
+
+            Add(new GlossaryTermData
+            {
+                Id = "sprite-sheet",
+                Term = "Sprite Sheet",
+                Category = GlossaryCategory.ArtAndAnimation,
+                Difficulty = DifficultyLevel.Beginner,
+                ShortDefinition = "A single image containing multiple frames or icons arranged for efficient rendering.",
+                SimpleExplanation = "One texture file that holds many animation frames or UI icons together.",
+                WhyItMatters = "Sprite sheets reduce draw calls and simplify 2D animation workflows.",
+                Example = "A character walk cycle stored as eight frames in one PNG atlas.",
+                GameUses = new List<string> { "2D animation", "UI atlasing", "Mobile 2D games" },
+                Tags = new List<string> { "2d", "animation", "textures" },
+                Synonyms = new List<string> { "texture atlas", "sprite atlas" },
+                RelatedTermIds = new List<string> { "uv-mapping", "texture-compression", "draw-call" }
             });
 
             // Audio
@@ -371,7 +466,22 @@ namespace GameTerms.Editor
                 Example = "Music volume dips while a mission briefing voice line plays.",
                 GameUses = new List<string> { "Dialogue systems", "UI feedback", "Combat readability" },
                 Tags = new List<string> { "mixing", "ui audio", "clarity" },
-                RelatedTermIds = new List<string> { "foley", "diegetic-audio" }
+                RelatedTermIds = new List<string> { "foley", "diegetic-audio", "adaptive-music" }
+            });
+
+            Add(new GlossaryTermData
+            {
+                Id = "adaptive-music",
+                Term = "Adaptive Music",
+                Category = GlossaryCategory.Audio,
+                Difficulty = DifficultyLevel.Intermediate,
+                ShortDefinition = "Music that changes layers or intensity based on gameplay state.",
+                SimpleExplanation = "The soundtrack reacts to combat, exploration, or story moments in real time.",
+                WhyItMatters = "Adaptive music keeps emotional pacing aligned with player actions without jarring loops.",
+                Example = "Combat drums layer in when enemies appear and fade when the fight ends.",
+                GameUses = new List<string> { "Combat pacing", "Exploration ambience", "Cinematic transitions" },
+                Tags = new List<string> { "music", "dynamic", "immersion" },
+                RelatedTermIds = new List<string> { "audio-ducking", "diegetic-audio" }
             });
 
             // Multiplayer
@@ -434,7 +544,22 @@ namespace GameTerms.Editor
                 GameUses = new List<string> { "Fighting games", "Fast action multiplayer", "Peer-to-peer sessions" },
                 Tags = new List<string> { "netcode", "sync", "fighting" },
                 Synonyms = new List<string> { "rollback netcode" },
-                RelatedTermIds = new List<string> { "client-prediction", "latency" }
+                RelatedTermIds = new List<string> { "client-prediction", "latency", "authoritative-server" }
+            });
+
+            Add(new GlossaryTermData
+            {
+                Id = "authoritative-server",
+                Term = "Authoritative Server",
+                Category = GlossaryCategory.Multiplayer,
+                Difficulty = DifficultyLevel.Intermediate,
+                ShortDefinition = "A server that owns the true game state and validates player actions.",
+                SimpleExplanation = "The server decides what really happened, not each player's device.",
+                WhyItMatters = "Authority prevents cheating and keeps multiplayer outcomes consistent.",
+                Example = "The server confirms a hit before damage is applied, even if a client predicted it locally.",
+                GameUses = new List<string> { "Competitive multiplayer", "Anti-cheat design", "Persistent online worlds" },
+                Tags = new List<string> { "server", "netcode", "security" },
+                RelatedTermIds = new List<string> { "client-prediction", "tick-rate", "latency" }
             });
 
             // Mobile Development
@@ -480,7 +605,22 @@ namespace GameTerms.Editor
                 Example = "Background apps are purged and your game reloads textures after a large scene load.",
                 GameUses = new List<string> { "Mobile stability", "Asset streaming", "Crash prevention" },
                 Tags = new List<string> { "memory", "mobile", "stability" },
-                RelatedTermIds = new List<string> { "garbage-collection", "texture-compression", "thermal-throttling" }
+                RelatedTermIds = new List<string> { "garbage-collection", "texture-compression", "thermal-throttling", "adaptive-performance" }
+            });
+
+            Add(new GlossaryTermData
+            {
+                Id = "adaptive-performance",
+                Term = "Adaptive Performance",
+                Category = GlossaryCategory.MobileDevelopment,
+                Difficulty = DifficultyLevel.Intermediate,
+                ShortDefinition = "Dynamically lowering visual or simulation quality to maintain stable frame rate on device.",
+                SimpleExplanation = "The game quietly reduces effects or resolution when the phone starts struggling.",
+                WhyItMatters = "Adaptive performance helps sustain playable frame rates during long or demanding sessions.",
+                Example = "Shadow quality drops after sustained GPU load while keeping gameplay at 30 FPS.",
+                GameUses = new List<string> { "Mobile optimization", "Thermal management", "Battery-conscious tuning" },
+                Tags = new List<string> { "mobile", "performance", "scaling" },
+                RelatedTermIds = new List<string> { "thermal-throttling", "memory-pressure", "level-of-detail" }
             });
 
             // QA & Testing
@@ -526,7 +666,22 @@ namespace GameTerms.Editor
                 Example = "Spawn thousands of projectiles and AI units to measure frame time collapse.",
                 GameUses = new List<string> { "Server capacity", "Performance QA", "Crash hunting" },
                 Tags = new List<string> { "qa", "performance", "stability" },
-                RelatedTermIds = new List<string> { "regression-testing", "memory-pressure" }
+                RelatedTermIds = new List<string> { "regression-testing", "memory-pressure", "playtesting" }
+            });
+
+            Add(new GlossaryTermData
+            {
+                Id = "playtesting",
+                Term = "Playtesting",
+                Category = GlossaryCategory.QATesting,
+                Difficulty = DifficultyLevel.Beginner,
+                ShortDefinition = "Observing real players use a build to evaluate fun, clarity, and usability.",
+                SimpleExplanation = "Watch people play and learn what confuses, frustrates, or delights them.",
+                WhyItMatters = "Playtesting surfaces design issues that automated tests and internal reviews miss.",
+                Example = "Five testers fail to find the objective until the tutorial arrow is added.",
+                GameUses = new List<string> { "UX validation", "Tutorial tuning", "Balance feedback" },
+                Tags = new List<string> { "qa", "feedback", "design" },
+                RelatedTermIds = new List<string> { "smoke-testing", "onboarding", "regression-testing" }
             });
 
             // Analytics & Monetization
@@ -578,7 +733,22 @@ namespace GameTerms.Editor
                 GameUses = new List<string> { "Monetization strategy", "UA budgeting", "Economy tuning" },
                 Tags = new List<string> { "analytics", "monetization", "kpi" },
                 Synonyms = new List<string> { "lifetime value" },
-                RelatedTermIds = new List<string> { "dau", "mau", "soft-launch" }
+                RelatedTermIds = new List<string> { "dau", "mau", "soft-launch", "retention" }
+            });
+
+            Add(new GlossaryTermData
+            {
+                Id = "retention",
+                Term = "Retention",
+                Category = GlossaryCategory.AnalyticsMonetization,
+                Difficulty = DifficultyLevel.Beginner,
+                ShortDefinition = "The rate at which players return to a game after their first session.",
+                SimpleExplanation = "How many people come back tomorrow, next week, or next month.",
+                WhyItMatters = "Retention shows whether onboarding, content, and updates keep players engaged.",
+                Example = "Day-7 retention rises after improving the first-hour tutorial and daily rewards.",
+                GameUses = new List<string> { "Live ops planning", "Onboarding tuning", "KPI reporting" },
+                Tags = new List<string> { "analytics", "engagement", "kpi" },
+                RelatedTermIds = new List<string> { "dau", "mau", "onboarding", "live-ops" }
             });
 
             // Production & Publishing
@@ -628,7 +798,22 @@ namespace GameTerms.Editor
                 GameUses = new List<string> { "Service games", "Seasonal content", "Retention strategy" },
                 Tags = new List<string> { "operations", "updates", "retention" },
                 Synonyms = new List<string> { "live operations", "liveops" },
-                RelatedTermIds = new List<string> { "soft-launch", "dau", "progression" }
+                RelatedTermIds = new List<string> { "soft-launch", "dau", "progression", "retention" }
+            });
+
+            Add(new GlossaryTermData
+            {
+                Id = "scope-creep",
+                Term = "Scope Creep",
+                Category = GlossaryCategory.ProductionPublishing,
+                Difficulty = DifficultyLevel.Beginner,
+                ShortDefinition = "When a project's feature list grows beyond the original plan without matching time or budget.",
+                SimpleExplanation = "The game keeps gaining new ideas faster than the team can build them.",
+                WhyItMatters = "Scope creep delays launches, burns teams out, and dilutes the core experience.",
+                Example = "A small puzzle game adds multiplayer, crafting, and a battle pass before the first release.",
+                GameUses = new List<string> { "Production planning", "Milestone scoping", "Stakeholder alignment" },
+                Tags = new List<string> { "production", "scope", "planning" },
+                RelatedTermIds = new List<string> { "mvp", "vertical-slice", "soft-launch" }
             });
 
             return terms;

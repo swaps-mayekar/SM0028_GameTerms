@@ -18,11 +18,9 @@ MonoBehaviour:
     Abbreviation: 
     Category: 3
     Difficulty: 1
-    ShortDefinition: Building the bone and control structure that deforms a character
-      model during animation.
+    ShortDefinition: Building the bone and control structure that deforms a character model during animation.
     SimpleExplanation: Creating the skeleton and handles that make a model move.
-    WhyItMatters: A clean rig determines how expressive, stable, and reusable animations
-      can be.
+    WhyItMatters: A clean rig determines how expressive, stable, and reusable animations can be.
     Example: Shoulder, spine, and finger controls are added to a hero character mesh.
     GameUses:
     - Character animation
@@ -35,8 +33,9 @@ MonoBehaviour:
     - animation
     - characters
     - pipeline
-    Synonyms: []
+    Synonyms:
+    - 
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1705449600
+    AddedAtUnix: 1705881600

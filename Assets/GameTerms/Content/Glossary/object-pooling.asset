@@ -18,14 +18,10 @@ MonoBehaviour:
     Abbreviation: pool
     Category: 1
     Difficulty: 1
-    ShortDefinition: A technique where reusable objects are created in advance and
-      activated when needed instead of repeatedly creating and destroying them.
-    SimpleExplanation: Keep a collection of reusable objects instead of constantly
-      creating new ones.
-    WhyItMatters: Pooling reduces allocation spikes and garbage collection pressure
-      during intense gameplay.
-    Example: Reuse bullet instances by disabling them after impact and returning
-      them to a pool.
+    ShortDefinition: A technique where reusable objects are created in advance and activated when needed instead of repeatedly creating and destroying them.
+    SimpleExplanation: Keep a collection of reusable objects instead of constantly creating new ones.
+    WhyItMatters: Pooling reduces allocation spikes and garbage collection pressure during intense gameplay.
+    Example: Reuse bullet instances by disabling them after impact and returning them to a pool.
     GameUses:
     - Shooters
     - Particle effects
@@ -40,9 +36,8 @@ MonoBehaviour:
     Synonyms:
     - pooling
     - object pool
-    CodeExample: 'GameObject obj = pool.Get();
-
-      obj.SetActive(true);'
+    CodeExample: GameObject obj = pool.Get();
+obj.SetActive(true);
     HasDiagram: 1
-    DiagramType: 2
-    AddedAtUnix: 1704499200
+    DiagramType: 1
+    AddedAtUnix: 1704672000

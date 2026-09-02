@@ -18,12 +18,9 @@ MonoBehaviour:
     Abbreviation: 
     Category: 1
     Difficulty: 1
-    ShortDefinition: Converting runtime data into a storable or transmittable format
-      and back again.
-    SimpleExplanation: Turning game data into save files, network packets, or config
-      files.
-    WhyItMatters: Reliable serialization is essential for saves, multiplayer sync,
-      and content pipelines.
+    ShortDefinition: Converting runtime data into a storable or transmittable format and back again.
+    SimpleExplanation: Turning game data into save files, network packets, or config files.
+    WhyItMatters: Reliable serialization is essential for saves, multiplayer sync, and content pipelines.
     Example: Write player inventory to JSON before closing the app.
     GameUses:
     - Save systems
@@ -36,8 +33,9 @@ MonoBehaviour:
     - data
     - save
     - pipeline
-    Synonyms: []
+    Synonyms:
+    - 
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1704758400
+    AddedAtUnix: 1704931200
