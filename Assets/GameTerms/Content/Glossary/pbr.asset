@@ -18,10 +18,18 @@ MonoBehaviour:
     Abbreviation: pbr
     Category: 2
     Difficulty: 1
-    ShortDefinition: A shading approach that mimics how light interacts with real-world materials.
-    SimpleExplanation: Materials react to light in a realistic, consistent way across different scenes.
-    WhyItMatters: PBR helps art look cohesive under varied lighting and reduces guesswork for artists.
-    Example: Metal reflects sharply while rough wood scatters light softly using the same shader model.
+    ShortDefinition: A shading approach that mimics how light interacts with real-world
+      materials.
+    SimpleExplanation: Materials react to light in a realistic, consistent way across
+      different scenes.
+    WhyItMatters: PBR helps art look cohesive under varied lighting and reduces guesswork
+      for artists.
+    Example: Metal reflects sharply while rough wood scatters light softly using
+      the same shader model.
+    CommonMistake: Mixing PBR maps with non-PBR lighting assumptions, creating plastic-looking
+      materials.
+    PracticePrompt: Author one material with albedo, roughness, and metallic maps
+      under two lighting setups.
     GameUses:
     - Material authoring
     - Lighting pipelines
@@ -29,6 +37,8 @@ MonoBehaviour:
     RelatedTermIds:
     - normal-map
     - draw-call
+    - albedo-map
+    - roughness-map
     Tags:
     - rendering
     - materials
@@ -38,4 +48,4 @@ MonoBehaviour:
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1705708800
+    AddedAtUnix: 1707091200

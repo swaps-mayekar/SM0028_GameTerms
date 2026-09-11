@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: backgrounding
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: backgrounding
+    Term: Backgrounding
+    Abbreviation: 
+    Category: 6
+    Difficulty: 1
+    ShortDefinition: Handling the app when it leaves the foreground, including pause,
+      save, and resume flows.
+    SimpleExplanation: What happens when the player switches away from your game
+      and comes back.
+    WhyItMatters: Correct backgrounding prevents data loss, audio glitches, and network
+      waste.
+    Example: Autosaving inventory and muting audio when the OS sends a pause event.
+    CommonMistake: Leaving network sockets and music running while the app is backgrounded.
+    PracticePrompt: Interrupt a match with a phone call and verify save integrity
+      plus clean resume.
+    GameUses:
+    - Mobile lifecycle
+    - Save safety
+    - Audio systems
+    RelatedTermIds:
+    - serialization
+    - battery-optimization
+    - push-notifications
+    Tags:
+    - lifecycle
+    - mobile
+    - stability
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1712707200

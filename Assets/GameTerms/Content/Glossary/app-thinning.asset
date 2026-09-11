@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: app-thinning
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: app-thinning
+    Term: App Thinning
+    Abbreviation: 
+    Category: 6
+    Difficulty: 1
+    ShortDefinition: Shipping only the assets and binaries a specific device needs
+      to reduce install size.
+    SimpleExplanation: Giving each phone just the slices of the game it actually
+      requires.
+    WhyItMatters: Smaller installs improve conversion and reduce uninstalls on storage-limited
+      devices.
+    Example: Delivering ASTC textures for capable devices and alternate formats for
+      others.
+    CommonMistake: Bundling every language and texture variant into one fat binary.
+    PracticePrompt: Measure install size before and after enabling device-specific
+      asset slicing.
+    GameUses:
+    - Store conversion
+    - Asset delivery
+    - Mobile packaging
+    RelatedTermIds:
+    - texture-compression
+    - addressable-assets
+    - app-store-guidelines
+    Tags:
+    - size
+    - packaging
+    - mobile
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1712620800

@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: voice-over
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: voice-over
+    Term: Voice Over
+    Abbreviation: vo
+    Category: 4
+    Difficulty: 0
+    ShortDefinition: Recorded spoken performance used for characters, narration,
+      or system prompts.
+    SimpleExplanation: Actors speaking lines that play in the game.
+    WhyItMatters: Voice over carries story, personality, and critical instructions.
+    Example: A companion character warns the player about an ambush mid-mission.
+    CommonMistake: Shipping dialogue without localization or subtitle fallbacks.
+    PracticePrompt: Write and record three system VO lines with matching subtitle
+      timing.
+    GameUses:
+    - Narrative games
+    - Tutorials
+    - Live events
+    RelatedTermIds:
+    - audio-ducking
+    - localization
+    - loudness-normalization
+    Tags:
+    - dialogue
+    - narrative
+    - performance
+    Synonyms:
+    - VO
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1710115200

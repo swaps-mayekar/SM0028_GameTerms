@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: alpha-beta
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: alpha-beta
+    Term: Alpha / Beta
+    Abbreviation: 
+    Category: 9
+    Difficulty: 1
+    ShortDefinition: Development phases where alpha proves incomplete systems and
+      beta focuses on polish and scale.
+    SimpleExplanation: Alpha is still rough but playable; beta is closer to ship
+      and needs wider testing.
+    WhyItMatters: Phase labels set expectations for content completeness and bug
+      severity targets.
+    Example: Closed beta expands to thousands of players to validate servers and
+      onboarding.
+    CommonMistake: Calling a feature-incomplete build beta to satisfy a calendar
+      promise.
+    PracticePrompt: Define exit criteria that separate your alpha from beta for content
+      and stability.
+    GameUses:
+    - External tests
+    - Publisher gates
+    - Server validation
+    RelatedTermIds:
+    - milestone
+    - soft-launch
+    - release-candidate
+    - playtesting
+    Tags:
+    - production
+    - phases
+    - testing
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1716249600

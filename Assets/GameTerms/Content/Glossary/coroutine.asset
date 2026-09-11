@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: coroutine
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: coroutine
+    Term: Coroutine
+    Abbreviation: 
+    Category: 1
+    Difficulty: 1
+    ShortDefinition: A function that can pause and resume over multiple frames without
+      blocking the main thread.
+    SimpleExplanation: A script that waits and continues later while the game keeps
+      running.
+    WhyItMatters: Coroutines simplify timed sequences, fades, and async gameplay
+      flows on one thread.
+    Example: Fade out a UI panel over one second using yield return null each frame.
+    CommonMistake: Starting many long-lived coroutines without cancellation when
+      the object is disabled.
+    PracticePrompt: Write a damage-over-time coroutine that stops cleanly when the
+      target dies.
+    GameUses:
+    - Timed sequences
+    - Spawning waves
+    - UI transitions
+    RelatedTermIds:
+    - update-loop
+    - delta-time
+    - event-system
+    Tags:
+    - async
+    - timing
+    - unity
+    Synonyms: []
+    CodeExample: yield return new WaitForSeconds(1f);
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1706313600

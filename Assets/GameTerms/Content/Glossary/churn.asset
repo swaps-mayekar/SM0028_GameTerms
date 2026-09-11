@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: churn
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: churn
+    Term: Churn
+    Abbreviation: 
+    Category: 8
+    Difficulty: 1
+    ShortDefinition: The rate at which players stop returning within a defined inactivity
+      window.
+    SimpleExplanation: How quickly players leave and do not come back.
+    WhyItMatters: Churn diagnosis points teams to broken onboarding, difficulty spikes,
+      or stale content.
+    Example: Players who skip seven days are marked churned for reactivation campaigns.
+    CommonMistake: Defining churn so loosely that seasonal players look permanently
+      lost.
+    PracticePrompt: Identify the top three screens last seen by churned D7 players.
+    GameUses:
+    - Retention war rooms
+    - Reactivation offers
+    - Content planning
+    RelatedTermIds:
+    - retention
+    - cohort-analysis
+    - session-length
+    - k-factor
+    Tags:
+    - analytics
+    - retention
+    - risk
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1714953600

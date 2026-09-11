@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: bug-triage
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: bug-triage
+    Term: Bug Triage
+    Abbreviation: 
+    Category: 7
+    Difficulty: 1
+    ShortDefinition: Reviewing, prioritizing, and assigning defects based on severity
+      and impact.
+    SimpleExplanation: Sorting bugs so the worst problems get fixed first.
+    WhyItMatters: Good triage protects schedules and focuses engineering on player-facing
+      risk.
+    Example: A crash on boot is marked blocker while a rare VFX pop is deferred.
+    CommonMistake: Prioritizing by who filed the bug instead of player impact and
+      frequency.
+    PracticePrompt: Triage ten open bugs into severity buckets with owners and target
+      milestones.
+    GameUses:
+    - Sprint planning
+    - Launch readiness
+    - Live support
+    RelatedTermIds:
+    - test-plan
+    - regression-testing
+    - milestone
+    Tags:
+    - qa
+    - process
+    - priority
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1713830400

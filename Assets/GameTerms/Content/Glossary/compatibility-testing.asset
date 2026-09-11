@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: compatibility-testing
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: compatibility-testing
+    Term: Compatibility Testing
+    Abbreviation: 
+    Category: 7
+    Difficulty: 1
+    ShortDefinition: Validating the game across target devices, OS versions, and
+      hardware configurations.
+    SimpleExplanation: Making sure the game works on the phones and platforms you
+      claim to support.
+    WhyItMatters: Compatibility gaps cause one-star reviews and support spikes after
+      launch.
+    Example: Testing login and graphics quality presets on low, mid, and high Android
+      tiers.
+    CommonMistake: Testing only the newest flagship devices used by the development
+      team.
+    PracticePrompt: Build a device matrix of five targets and execute the smoke suite
+      on each.
+    GameUses:
+    - Mobile release QA
+    - Console SKUs
+    - OS upgrade checks
+    RelatedTermIds:
+    - device-tiering
+    - smoke-testing
+    - localization-qa
+    Tags:
+    - qa
+    - devices
+    - coverage
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1713744000

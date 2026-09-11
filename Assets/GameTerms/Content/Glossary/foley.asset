@@ -18,10 +18,15 @@ MonoBehaviour:
     Abbreviation: 
     Category: 4
     Difficulty: 0
-    ShortDefinition: Everyday sound effects recorded to match on-screen physical actions.
-    SimpleExplanation: Custom recorded sounds for footsteps, cloth, impacts, and object handling.
-    WhyItMatters: Foley makes interactions feel tactile and grounded in the game world.
+    ShortDefinition: Everyday sound effects recorded to match on-screen physical
+      actions.
+    SimpleExplanation: Custom recorded sounds for footsteps, cloth, impacts, and
+      object handling.
+    WhyItMatters: Foley makes interactions feel tactile and grounded in the game
+      world.
     Example: Recording leather creaks and metal clanks for a character gear swap.
+    CommonMistake: Reusing one footstep sample on every surface, which breaks believability.
+    PracticePrompt: Record three surface footsteps and hook them to a movement animation.
     GameUses:
     - Character interaction
     - Cinematic polish
@@ -29,13 +34,13 @@ MonoBehaviour:
     RelatedTermIds:
     - diegetic-audio
     - audio-ducking
+    - sfx-layering
     Tags:
     - sound design
     - sfx
     - immersion
-    Synonyms:
-    - 
+    Synonyms: []
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1706227200
+    AddedAtUnix: 1709251200

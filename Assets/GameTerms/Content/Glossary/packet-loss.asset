@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: packet-loss
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: packet-loss
+    Term: Packet Loss
+    Abbreviation: 
+    Category: 5
+    Difficulty: 1
+    ShortDefinition: Network packets that never arrive and must be recovered or tolerated
+      by the game.
+    SimpleExplanation: Some messages vanish on the way and never show up.
+    WhyItMatters: Games must stay playable even when the network drops data.
+    Example: A lost input packet is resent or reconstructed from later state.
+    CommonMistake: Assuming a perfect network during design and playtesting only
+      on LAN.
+    PracticePrompt: Simulate 5 percent packet loss and list which systems break first.
+    GameUses:
+    - Mobile networks
+    - Competitive play
+    - Netcode QA
+    RelatedTermIds:
+    - jitter
+    - latency
+    - rollback
+    Tags:
+    - networking
+    - reliability
+    - qa
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1711324800

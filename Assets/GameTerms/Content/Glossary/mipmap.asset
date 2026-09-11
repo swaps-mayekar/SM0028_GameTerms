@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: mipmap
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: mipmap
+    Term: Mipmap
+    Abbreviation: 
+    Category: 2
+    Difficulty: 1
+    ShortDefinition: A chain of progressively smaller texture versions used when
+      sampling distant surfaces.
+    SimpleExplanation: Smaller copies of a texture that the GPU uses when things
+      are far away.
+    WhyItMatters: Mipmaps reduce aliasing and improve texture sampling performance.
+    Example: A brick wall uses a lower mip level when viewed from across a courtyard.
+    CommonMistake: Disabling mipmaps on world textures and introducing shimmering
+      aliasing.
+    PracticePrompt: Inspect mip visualization on one material and confirm distant
+      surfaces use lower mips.
+    GameUses:
+    - Texture streaming
+    - World materials
+    - Mobile memory
+    RelatedTermIds:
+    - level-of-detail
+    - texture-compression
+    - texel-density
+    Tags:
+    - textures
+    - sampling
+    - optimization
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1707782400

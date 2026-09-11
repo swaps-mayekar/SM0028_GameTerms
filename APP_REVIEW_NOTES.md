@@ -3,14 +3,20 @@
 ## What this app is
 Game Terms is an offline game-development learning app. All glossary content is bundled in the app binary (no web views, no scraped internet content, no external browsing).
 
+## Content depth
+- 150 original game-development terms across 10 disciplines
+- Each term includes definition, plain-language explanation, why it matters, example, common mistake, practice prompt, game uses, and related terms
+- Selected terms include code examples and diagrams
+
 ## Native interactive features for reviewers
 1. Open the **Study** tab in the bottom navigation.
 2. Tap **Quick Quiz** and complete a 5-question multiple-choice session generated on-device from glossary definitions.
 3. Return to Study and tap **Flashcards**; use **Show Definition**, then **Know It** / **Review Again**.
 4. Confirm progress persists: Home shows mastery count, Study Hub shows due count / streak / quiz history.
-5. Optional: open any term and tap **Quiz This Term**.
+5. Open any term and review **Common Mistake** and **Try It Yourself**, then optionally tap **Quiz This Term**.
 
 ## Why this meets Guideline 4.2.2
+- Substantial original educational content (150 terms with practice prompts)
 - Native quiz assessment with scoring and missed-term review
 - Spaced-repetition flashcards with personalized due scheduling
 - Persistent local mastery, streak, and quiz history unique to the user

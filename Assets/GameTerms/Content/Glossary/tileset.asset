@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: tileset
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: tileset
+    Term: Tileset
+    Abbreviation: 
+    Category: 3
+    Difficulty: 0
+    ShortDefinition: A collection of reusable tiles used to construct 2D levels and
+      environments.
+    SimpleExplanation: A palette of small art pieces you stamp repeatedly to build
+      maps.
+    WhyItMatters: Tilesets speed 2D production and keep art style consistent across
+      levels.
+    Example: Grass, water, and cliff tiles assemble into a top-down overworld.
+    CommonMistake: Designing tiles that only connect in one orientation, limiting
+      level variety.
+    PracticePrompt: Create a nine-slice terrain tileset and build a small path that
+      uses every tile.
+    GameUses:
+    - 2D level art
+    - Roguelike maps
+    - Mobile 2D games
+    RelatedTermIds:
+    - sprite-sheet
+    - level-design
+    - uv-mapping
+    Tags:
+    - 2d
+    - levels
+    - art
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1709164800

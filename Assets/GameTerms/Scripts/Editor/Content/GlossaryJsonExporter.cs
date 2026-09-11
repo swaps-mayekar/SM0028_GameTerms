@@ -19,7 +19,11 @@ namespace GameTerms.Editor
             var issues = GlossaryContentValidator.Validate(catalog.Terms);
             if (issues.Count > 0)
             {
-                Debug.LogError(string.Join("\n", issues));
+                foreach (var issue in issues)
+                {
+                    Debug.LogError($"[Glossary Validation] {issue}");
+                }
+
                 return;
             }
 
@@ -31,7 +35,16 @@ namespace GameTerms.Editor
             var json = JsonUtility.ToJson(catalog, true);
             System.IO.File.WriteAllText(JsonPath, json);
             AssetDatabase.ImportAsset(JsonPath);
-            Debug.Log($"Exported glossary JSON to {JsonPath}");
+            Debug.Log($"Exported glossary JSON to {JsonPath} ({catalog.Terms.Count} terms).");
+        }
+
+        public static void GenerateAndExportBatch()
+        {
+            GlossaryContentGenerator.Generate();
+            Export();
+            var terms = GlossaryContentDefinitions.CreateAllTerms();
+            var issues = GlossaryContentValidator.Validate(terms);
+            EditorApplication.Exit(issues.Count > 0 ? 1 : 0);
         }
     }
 }

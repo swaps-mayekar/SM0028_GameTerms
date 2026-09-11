@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: roughness-map
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: roughness-map
+    Term: Roughness Map
+    Abbreviation: 
+    Category: 3
+    Difficulty: 1
+    ShortDefinition: A texture controlling how sharp or blurry reflections appear
+      across a surface.
+    SimpleExplanation: Dark areas look glossier and bright areas look more matte.
+    WhyItMatters: Roughness variation sells material realism more than color alone.
+    Example: Metal edges stay glossy while worn paint reads rough and chalky.
+    CommonMistake: Using gloss and roughness maps interchangeably without converting
+      the workflow.
+    PracticePrompt: Paint a roughness map for a metal panel with scratched edges
+      and preview reflections.
+    GameUses:
+    - PBR materials
+    - Hero props
+    - Weapons
+    RelatedTermIds:
+    - albedo-map
+    - normal-map
+    - pbr
+    Tags:
+    - texturing
+    - pbr
+    - reflections
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1708905600

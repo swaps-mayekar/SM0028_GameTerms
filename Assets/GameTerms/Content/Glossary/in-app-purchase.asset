@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: in-app-purchase
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: in-app-purchase
+    Term: In-App Purchase
+    Abbreviation: iap
+    Category: 8
+    Difficulty: 0
+    ShortDefinition: A real-money transaction inside a game for currency, items,
+      or unlocks.
+    SimpleExplanation: Players pay inside the app for something beyond the free download.
+    WhyItMatters: IAP design must balance revenue with fairness and platform compliance.
+    Example: A starter pack offers currency and a cosmetic at a first-purchase discount.
+    CommonMistake: Gatekeeping core progression behind purchases in ways that violate
+      store rules or trust.
+    PracticePrompt: List every IAP and mark which are cosmetic versus power-affecting.
+    GameUses:
+    - F2P monetization
+    - Mobile stores
+    - Live ops offers
+    RelatedTermIds:
+    - battle-pass
+    - economy-design
+    - app-store-guidelines
+    - arpu
+    Tags:
+    - monetization
+    - iap
+    - stores
+    Synonyms:
+    - IAP
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1715385600

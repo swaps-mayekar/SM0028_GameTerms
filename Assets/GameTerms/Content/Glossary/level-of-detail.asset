@@ -18,10 +18,15 @@ MonoBehaviour:
     Abbreviation: lod
     Category: 2
     Difficulty: 1
-    ShortDefinition: Using simpler versions of assets at greater distances to save rendering cost.
+    ShortDefinition: Using simpler versions of assets at greater distances to save
+      rendering cost.
     SimpleExplanation: Show a detailed model up close and a cheaper one far away.
-    WhyItMatters: LOD preserves visual quality near the player while protecting frame rate.
+    WhyItMatters: LOD preserves visual quality near the player while protecting frame
+      rate.
     Example: A hero mesh swaps to a lower polygon version beyond 30 meters.
+    CommonMistake: Switching LODs so abruptly that popping is obvious to players.
+    PracticePrompt: Create three LOD meshes for one prop and tune transition distances
+      in play mode.
     GameUses:
     - Open worlds
     - Crowd scenes
@@ -29,6 +34,7 @@ MonoBehaviour:
     RelatedTermIds:
     - draw-call
     - texture-compression
+    - mipmap
     Tags:
     - lod
     - optimization
@@ -37,5 +43,5 @@ MonoBehaviour:
     - lod
     CodeExample: 
     HasDiagram: 1
-    DiagramType: 5
-    AddedAtUnix: 1705536000
+    DiagramType: 4
+    AddedAtUnix: 1706918400

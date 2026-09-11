@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: static-batching
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: static-batching
+    Term: Static Batching
+    Abbreviation: 
+    Category: 2
+    Difficulty: 1
+    ShortDefinition: Combining non-moving meshes that share materials into fewer
+      draw calls.
+    SimpleExplanation: Group still objects together so the GPU draws them more efficiently.
+    WhyItMatters: Static batching is a major win for environment art on constrained
+      devices.
+    Example: Hundreds of static crates sharing one material drawn as fewer batches.
+    CommonMistake: Marking dynamic objects as static and breaking their movement
+      or lighting.
+    PracticePrompt: Enable static batching on a prop group and measure draw-call
+      reduction.
+    GameUses:
+    - Environment optimization
+    - Mobile scenes
+    - Open-world props
+    RelatedTermIds:
+    - draw-call
+    - dynamic-batching
+    - occlusion-culling
+    Tags:
+    - batching
+    - performance
+    - meshes
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1707350400

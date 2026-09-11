@@ -18,10 +18,14 @@ MonoBehaviour:
     Abbreviation: mau
     Category: 8
     Difficulty: 0
-    ShortDefinition: Monthly Active Users: unique players who engage within a rolling month.
+    ShortDefinition: 'Monthly Active Users: unique players who engage within a rolling
+      month.'
     SimpleExplanation: How many different people played at least once this month.
     WhyItMatters: MAU shows broader audience health beyond day-to-day volatility.
     Example: A seasonal campaign lifts MAU even when daily numbers fluctuate.
+    CommonMistake: Comparing MAU across unequal month lengths without normalization.
+    PracticePrompt: Compute DAU/MAU stickiness for the last three months and explain
+      the trend.
     GameUses:
     - Portfolio reporting
     - Retention analysis
@@ -29,6 +33,8 @@ MonoBehaviour:
     RelatedTermIds:
     - dau
     - ltv
+    - retention
+    - churn
     Tags:
     - analytics
     - engagement
@@ -38,4 +44,4 @@ MonoBehaviour:
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1707782400
+    AddedAtUnix: 1714521600

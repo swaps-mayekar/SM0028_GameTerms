@@ -18,10 +18,16 @@ MonoBehaviour:
     Abbreviation: 
     Category: 5
     Difficulty: 1
-    ShortDefinition: A server that owns the true game state and validates player actions.
-    SimpleExplanation: The server decides what really happened, not each player's device.
+    ShortDefinition: A server that owns the true game state and validates player
+      actions.
+    SimpleExplanation: The server decides what really happened, not each player's
+      device.
     WhyItMatters: Authority prevents cheating and keeps multiplayer outcomes consistent.
-    Example: The server confirms a hit before damage is applied, even if a client predicted it locally.
+    Example: The server confirms a hit before damage is applied, even if a client
+      predicted it locally.
+    CommonMistake: Trusting client-reported damage values without server validation.
+    PracticePrompt: Move damage resolution to the server and reject an illegal client
+      claim.
     GameUses:
     - Competitive multiplayer
     - Anti-cheat design
@@ -30,13 +36,13 @@ MonoBehaviour:
     - client-prediction
     - tick-rate
     - latency
+    - dedicated-server
     Tags:
     - server
     - netcode
     - security
-    Synonyms:
-    - 
+    Synonyms: []
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1706918400
+    AddedAtUnix: 1710892800

@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: game-design-document
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: game-design-document
+    Term: Game Design Document
+    Abbreviation: gdd
+    Category: 9
+    Difficulty: 0
+    ShortDefinition: A living reference that captures vision, systems, constraints,
+      and content goals.
+    SimpleExplanation: The shared write-up of what the game is and how its systems
+      should work.
+    WhyItMatters: A clear GDD reduces misalignment across design, art, engineering,
+      and production.
+    Example: Pillars, core loop, camera rules, and progression charts live in one
+      editable doc.
+    CommonMistake: Writing a huge unread GDD once, then never updating it as the
+      game changes.
+    PracticePrompt: Create a two-page GDD covering pillars, core loop, and out-of-scope
+      list.
+    GameUses:
+    - Kickoffs
+    - Vendor handoff
+    - Vertical slice planning
+    RelatedTermIds:
+    - mvp
+    - vertical-slice
+    - milestone
+    Tags:
+    - documentation
+    - design
+    - production
+    Synonyms:
+    - GDD
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1716076800

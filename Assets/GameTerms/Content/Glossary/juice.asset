@@ -18,10 +18,18 @@ MonoBehaviour:
     Abbreviation: 
     Category: 0
     Difficulty: 0
-    ShortDefinition: Exaggerated visual, audio, and haptic feedback that makes actions feel satisfying.
-    SimpleExplanation: The extra pop, shake, and sound that makes hitting a button or landing a jump feel great.
-    WhyItMatters: Juice improves game feel and helps players understand cause and effect without extra UI.
-    Example: Screen shake, particle bursts, and a punchy sound when the player collects a coin.
+    ShortDefinition: Exaggerated visual, audio, and haptic feedback that makes actions
+      feel satisfying.
+    SimpleExplanation: The extra pop, shake, and sound that makes hitting a button
+      or landing a jump feel great.
+    WhyItMatters: Juice improves game feel and helps players understand cause and
+      effect without extra UI.
+    Example: Screen shake, particle bursts, and a punchy sound when the player collects
+      a coin.
+    CommonMistake: Adding effects everywhere until critical feedback becomes hard
+      to read.
+    PracticePrompt: 'Pick one player action and layer three feedback channels: visual,
+      audio, and motion.'
     GameUses:
     - Combat feedback
     - UI polish
@@ -29,12 +37,12 @@ MonoBehaviour:
     RelatedTermIds:
     - core-loop
     - game-loop
+    - game-feel
     Tags:
     - feel
     - feedback
     - polish
-    Synonyms:
-    - 
+    Synonyms: []
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0

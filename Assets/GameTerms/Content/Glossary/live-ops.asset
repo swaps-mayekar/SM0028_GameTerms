@@ -18,10 +18,16 @@ MonoBehaviour:
     Abbreviation: liveops
     Category: 9
     Difficulty: 1
-    ShortDefinition: Ongoing updates, events, and content that keep a shipped game active and healthy.
-    SimpleExplanation: Running the game after launch with events, fixes, and fresh content.
+    ShortDefinition: Ongoing updates, events, and content that keep a shipped game
+      active and healthy.
+    SimpleExplanation: Running the game after launch with events, fixes, and fresh
+      content.
     WhyItMatters: Live ops sustains engagement and revenue long after initial release.
-    Example: Weekly events, seasonal passes, and balance patches across the first year.
+    Example: Weekly events, seasonal passes, and balance patches across the first
+      year.
+    CommonMistake: Shipping calendars so dense that content quality and QA collapse.
+    PracticePrompt: Plan a four-week live ops calendar with owners, goals, and rollback
+      plans.
     GameUses:
     - Service games
     - Seasonal content
@@ -30,7 +36,7 @@ MonoBehaviour:
     - soft-launch
     - dau
     - progression
-    - retention
+    - battle-pass
     Tags:
     - operations
     - updates
@@ -41,4 +47,4 @@ MonoBehaviour:
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1708214400
+    AddedAtUnix: 1715904000

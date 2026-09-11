@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: golden-master
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: golden-master
+    Term: Golden Master
+    Abbreviation: 
+    Category: 7
+    Difficulty: 2
+    ShortDefinition: A trusted baseline build or output used to detect unexpected
+      changes.
+    SimpleExplanation: A known-good reference you compare new results against.
+    WhyItMatters: Golden masters catch silent regressions in rendering, audio, or
+      deterministic sims.
+    Example: Screenshot diffs fail when a lighting tweak unexpectedly darkens a tutorial
+      room.
+    CommonMistake: Updating the golden without review, which hides real regressions.
+    PracticePrompt: Capture a golden screenshot for one scene and fail CI on pixel-diff
+      thresholds.
+    GameUses:
+    - Visual QA
+    - Deterministic replay
+    - Audio mix checks
+    RelatedTermIds:
+    - regression-testing
+    - unit-testing
+    - ci-cd-pipeline
+    Tags:
+    - qa
+    - baseline
+    - automation
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1714089600

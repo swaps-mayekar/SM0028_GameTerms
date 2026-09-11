@@ -18,10 +18,17 @@ MonoBehaviour:
     Abbreviation: 
     Category: 0
     Difficulty: 0
-    ShortDefinition: The repeating cycle of actions players perform most often during play.
-    SimpleExplanation: The main thing players do again and again because it feels good and moves them forward.
-    WhyItMatters: A clear core loop keeps sessions focused and helps teams prioritize features that reinforce the primary experience.
+    ShortDefinition: The repeating cycle of actions players perform most often during
+      play.
+    SimpleExplanation: The main thing players do again and again because it feels
+      good and moves them forward.
+    WhyItMatters: A clear core loop keeps sessions focused and helps teams prioritize
+      features that reinforce the primary experience.
     Example: In a farming game, plant crops, wait, harvest, sell, and upgrade tools.
+    CommonMistake: Adding side systems that never feed back into the loop, so the
+      main experience feels diluted.
+    PracticePrompt: Write your game's core loop as 4 to 6 verbs and remove any step
+      that does not create progress or feedback.
     GameUses:
     - Session design
     - Prototype validation
@@ -29,6 +36,7 @@ MonoBehaviour:
     RelatedTermIds:
     - game-loop
     - progression
+    - feedback-loop
     Tags:
     - design
     - loop

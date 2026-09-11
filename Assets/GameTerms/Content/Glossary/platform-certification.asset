@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: platform-certification
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: platform-certification
+    Term: Platform Certification
+    Abbreviation: 
+    Category: 9
+    Difficulty: 2
+    ShortDefinition: Mandatory technical and compliance testing by platform holders
+      before store release.
+    SimpleExplanation: The official exam your build must pass to appear on a console
+      or storefront.
+    WhyItMatters: Certification failures can delay launches by weeks if caught late.
+    Example: A console submission fails for improper suspend-resume handling and
+      must be resubmitted.
+    CommonMistake: Treating TRC or store checks as optional until the final week.
+    PracticePrompt: Run an internal certification checklist two milestones before
+      submission.
+    GameUses:
+    - Console publishing
+    - Store submission
+    - Compliance
+    RelatedTermIds:
+    - release-candidate
+    - app-store-guidelines
+    - localization-qa
+    Tags:
+    - certification
+    - publishing
+    - platforms
+    Synonyms:
+    - cert
+    - TRC
+    - lotcheck
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1716595200

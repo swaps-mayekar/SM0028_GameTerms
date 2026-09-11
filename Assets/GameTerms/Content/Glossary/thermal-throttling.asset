@@ -21,7 +21,12 @@ MonoBehaviour:
     ShortDefinition: When a device reduces CPU or GPU performance to prevent overheating.
     SimpleExplanation: The phone slows itself down because it is getting too hot.
     WhyItMatters: Throttling can cause sudden frame drops during long play sessions.
-    Example: A game holds 60 FPS for ten minutes, then drops after sustained GPU load.
+    Example: A game holds 60 FPS for ten minutes, then drops after sustained GPU
+      load.
+    CommonMistake: Blaming one short frame spike for thermal issues that only appear
+      after long sessions.
+    PracticePrompt: Run a 20-minute combat soak on device and chart FPS against skin
+      temperature.
     GameUses:
     - Mobile QA
     - Graphics budgeting
@@ -29,13 +34,14 @@ MonoBehaviour:
     RelatedTermIds:
     - memory-pressure
     - texture-compression
+    - adaptive-performance
+    - battery-optimization
     Tags:
     - mobile
     - performance
     - hardware
-    Synonyms:
-    - 
+    Synonyms: []
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1707004800
+    AddedAtUnix: 1711843200

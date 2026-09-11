@@ -18,10 +18,18 @@ MonoBehaviour:
     Abbreviation: ecs
     Category: 1
     Difficulty: 2
-    ShortDefinition: An architecture where gameplay data lives in components and behavior runs in systems over entities.
-    SimpleExplanation: Store traits in small data chunks and let systems process matching groups efficiently.
-    WhyItMatters: ECS can improve performance and scale for large numbers of similar game objects.
-    Example: A movement system updates every entity that has position and velocity components.
+    ShortDefinition: An architecture where gameplay data lives in components and
+      behavior runs in systems over entities.
+    SimpleExplanation: Store traits in small data chunks and let systems process
+      matching groups efficiently.
+    WhyItMatters: ECS can improve performance and scale for large numbers of similar
+      game objects.
+    Example: A movement system updates every entity that has position and velocity
+      components.
+    CommonMistake: Stuffing unrelated data into one giant component and losing the
+      data-oriented benefit.
+    PracticePrompt: Model a projectile as separate transform, velocity, and lifetime
+      components.
     GameUses:
     - Large-scale simulation
     - Performance-critical gameplay
@@ -29,6 +37,7 @@ MonoBehaviour:
     RelatedTermIds:
     - dependency-injection
     - object-pooling
+    - data-oriented-design
     Tags:
     - architecture
     - performance
@@ -38,4 +47,4 @@ MonoBehaviour:
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1705190400
+    AddedAtUnix: 1705881600

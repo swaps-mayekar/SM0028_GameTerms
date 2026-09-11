@@ -18,10 +18,17 @@ MonoBehaviour:
     Abbreviation: mvp
     Category: 9
     Difficulty: 0
-    ShortDefinition: Minimum Viable Product: the smallest version that proves core value to players.
+    ShortDefinition: 'Minimum Viable Product: the smallest version that proves core
+      value to players.'
     SimpleExplanation: The leanest playable version that tests whether the idea works.
-    WhyItMatters: An MVP reduces wasted production by validating fun and market fit early.
-    Example: Ship one dungeon loop with basic progression before building the full world map.
+    WhyItMatters: An MVP reduces wasted production by validating fun and market fit
+      early.
+    Example: Ship one dungeon loop with basic progression before building the full
+      world map.
+    CommonMistake: Calling a feature-complete product an MVP and delaying learning
+      for months.
+    PracticePrompt: Define an MVP feature list that can be playtested in four weeks
+      or less.
     GameUses:
     - Prototype validation
     - Pitching
@@ -29,6 +36,8 @@ MonoBehaviour:
     RelatedTermIds:
     - vertical-slice
     - soft-launch
+    - scope-creep
+    - game-design-document
     Tags:
     - production
     - scope
@@ -38,4 +47,4 @@ MonoBehaviour:
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1708041600
+    AddedAtUnix: 1715731200

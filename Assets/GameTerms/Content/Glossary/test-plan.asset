@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: test-plan
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: test-plan
+    Term: Test Plan
+    Abbreviation: 
+    Category: 7
+    Difficulty: 0
+    ShortDefinition: A document describing scope, environments, cases, and exit criteria
+      for testing.
+    SimpleExplanation: The written plan for what will be tested, how, and when it
+      is done enough.
+    WhyItMatters: Plans align QA, design, and engineering on risk coverage before
+      a milestone.
+    Example: A soft-launch plan covers onboarding, IAP, crash rate, and retention
+      dashboards.
+    CommonMistake: Writing a plan nobody updates, so testing drifts from current
+      risks.
+    PracticePrompt: Draft a one-page plan for your next milestone with entry and
+      exit criteria.
+    GameUses:
+    - Milestone QA
+    - Release readiness
+    - Outsourcing handoff
+    RelatedTermIds:
+    - smoke-testing
+    - bug-triage
+    - build-verification
+    Tags:
+    - qa
+    - planning
+    - process
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1713916800

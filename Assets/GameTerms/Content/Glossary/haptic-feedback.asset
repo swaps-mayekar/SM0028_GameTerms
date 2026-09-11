@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: haptic-feedback
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: haptic-feedback
+    Term: Haptic Feedback
+    Abbreviation: 
+    Category: 4
+    Difficulty: 0
+    ShortDefinition: Using device vibration or force feedback to reinforce game actions
+      through touch.
+    SimpleExplanation: Making the controller or phone buzz so actions feel physical.
+    WhyItMatters: Haptics strengthen game feel and accessibility of important cues.
+    Example: A short rumble when the player lands a heavy attack.
+    CommonMistake: Firing haptics for every minor event until players turn them off.
+    PracticePrompt: Design three haptic patterns for hit, miss, and low health warning.
+    GameUses:
+    - Combat feel
+    - Mobile polish
+    - Accessibility cues
+    RelatedTermIds:
+    - juice
+    - game-feel
+    - foley
+    Tags:
+    - haptics
+    - feel
+    - feedback
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1710374400

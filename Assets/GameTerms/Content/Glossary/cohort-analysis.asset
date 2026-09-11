@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: cohort-analysis
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: cohort-analysis
+    Term: Cohort Analysis
+    Abbreviation: 
+    Category: 8
+    Difficulty: 2
+    ShortDefinition: Grouping players by shared start attributes and comparing their
+      behavior over time.
+    SimpleExplanation: Track players who started together and see how their journeys
+      differ.
+    WhyItMatters: Cohorts expose whether changes help new players or only existing
+      whales.
+    Example: Players who joined during a Halloween event retain differently than
+      organic January installs.
+    CommonMistake: Averaging all users together and hiding cohort-specific regressions.
+    PracticePrompt: Compare D7 retention for two install-week cohorts around a tutorial
+      change.
+    GameUses:
+    - Patch evaluation
+    - UA channel quality
+    - Season reviews
+    RelatedTermIds:
+    - retention
+    - churn
+    - funnel-analysis
+    - user-acquisition
+    Tags:
+    - analytics
+    - cohorts
+    - insight
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1715212800

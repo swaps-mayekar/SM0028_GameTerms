@@ -19,9 +19,14 @@ MonoBehaviour:
     Category: 0
     Difficulty: 0
     ShortDefinition: How players unlock new abilities, content, or power over time.
-    SimpleExplanation: The path that makes players feel stronger, smarter, or more capable as they keep playing.
-    WhyItMatters: Strong progression creates motivation and helps structure content delivery.
+    SimpleExplanation: The path that makes players feel stronger, smarter, or more
+      capable as they keep playing.
+    WhyItMatters: Strong progression creates motivation and helps structure content
+      delivery.
     Example: Unlock new biomes after defeating bosses and crafting better gear.
+    CommonMistake: Front-loading too many unlocks so later hours feel empty.
+    PracticePrompt: List ten unlocks and schedule them across the first five hours
+      of play.
     GameUses:
     - RPG systems
     - Level gating
@@ -30,12 +35,12 @@ MonoBehaviour:
     - difficulty-curve
     - core-loop
     - live-ops
+    - metagame
     Tags:
     - design
     - retention
     - rewards
-    Synonyms:
-    - 
+    Synonyms: []
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0

@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: dedicated-server
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: dedicated-server
+    Term: Dedicated Server
+    Abbreviation: 
+    Category: 5
+    Difficulty: 1
+    ShortDefinition: A persistent authoritative host that runs independently of any
+      player's device.
+    SimpleExplanation: A always-on game server that is not tied to one player's phone
+      or console.
+    WhyItMatters: Dedicated servers improve stability, anti-cheat, and session continuity.
+    Example: A battle-royale match runs on cloud servers even if the creator disconnects.
+    CommonMistake: Using listen servers for competitive modes that need stronger
+      authority.
+    PracticePrompt: Compare cheat risk and disconnect handling for listen versus
+      dedicated hosting.
+    GameUses:
+    - Competitive games
+    - Live services
+    - MMO worlds
+    RelatedTermIds:
+    - authoritative-server
+    - tick-rate
+    - matchmaking
+    Tags:
+    - server
+    - hosting
+    - authority
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1711670400

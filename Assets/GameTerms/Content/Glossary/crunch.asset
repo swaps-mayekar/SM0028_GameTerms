@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: crunch
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: crunch
+    Term: Crunch
+    Abbreviation: 
+    Category: 9
+    Difficulty: 1
+    ShortDefinition: Extended overtime used to meet deadlines, often signaling planning
+      or scope failure.
+    SimpleExplanation: Working long extra hours because the schedule and scope no
+      longer match.
+    WhyItMatters: Chronic crunch harms health, quality, and retention of experienced
+      staff.
+    Example: A team works nights for three weeks to hit a publisher milestone.
+    CommonMistake: Normalizing crunch as culture instead of treating it as a planning
+      emergency.
+    PracticePrompt: Identify one recurring crunch cause and propose a scope or staffing
+      countermeasure.
+    GameUses:
+    - Milestone recovery
+    - Studio culture
+    - Risk planning
+    RelatedTermIds:
+    - scope-creep
+    - milestone
+    - post-mortem
+    Tags:
+    - production
+    - risk
+    - culture
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1716854400

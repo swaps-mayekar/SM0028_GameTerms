@@ -18,26 +18,30 @@ MonoBehaviour:
     Abbreviation: 
     Category: 8
     Difficulty: 0
-    ShortDefinition: The rate at which players return to a game after their first session.
+    ShortDefinition: The rate at which players return to a game after their first
+      session.
     SimpleExplanation: How many people come back tomorrow, next week, or next month.
-    WhyItMatters: Retention shows whether onboarding, content, and updates keep players engaged.
-    Example: Day-7 retention rises after improving the first-hour tutorial and daily rewards.
+    WhyItMatters: Retention shows whether onboarding, content, and updates keep players
+      engaged.
+    Example: Day-7 retention rises after improving the first-hour tutorial and daily
+      rewards.
+    CommonMistake: Looking only at install counts while retention quietly collapses.
+    PracticePrompt: Report D1, D7, and D30 retention for your latest build cohort.
     GameUses:
     - Live ops planning
     - Onboarding tuning
     - KPI reporting
     RelatedTermIds:
     - dau
-    - mau
     - onboarding
-    - live-ops
+    - churn
+    - cohort-analysis
     Tags:
     - analytics
     - engagement
     - kpi
-    Synonyms:
-    - 
+    Synonyms: []
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1707955200
+    AddedAtUnix: 1714694400

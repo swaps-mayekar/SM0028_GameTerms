@@ -18,10 +18,15 @@ MonoBehaviour:
     Abbreviation: 
     Category: 3
     Difficulty: 1
-    ShortDefinition: Binding mesh vertices to bones so the model follows skeletal animation.
+    ShortDefinition: Binding mesh vertices to bones so the model follows skeletal
+      animation.
     SimpleExplanation: Connecting a character mesh to its skeleton so it bends correctly.
     WhyItMatters: Poor skin weights create ugly deformation and break immersion.
     Example: Elbow vertices follow upper and lower arm bones with blended influence.
+    CommonMistake: Leaving heavy weight influences across joints that should bend
+      cleanly.
+    PracticePrompt: Paint weights on a shoulder and compare deformation before and
+      after cleanup.
     GameUses:
     - Character setup
     - Animation polish
@@ -29,13 +34,13 @@ MonoBehaviour:
     RelatedTermIds:
     - rigging
     - normal-map
+    - animation-blending
     Tags:
     - animation
     - weights
     - characters
-    Synonyms:
-    - 
+    Synonyms: []
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1705968000
+    AddedAtUnix: 1708128000

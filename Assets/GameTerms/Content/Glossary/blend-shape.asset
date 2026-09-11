@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: blend-shape
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: blend-shape
+    Term: Blend Shape
+    Abbreviation: 
+    Category: 3
+    Difficulty: 1
+    ShortDefinition: A morph target that stores vertex offsets to reshape a mesh
+      for expressions or variation.
+    SimpleExplanation: A saved mesh shape you can dial up to smile, frown, or change
+      form.
+    WhyItMatters: Blend shapes are essential for faces, damage states, and body variation.
+    Example: A character face uses smile, blink, and brow-raise shapes driven by
+      dialogue.
+    CommonMistake: Stacking too many high-resolution shapes that blow memory budgets.
+    PracticePrompt: Create three facial blend shapes and drive them from a simple
+      slider UI.
+    GameUses:
+    - Facial animation
+    - Character customization
+    - Damage states
+    RelatedTermIds:
+    - rigging
+    - skinning
+    - keyframe-animation
+    Tags:
+    - animation
+    - morph
+    - characters
+    Synonyms:
+    - morph target
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1708732800

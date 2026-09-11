@@ -18,10 +18,15 @@ MonoBehaviour:
     Abbreviation: 
     Category: 4
     Difficulty: 1
-    ShortDefinition: Temporarily lowering one sound layer so another can be heard clearly.
-    SimpleExplanation: Turning background audio down when something important needs attention.
-    WhyItMatters: Ducking preserves clarity for dialogue, warnings, and critical gameplay cues.
+    ShortDefinition: Temporarily lowering one sound layer so another can be heard
+      clearly.
+    SimpleExplanation: Turning background audio down when something important needs
+      attention.
+    WhyItMatters: Ducking preserves clarity for dialogue, warnings, and critical
+      gameplay cues.
     Example: Music volume dips while a mission briefing voice line plays.
+    CommonMistake: Ducking too aggressively so the mix feels like it keeps collapsing.
+    PracticePrompt: Set a ducking rule that lowers music 6 dB during dialogue.
     GameUses:
     - Dialogue systems
     - UI feedback
@@ -30,13 +35,13 @@ MonoBehaviour:
     - foley
     - diegetic-audio
     - adaptive-music
+    - audio-mixing
     Tags:
     - mixing
     - ui audio
     - clarity
-    Synonyms:
-    - 
+    Synonyms: []
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1706400000
+    AddedAtUnix: 1709424000

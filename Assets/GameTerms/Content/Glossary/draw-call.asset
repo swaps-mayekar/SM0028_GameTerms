@@ -18,10 +18,16 @@ MonoBehaviour:
     Abbreviation: 
     Category: 2
     Difficulty: 1
-    ShortDefinition: A command that tells the GPU to render a batch of geometry with a specific material setup.
+    ShortDefinition: A command that tells the GPU to render a batch of geometry with
+      a specific material setup.
     SimpleExplanation: Each request sent to the GPU to draw something on screen.
-    WhyItMatters: Too many draw calls can bottleneck rendering, especially on mobile GPUs.
+    WhyItMatters: Too many draw calls can bottleneck rendering, especially on mobile
+      GPUs.
     Example: Ten unique materials on ten objects may produce ten separate draw calls.
+    CommonMistake: Breaking batches with unique materials when a shared atlas would
+      suffice.
+    PracticePrompt: Count draw calls in a scene, then atlas two materials and measure
+      the reduction.
     GameUses:
     - Mobile optimization
     - Batching strategy
@@ -30,6 +36,7 @@ MonoBehaviour:
     - overdraw
     - level-of-detail
     - occlusion-culling
+    - static-batching
     Tags:
     - rendering
     - gpu
@@ -39,4 +46,4 @@ MonoBehaviour:
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1705276800
+    AddedAtUnix: 1706659200

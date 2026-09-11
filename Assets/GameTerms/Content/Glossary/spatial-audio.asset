@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: spatial-audio
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: spatial-audio
+    Term: Spatial Audio
+    Abbreviation: 
+    Category: 4
+    Difficulty: 1
+    ShortDefinition: Positioning sound in 3D space so players can locate sources
+      by ear.
+    SimpleExplanation: Hearing where a sound is coming from around you.
+    WhyItMatters: Spatial audio supports stealth, awareness, and immersion.
+    Example: Footsteps approaching from the left warn the player before an enemy
+      appears.
+    CommonMistake: Using stereo-only clips for critical directional cues.
+    PracticePrompt: Place three emitters around the player and verify left, right,
+      and rear localization.
+    GameUses:
+    - Stealth games
+    - VR
+    - Open worlds
+    RelatedTermIds:
+    - diegetic-audio
+    - reverb
+    - audio-mixing
+    Tags:
+    - 3d
+    - localization
+    - immersion
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1709596800

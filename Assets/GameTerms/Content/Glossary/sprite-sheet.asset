@@ -18,10 +18,15 @@ MonoBehaviour:
     Abbreviation: 
     Category: 3
     Difficulty: 0
-    ShortDefinition: A single image containing multiple frames or icons arranged for efficient rendering.
-    SimpleExplanation: One texture file that holds many animation frames or UI icons together.
+    ShortDefinition: A single image containing multiple frames or icons arranged
+      for efficient rendering.
+    SimpleExplanation: One texture file that holds many animation frames or UI icons
+      together.
     WhyItMatters: Sprite sheets reduce draw calls and simplify 2D animation workflows.
     Example: A character walk cycle stored as eight frames in one PNG atlas.
+    CommonMistake: Packing frames with no padding, causing neighbor bleed when filtering.
+    PracticePrompt: Pack a six-frame attack animation into one sheet and play it
+      in engine.
     GameUses:
     - 2D animation
     - UI atlasing
@@ -30,6 +35,7 @@ MonoBehaviour:
     - uv-mapping
     - texture-compression
     - draw-call
+    - tileset
     Tags:
     - 2d
     - animation
@@ -40,4 +46,4 @@ MonoBehaviour:
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1706140800
+    AddedAtUnix: 1708300800

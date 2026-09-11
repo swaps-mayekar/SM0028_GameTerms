@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: delta-time
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: delta-time
+    Term: Delta Time
+    Abbreviation: 
+    Category: 1
+    Difficulty: 0
+    ShortDefinition: The elapsed time since the previous frame, used to keep motion
+      frame-rate independent.
+    SimpleExplanation: How long the last frame took, so movement stays smooth on
+      fast and slow devices.
+    WhyItMatters: Using delta time prevents gameplay speed from changing with frame
+      rate.
+    Example: position += velocity * deltaTime;
+    CommonMistake: Multiplying forces by delta time twice, or forgetting it in one
+      code path.
+    PracticePrompt: Move an object with and without delta time at unlocked frame
+      rates and compare distance traveled.
+    GameUses:
+    - Movement code
+    - Animation timers
+    - Cooldowns
+    RelatedTermIds:
+    - fixed-timestep
+    - update-loop
+    - frame-pacing
+    Tags:
+    - timing
+    - frames
+    - movement
+    Synonyms: []
+    CodeExample: transform.position += velocity * Time.deltaTime;
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1705968000

@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: shader
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: shader
+    Term: Shader
+    Abbreviation: 
+    Category: 2
+    Difficulty: 1
+    ShortDefinition: A GPU program that calculates how surfaces are drawn, shaded,
+      and transformed.
+    SimpleExplanation: The little program that tells the GPU how each pixel or vertex
+      should look.
+    WhyItMatters: Shaders define visual style and often dominate GPU cost.
+    Example: A toon shader that remaps lighting into hard bands for a comic look.
+    CommonMistake: Writing complex fragment logic when a cheaper material feature
+      would work.
+    PracticePrompt: Create a simple unlit color shader and apply it to a test mesh.
+    GameUses:
+    - Custom looks
+    - Performance tuning
+    - VFX
+    RelatedTermIds:
+    - pbr
+    - render-pipeline
+    - draw-call
+    Tags:
+    - gpu
+    - materials
+    - rendering
+    Synonyms: []
+    CodeExample: 'half4 frag() : SV_Target { return half4(1,0,0,1); }'
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1707177600

@@ -18,10 +18,16 @@ MonoBehaviour:
     Abbreviation: 
     Category: 4
     Difficulty: 1
-    ShortDefinition: Sound that exists within the game world and can be heard by characters.
-    SimpleExplanation: Audio that comes from something in the scene, like a radio or monster roar.
+    ShortDefinition: Sound that exists within the game world and can be heard by
+      characters.
+    SimpleExplanation: Audio that comes from something in the scene, like a radio
+      or monster roar.
     WhyItMatters: Diegetic audio strengthens world believability and spatial storytelling.
     Example: An alarm siren inside a facility that characters react to.
+    CommonMistake: Playing world sounds without distance attenuation, so they feel
+      detached.
+    PracticePrompt: Place one diegetic emitter and verify volume falloff as the player
+      walks away.
     GameUses:
     - World building
     - Horror tension
@@ -29,13 +35,14 @@ MonoBehaviour:
     RelatedTermIds:
     - foley
     - audio-ducking
+    - non-diegetic-audio
+    - spatial-audio
     Tags:
     - sound design
     - immersion
     - spatial
-    Synonyms:
-    - 
+    Synonyms: []
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1706313600
+    AddedAtUnix: 1709337600

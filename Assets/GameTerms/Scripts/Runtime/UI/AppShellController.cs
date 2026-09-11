@@ -890,6 +890,16 @@ namespace GameTerms.UI
                 AddSection(content, "Example", term.Example);
             }
 
+            if (!string.IsNullOrWhiteSpace(term.CommonMistake))
+            {
+                AddSection(content, "Common Mistake", term.CommonMistake);
+            }
+
+            if (!string.IsNullOrWhiteSpace(term.PracticePrompt))
+            {
+                AddSection(content, "Try It Yourself", term.PracticePrompt);
+            }
+
             if (term.HasDiagram && term.DiagramType != DiagramType.None)
             {
                 factory.CreateSectionHeader(content, "Visual Example");

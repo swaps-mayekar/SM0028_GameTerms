@@ -9,11 +9,13 @@ namespace GameTerms.Editor
     {
         private const string ContentFolder = "Assets/GameTerms/Content/Glossary";
         private const string DatabasePath = ContentFolder + "/GlossaryDatabase.asset";
+        private const string ResourcesDatabasePath = "Assets/GameTerms/Resources/GlossaryDatabase.asset";
 
         [MenuItem("Game Terms/Generate Glossary Content")]
         public static void Generate()
         {
             EnsureFolder(ContentFolder);
+            EnsureFolder("Assets/GameTerms/Resources");
 
             var terms = GlossaryContentDefinitions.CreateAllTerms();
             var issues = GlossaryContentValidator.Validate(terms);
@@ -26,6 +28,22 @@ namespace GameTerms.Editor
 
                 EditorUtility.DisplayDialog("Glossary Validation Failed", string.Join("\n", issues.Take(8)), "OK");
                 return;
+            }
+
+            var validIds = terms.Select(term => term.Id).ToHashSet();
+            foreach (var assetPath in Directory.GetFiles(ContentFolder, "*.asset"))
+            {
+                var normalized = assetPath.Replace('\\', '/');
+                if (normalized.EndsWith("GlossaryDatabase.asset"))
+                {
+                    continue;
+                }
+
+                var fileName = Path.GetFileNameWithoutExtension(normalized);
+                if (!validIds.Contains(fileName))
+                {
+                    AssetDatabase.DeleteAsset(normalized);
+                }
             }
 
             var termAssets = new System.Collections.Generic.List<GlossaryTermAsset>();
@@ -53,10 +71,17 @@ namespace GameTerms.Editor
 
             database.SetTerms(termAssets);
             EditorUtility.SetDirty(database);
+
+            if (AssetDatabase.LoadAssetAtPath<GlossaryDatabaseAsset>(ResourcesDatabasePath) != null)
+            {
+                AssetDatabase.DeleteAsset(ResourcesDatabasePath);
+            }
+
+            AssetDatabase.CopyAsset(DatabasePath, ResourcesDatabasePath);
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
 
-            Debug.Log($"Generated {termAssets.Count} glossary terms and database at {DatabasePath}.");
+            Debug.Log($"Generated {termAssets.Count} glossary terms and synced Resources database.");
         }
 
         private static void EnsureFolder(string path)

@@ -20,8 +20,12 @@ MonoBehaviour:
     Difficulty: 1
     ShortDefinition: Skipping objects outside the camera view volume before rendering.
     SimpleExplanation: Ignore objects that are off-screen or behind the camera.
-    WhyItMatters: It avoids wasting GPU work on geometry the player will never see in the current frame.
+    WhyItMatters: It avoids wasting GPU work on geometry the player will never see
+      in the current frame.
     Example: Trees behind the camera are removed from the render queue.
+    CommonMistake: Using giant bounding volumes that keep off-screen props in the
+      frustum.
+    PracticePrompt: Visualize camera frustum bounds and tighten one oversized collider.
     GameUses:
     - Open worlds
     - Large scenes
@@ -33,9 +37,8 @@ MonoBehaviour:
     - culling
     - camera
     - rendering
-    Synonyms:
-    - 
+    Synonyms: []
     CodeExample: 
     HasDiagram: 1
-    DiagramType: 4
-    AddedAtUnix: 1705449600
+    DiagramType: 3
+    AddedAtUnix: 1706832000

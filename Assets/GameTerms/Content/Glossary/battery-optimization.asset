@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: battery-optimization
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: battery-optimization
+    Term: Battery Optimization
+    Abbreviation: 
+    Category: 6
+    Difficulty: 1
+    ShortDefinition: Reducing CPU, GPU, network, and wake work so play sessions drain
+      less power.
+    SimpleExplanation: Making the game kinder to the phone battery during long sessions.
+    WhyItMatters: Battery-friendly games get longer sessions and better store ratings.
+    Example: Lowering tick rates and network polls while the app is backgrounded
+      or idle.
+    CommonMistake: Keeping full update loops running on menus with no visible benefit.
+    PracticePrompt: Profile power draw for one combat scene and cut one always-on
+      timer.
+    GameUses:
+    - Idle screens
+    - Always-online games
+    - Long sessions
+    RelatedTermIds:
+    - thermal-throttling
+    - backgrounding
+    - adaptive-performance
+    Tags:
+    - battery
+    - mobile
+    - performance
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1712534400

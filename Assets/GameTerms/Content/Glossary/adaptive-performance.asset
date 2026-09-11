@@ -18,10 +18,18 @@ MonoBehaviour:
     Abbreviation: 
     Category: 6
     Difficulty: 1
-    ShortDefinition: Dynamically lowering visual or simulation quality to maintain stable frame rate on device.
-    SimpleExplanation: The game quietly reduces effects or resolution when the phone starts struggling.
-    WhyItMatters: Adaptive performance helps sustain playable frame rates during long or demanding sessions.
-    Example: Shadow quality drops after sustained GPU load while keeping gameplay at 30 FPS.
+    ShortDefinition: Dynamically lowering visual or simulation quality to maintain
+      stable frame rate on device.
+    SimpleExplanation: The game quietly reduces effects or resolution when the phone
+      starts struggling.
+    WhyItMatters: Adaptive performance helps sustain playable frame rates during
+      long or demanding sessions.
+    Example: Shadow quality drops after sustained GPU load while keeping gameplay
+      at 30 FPS.
+    CommonMistake: Dropping quality so aggressively that the game becomes visually
+      confusing.
+    PracticePrompt: Define three quality tiers and automatic triggers based on frame
+      time and thermal state.
     GameUses:
     - Mobile optimization
     - Thermal management
@@ -30,13 +38,13 @@ MonoBehaviour:
     - thermal-throttling
     - memory-pressure
     - level-of-detail
+    - dynamic-resolution
     Tags:
     - mobile
     - performance
     - scaling
-    Synonyms:
-    - 
+    Synonyms: []
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1707264000
+    AddedAtUnix: 1712102400

@@ -18,10 +18,18 @@ MonoBehaviour:
     Abbreviation: di
     Category: 1
     Difficulty: 2
-    ShortDefinition: A pattern where required services are provided to a class instead of created inside it.
-    SimpleExplanation: Pass in the tools a class needs rather than building them internally.
-    WhyItMatters: Injection improves testability and reduces tight coupling between systems.
-    Example: Inject an audio service into a weapon class instead of calling a global singleton.
+    ShortDefinition: A pattern where required services are provided to a class instead
+      of created inside it.
+    SimpleExplanation: Pass in the tools a class needs rather than building them
+      internally.
+    WhyItMatters: Injection improves testability and reduces tight coupling between
+      systems.
+    Example: Inject an audio service into a weapon class instead of calling a global
+      singleton.
+    CommonMistake: Hiding new dependencies behind static singletons that make tests
+      brittle.
+    PracticePrompt: Refactor one gameplay class to receive its dependencies through
+      the constructor.
     GameUses:
     - Service architecture
     - Unit testing
@@ -30,6 +38,7 @@ MonoBehaviour:
     - state-machine
     - serialization
     - ecs
+    - unit-testing
     Tags:
     - architecture
     - testing
@@ -39,4 +48,4 @@ MonoBehaviour:
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1705017600
+    AddedAtUnix: 1705708800

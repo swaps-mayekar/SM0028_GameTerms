@@ -19,9 +19,14 @@ MonoBehaviour:
     Category: 4
     Difficulty: 1
     ShortDefinition: Music that changes layers or intensity based on gameplay state.
-    SimpleExplanation: The soundtrack reacts to combat, exploration, or story moments in real time.
-    WhyItMatters: Adaptive music keeps emotional pacing aligned with player actions without jarring loops.
+    SimpleExplanation: The soundtrack reacts to combat, exploration, or story moments
+      in real time.
+    WhyItMatters: Adaptive music keeps emotional pacing aligned with player actions
+      without jarring loops.
     Example: Combat drums layer in when enemies appear and fade when the fight ends.
+    CommonMistake: Hard-cutting between unrelated tracks instead of layered transitions.
+    PracticePrompt: Design a two-layer exploration and combat bed with a crossfade
+      trigger.
     GameUses:
     - Combat pacing
     - Exploration ambience
@@ -29,13 +34,13 @@ MonoBehaviour:
     RelatedTermIds:
     - audio-ducking
     - diegetic-audio
+    - non-diegetic-audio
     Tags:
     - music
     - dynamic
     - immersion
-    Synonyms:
-    - 
+    Synonyms: []
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1706486400
+    AddedAtUnix: 1709510400

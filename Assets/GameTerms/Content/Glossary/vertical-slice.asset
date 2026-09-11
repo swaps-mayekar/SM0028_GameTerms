@@ -18,10 +18,18 @@ MonoBehaviour:
     Abbreviation: 
     Category: 0
     Difficulty: 1
-    ShortDefinition: A polished sample that demonstrates core gameplay across multiple systems at near-final quality.
-    SimpleExplanation: A small playable section that shows how the full game should look, feel, and work.
-    WhyItMatters: Vertical slices align teams around a shared quality bar before scaling production.
-    Example: One combat encounter with final animation, audio, UI, and progression rewards.
+    ShortDefinition: A polished sample that demonstrates core gameplay across multiple
+      systems at near-final quality.
+    SimpleExplanation: A small playable section that shows how the full game should
+      look, feel, and work.
+    WhyItMatters: Vertical slices align teams around a shared quality bar before
+      scaling production.
+    Example: One combat encounter with final animation, audio, UI, and progression
+      rewards.
+    CommonMistake: Calling a rough greybox a vertical slice when art, audio, and
+      feel are still placeholders.
+    PracticePrompt: Define a one-level slice checklist covering gameplay, UI, audio,
+      and reward feedback.
     GameUses:
     - Pitch demos
     - Milestone reviews
@@ -29,12 +37,12 @@ MonoBehaviour:
     RelatedTermIds:
     - mvp
     - core-loop
+    - game-design-document
     Tags:
     - production
     - prototype
     - milestone
-    Synonyms:
-    - 
+    Synonyms: []
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0

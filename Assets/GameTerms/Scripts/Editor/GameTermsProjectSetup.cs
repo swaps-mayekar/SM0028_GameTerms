@@ -65,10 +65,12 @@ namespace GameTerms.Editor
             if (database != null)
             {
                 var databaseCopyPath = $"{ResourcesFolder}/GlossaryDatabase.asset";
-                if (AssetDatabase.LoadAssetAtPath<GlossaryDatabaseAsset>(databaseCopyPath) == null)
+                if (AssetDatabase.LoadAssetAtPath<GlossaryDatabaseAsset>(databaseCopyPath) != null)
                 {
-                    AssetDatabase.CopyAsset(AssetDatabase.GetAssetPath(database), databaseCopyPath);
+                    AssetDatabase.DeleteAsset(databaseCopyPath);
                 }
+
+                AssetDatabase.CopyAsset(AssetDatabase.GetAssetPath(database), databaseCopyPath);
             }
 
             var themeCopyPath = $"{ResourcesFolder}/UiTheme.asset";

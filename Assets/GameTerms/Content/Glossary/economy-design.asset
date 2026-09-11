@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: economy-design
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: economy-design
+    Term: Economy Design
+    Abbreviation: 
+    Category: 0
+    Difficulty: 2
+    ShortDefinition: The structure of currencies, sources, sinks, and exchanges that
+      shape player progression.
+    SimpleExplanation: How money, resources, and rewards enter and leave the game.
+    WhyItMatters: A healthy economy supports pacing, monetization, and long-term
+      goals without inflation.
+    Example: Gold earned from quests and spent on upgrades, repairs, and cosmetics.
+    CommonMistake: Adding infinite earn rates without sinks, so prices and progression
+      break.
+    PracticePrompt: Draw a source-and-sink diagram for one currency and verify every
+      source has a matching sink.
+    GameUses:
+    - F2P design
+    - Crafting systems
+    - Live economy tuning
+    RelatedTermIds:
+    - balancing
+    - progression
+    - in-app-purchase
+    - battle-pass
+    Tags:
+    - economy
+    - currency
+    - systems
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1705104000

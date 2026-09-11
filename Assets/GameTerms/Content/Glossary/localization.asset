@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: localization
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: localization
+    Term: Localization
+    Abbreviation: l10n
+    Category: 9
+    Difficulty: 1
+    ShortDefinition: Adapting text, audio, imagery, and cultural details for specific
+      languages and regions.
+    SimpleExplanation: Preparing the game so players in other countries can understand
+      and enjoy it.
+    WhyItMatters: Localization expands market reach and is often required for platform
+      deals.
+    Example: UI, subtitles, and voice lines are adapted for five launch languages.
+    CommonMistake: Leaving localization until certification week with no string freeze.
+    PracticePrompt: Create a localization schedule with string freeze, translation,
+      and LQA gates.
+    GameUses:
+    - Global launches
+    - Console SKUs
+    - Narrative games
+    RelatedTermIds:
+    - localization-qa
+    - voice-over
+    - platform-certification
+    Tags:
+    - loc
+    - publishing
+    - content
+    Synonyms:
+    - L10n
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1716508800

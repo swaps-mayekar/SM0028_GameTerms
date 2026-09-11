@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: audio-middleware
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: audio-middleware
+    Term: Audio Middleware
+    Abbreviation: 
+    Category: 4
+    Difficulty: 2
+    ShortDefinition: Specialized tools such as FMOD or Wwise that manage interactive
+      audio outside the game engine.
+    SimpleExplanation: A dedicated audio engine that designers use to build complex
+      sound behavior.
+    WhyItMatters: Middleware lets audio teams iterate without constant engineering
+      changes.
+    Example: An FMOD event randomizes footsteps and adapts to surface parameters.
+    CommonMistake: Hardcoding complex audio logic in engine code that audio designers
+      cannot edit.
+    PracticePrompt: Prototype one interactive event in middleware and trigger it
+      from gameplay.
+    GameUses:
+    - Large audio projects
+    - Adaptive music
+    - Live tuning
+    RelatedTermIds:
+    - adaptive-music
+    - audio-mixing
+    - sfx-layering
+    Tags:
+    - tools
+    - pipeline
+    - interactive
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1709942400

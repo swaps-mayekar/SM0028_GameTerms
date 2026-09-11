@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: arpu
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: arpu
+    Term: ARPU
+    Abbreviation: arpu
+    Category: 8
+    Difficulty: 1
+    ShortDefinition: Average Revenue Per User across the active audience in a period.
+    SimpleExplanation: How much revenue you earn on average from each player.
+    WhyItMatters: ARPU helps compare monetization strength across builds and markets.
+    Example: A battle pass season lifts ARPU even when DAU stays flat.
+    CommonMistake: Raising prices without watching conversion drop enough to hurt
+      total revenue.
+    PracticePrompt: Calculate ARPU before and after a monetization change for the
+      same cohort window.
+    GameUses:
+    - Monetization reviews
+    - Market comparisons
+    - Season analysis
+    RelatedTermIds:
+    - arpdau
+    - ltv
+    - conversion-rate
+    - in-app-purchase
+    Tags:
+    - revenue
+    - kpi
+    - monetization
+    Synonyms:
+    - average revenue per user
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1714780800

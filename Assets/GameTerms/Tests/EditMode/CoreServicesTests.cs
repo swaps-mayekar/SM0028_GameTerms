@@ -340,6 +340,8 @@ namespace GameTerms.Tests
             var glossary = Resources.Load<TextAsset>("glossary");
             Assert.That(glossary, Is.Not.Null);
             Assert.That(glossary.text.Contains("object-pooling"), Is.True);
+            Assert.That(glossary.text.Contains("CommonMistake"), Is.True);
+            Assert.That(glossary.text.Contains("addressable-assets"), Is.True);
         }
 
         [Test]

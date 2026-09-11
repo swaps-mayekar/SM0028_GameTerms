@@ -18,24 +18,30 @@ MonoBehaviour:
     Abbreviation: 
     Category: 7
     Difficulty: 0
-    ShortDefinition: A quick pass over critical paths to confirm a build is basically functional.
+    ShortDefinition: A quick pass over critical paths to confirm a build is basically
+      functional.
     SimpleExplanation: A fast sanity check before deeper testing begins.
     WhyItMatters: Smoke tests catch catastrophic issues early and save QA time.
-    Example: Launch the build, start a match, complete a purchase flow, and exit cleanly.
+    Example: Launch the build, start a match, complete a purchase flow, and exit
+      cleanly.
+    CommonMistake: Calling a multi-hour exploratory pass a smoke test and delaying
+      feedback.
+    PracticePrompt: Write a ten-minute smoke checklist covering boot, save, combat,
+      and quit.
     GameUses:
     - Daily builds
     - Release gates
     - CI validation
     RelatedTermIds:
     - regression-testing
-    - stress-testing
+    - build-verification
+    - ci-cd-pipeline
     Tags:
     - qa
     - build
     - sanity
-    Synonyms:
-    - 
+    Synonyms: []
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1707436800
+    AddedAtUnix: 1713225600

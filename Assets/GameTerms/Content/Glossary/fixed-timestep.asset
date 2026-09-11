@@ -18,10 +18,16 @@ MonoBehaviour:
     Abbreviation: 
     Category: 1
     Difficulty: 1
-    ShortDefinition: Updating simulation logic at a constant interval independent of frame rate.
-    SimpleExplanation: Run physics and gameplay logic on a steady clock so results stay consistent.
-    WhyItMatters: Fixed timesteps keep physics stable and make networked games easier to synchronize.
+    ShortDefinition: Updating simulation logic at a constant interval independent
+      of frame rate.
+    SimpleExplanation: Run physics and gameplay logic on a steady clock so results
+      stay consistent.
+    WhyItMatters: Fixed timesteps keep physics stable and make networked games easier
+      to synchronize.
     Example: Run physics at 50 Hz while rendering as fast as the GPU allows.
+    CommonMistake: Mixing render-frame movement with physics forces without interpolation.
+    PracticePrompt: Move a rigidbody with fixed delta time and compare behavior at
+      30 FPS and 60 FPS.
     GameUses:
     - Physics simulation
     - Deterministic gameplay
@@ -29,13 +35,14 @@ MonoBehaviour:
     RelatedTermIds:
     - state-machine
     - tick-rate
+    - delta-time
+    - update-loop
     Tags:
     - physics
     - simulation
     - timing
-    Synonyms:
-    - 
+    Synonyms: []
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1705104000
+    AddedAtUnix: 1705795200

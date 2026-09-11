@@ -18,10 +18,18 @@ MonoBehaviour:
     Abbreviation: 
     Category: 7
     Difficulty: 0
-    ShortDefinition: Observing real players use a build to evaluate fun, clarity, and usability.
-    SimpleExplanation: Watch people play and learn what confuses, frustrates, or delights them.
-    WhyItMatters: Playtesting surfaces design issues that automated tests and internal reviews miss.
-    Example: Five testers fail to find the objective until the tutorial arrow is added.
+    ShortDefinition: Observing real players use a build to evaluate fun, clarity,
+      and usability.
+    SimpleExplanation: Watch people play and learn what confuses, frustrates, or
+      delights them.
+    WhyItMatters: Playtesting surfaces design issues that automated tests and internal
+      reviews miss.
+    Example: Five testers fail to find the objective until the tutorial arrow is
+      added.
+    CommonMistake: Interrupting testers with coaching instead of watching natural
+      behavior.
+    PracticePrompt: Run a silent 20-minute playtest and capture three friction moments
+      with timestamps.
     GameUses:
     - UX validation
     - Tutorial tuning
@@ -29,14 +37,14 @@ MonoBehaviour:
     RelatedTermIds:
     - smoke-testing
     - onboarding
-    - regression-testing
+    - a-b-testing
+    - bug-triage
     Tags:
     - qa
     - feedback
     - design
-    Synonyms:
-    - 
+    Synonyms: []
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1707609600
+    AddedAtUnix: 1713398400

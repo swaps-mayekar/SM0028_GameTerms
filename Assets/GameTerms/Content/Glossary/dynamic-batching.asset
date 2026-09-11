@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: dynamic-batching
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: dynamic-batching
+    Term: Dynamic Batching
+    Abbreviation: 
+    Category: 2
+    Difficulty: 1
+    ShortDefinition: Runtime combining of small moving meshes that share material
+      setup.
+    SimpleExplanation: Automatically group tiny moving objects to reduce draw requests.
+    WhyItMatters: Dynamic batching can help simple scenes, but has strict mesh and
+      material limits.
+    Example: Many small debris pieces with identical materials batched each frame.
+    CommonMistake: Expecting dynamic batching to save large unique meshes that exceed
+      limits.
+    PracticePrompt: Create twenty tiny quads and inspect whether they batch in the
+      frame debugger.
+    GameUses:
+    - Debris
+    - Simple props
+    - Mobile fill scenes
+    RelatedTermIds:
+    - static-batching
+    - draw-call
+    - overdraw
+    Tags:
+    - batching
+    - runtime
+    - performance
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1707436800

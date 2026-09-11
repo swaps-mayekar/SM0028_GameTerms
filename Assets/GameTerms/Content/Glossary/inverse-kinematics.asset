@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: inverse-kinematics
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: inverse-kinematics
+    Term: Inverse Kinematics
+    Abbreviation: ik
+    Category: 3
+    Difficulty: 2
+    ShortDefinition: Calculating joint rotations so an end effector reaches a target
+      position.
+    SimpleExplanation: Tell the hand or foot where to go, and the limb figures out
+      how to bend.
+    WhyItMatters: IK improves grounding, aiming, and interaction with uneven surfaces.
+    Example: Feet plant on stairs while the hips adjust automatically.
+    CommonMistake: Over-constraining IK so limbs snap into unnatural poses.
+    PracticePrompt: Add two-bone IK to a character leg and test foot placement on
+      a ramp.
+    GameUses:
+    - Foot planting
+    - Aiming
+    - Climbing systems
+    RelatedTermIds:
+    - rigging
+    - skinning
+    - animation-blending
+    Tags:
+    - animation
+    - ik
+    - rigs
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1708560000

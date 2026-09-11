@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: update-loop
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: update-loop
+    Term: Update Loop
+    Abbreviation: 
+    Category: 1
+    Difficulty: 0
+    ShortDefinition: The per-frame engine cycle that processes input, simulation,
+      and presentation.
+    SimpleExplanation: The heartbeat of the game that runs every frame.
+    WhyItMatters: Knowing what belongs in update versus fixed update prevents timing
+      bugs.
+    Example: Read input in Update, simulate physics in FixedUpdate, and follow cameras
+      in LateUpdate.
+    CommonMistake: Doing expensive work every frame that could run on a timer or
+      event.
+    PracticePrompt: Move one system out of Update into an event or coroutine and
+      measure CPU savings.
+    GameUses:
+    - Engine architecture
+    - Gameplay timing
+    - Performance budgets
+    RelatedTermIds:
+    - delta-time
+    - fixed-timestep
+    - coroutine
+    Tags:
+    - frames
+    - engine
+    - timing
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1706227200

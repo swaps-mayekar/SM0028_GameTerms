@@ -16,6 +16,8 @@ namespace GameTerms
         public string SimpleExplanation;
         public string WhyItMatters;
         public string Example;
+        public string CommonMistake;
+        public string PracticePrompt;
         public List<string> GameUses = new();
         public List<string> RelatedTermIds = new();
         public List<string> Tags = new();
@@ -38,6 +40,8 @@ namespace GameTerms
                 SimpleExplanation = SimpleExplanation,
                 WhyItMatters = WhyItMatters,
                 Example = Example,
+                CommonMistake = CommonMistake,
+                PracticePrompt = PracticePrompt,
                 GameUses = new List<string>(GameUses ?? new List<string>()),
                 RelatedTermIds = new List<string>(RelatedTermIds ?? new List<string>()),
                 Tags = new List<string>(Tags ?? new List<string>()),

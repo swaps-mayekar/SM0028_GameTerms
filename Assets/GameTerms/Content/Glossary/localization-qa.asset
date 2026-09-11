@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: localization-qa
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: localization-qa
+    Term: Localization QA
+    Abbreviation: 
+    Category: 7
+    Difficulty: 1
+    ShortDefinition: Testing translated text, layouts, fonts, and cultural fit across
+      supported languages.
+    SimpleExplanation: Checking that other languages look correct and still make
+      sense in context.
+    WhyItMatters: Loc QA prevents truncated UI, broken fonts, and embarrassing mistranslations.
+    Example: German strings overflow a button and require layout fixes before certification.
+    CommonMistake: Reviewing spreadsheets only and never verifying strings in the
+      running build.
+    PracticePrompt: Play one tutorial flow in a long-string language and log every
+      overflow.
+    GameUses:
+    - Global launches
+    - UI polish
+    - Console certification
+    RelatedTermIds:
+    - localization
+    - compatibility-testing
+    - platform-certification
+    Tags:
+    - qa
+    - localization
+    - ui
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1714262400

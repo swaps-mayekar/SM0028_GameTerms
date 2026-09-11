@@ -18,10 +18,16 @@ MonoBehaviour:
     Abbreviation: dau
     Category: 8
     Difficulty: 0
-    ShortDefinition: Daily Active Users: unique players who engage with a game on a given day.
+    ShortDefinition: 'Daily Active Users: unique players who engage with a game on
+      a given day.'
     SimpleExplanation: How many different people played today.
-    WhyItMatters: DAU helps teams track short-term engagement and the impact of updates or events.
+    WhyItMatters: DAU helps teams track short-term engagement and the impact of updates
+      or events.
     Example: An event boosts DAU from 120,000 to 180,000 on launch day.
+    CommonMistake: Celebrating DAU spikes from bots or duplicated accounts as real
+      growth.
+    PracticePrompt: Chart DAU for two weeks around an event and annotate content
+      changes.
     GameUses:
     - Live ops tracking
     - Event measurement
@@ -30,6 +36,7 @@ MonoBehaviour:
     - mau
     - ltv
     - live-ops
+    - session-length
     Tags:
     - analytics
     - engagement
@@ -39,4 +46,4 @@ MonoBehaviour:
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1707696000
+    AddedAtUnix: 1714435200

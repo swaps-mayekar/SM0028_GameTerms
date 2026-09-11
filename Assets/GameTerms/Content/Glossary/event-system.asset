@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: event-system
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: event-system
+    Term: Event System
+    Abbreviation: 
+    Category: 1
+    Difficulty: 1
+    ShortDefinition: A messaging pattern where systems publish events and listeners
+      react without direct references.
+    SimpleExplanation: One part of the game announces something happened, and other
+      parts can listen and respond.
+    WhyItMatters: Events reduce tight coupling and help UI, audio, and gameplay stay
+      in sync.
+    Example: A HealthChanged event updates the HUD and plays a hurt sound.
+    CommonMistake: Creating anonymous listeners that are never unsubscribed, causing
+      leaks and double callbacks.
+    PracticePrompt: Add a PlayerDied event with one gameplay listener and one UI
+      listener.
+    GameUses:
+    - UI updates
+    - Achievement unlocks
+    - Audio triggers
+    RelatedTermIds:
+    - dependency-injection
+    - command-pattern
+    - state-machine
+    Tags:
+    - architecture
+    - messaging
+    - decoupling
+    Synonyms: []
+    CodeExample: OnDamaged?.Invoke(amount);
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1706054400

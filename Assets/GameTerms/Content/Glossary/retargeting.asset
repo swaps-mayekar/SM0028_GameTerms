@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: retargeting
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: retargeting
+    Term: Retargeting
+    Abbreviation: 
+    Category: 3
+    Difficulty: 1
+    ShortDefinition: Transferring animation from one skeleton onto another with different
+      proportions.
+    SimpleExplanation: Reuse a walk cycle on characters that are not built on the
+      exact same skeleton.
+    WhyItMatters: Retargeting multiplies animation value across a cast of characters.
+    Example: Apply the same dance clip to a child and adult avatar with mapping adjustments.
+    CommonMistake: Ignoring bone naming and proportion differences, which creates
+      foot skating.
+    PracticePrompt: Retarget one clip to a second rig and fix foot contact in the
+      result.
+    GameUses:
+    - Shared animation libraries
+    - Avatar systems
+    - Mo-cap cleanup
+    RelatedTermIds:
+    - motion-capture
+    - rigging
+    - animation-blending
+    Tags:
+    - animation
+    - pipeline
+    - reuse
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1709078400

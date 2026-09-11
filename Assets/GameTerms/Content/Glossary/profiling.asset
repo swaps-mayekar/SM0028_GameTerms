@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: profiling
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: profiling
+    Term: Profiling
+    Abbreviation: 
+    Category: 1
+    Difficulty: 1
+    ShortDefinition: Measuring where CPU, GPU, memory, and time are spent to guide
+      optimization.
+    SimpleExplanation: Using tools to find what is actually slow instead of guessing.
+    WhyItMatters: Profiling prevents wasted optimization effort and protects frame
+      budgets.
+    Example: Capture a deep profile during combat and sort functions by self time.
+    CommonMistake: Optimizing code that never appears in the profile hotspots.
+    PracticePrompt: Capture one play session profile and list three actionable hotspots
+      with owners.
+    GameUses:
+    - Performance triage
+    - Mobile optimization
+    - Ship readiness
+    RelatedTermIds:
+    - garbage-collection
+    - draw-call
+    - thermal-throttling
+    Tags:
+    - performance
+    - tools
+    - optimization
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1706572800

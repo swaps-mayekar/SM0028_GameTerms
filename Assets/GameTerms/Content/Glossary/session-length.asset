@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: session-length
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: session-length
+    Term: Session Length
+    Abbreviation: 
+    Category: 8
+    Difficulty: 0
+    ShortDefinition: How long a typical play session lasts from start to finish.
+    SimpleExplanation: How many minutes players stick around in one sitting.
+    WhyItMatters: Session length informs content chunking, ad placement, and mobile
+      comfort.
+    Example: A mobile puzzler targets five-minute sessions that fit a commute.
+    CommonMistake: Forcing long sessions with energy walls that frustrate short-session
+      players.
+    PracticePrompt: Measure median session length before and after changing level
+      length.
+    GameUses:
+    - Content pacing
+    - Ad timing
+    - Mobile UX
+    RelatedTermIds:
+    - dau
+    - retention
+    - core-loop
+    Tags:
+    - analytics
+    - sessions
+    - engagement
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1715040000

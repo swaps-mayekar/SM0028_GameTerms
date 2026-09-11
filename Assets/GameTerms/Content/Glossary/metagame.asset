@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: metagame
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: metagame
+    Term: Metagame
+    Abbreviation: 
+    Category: 0
+    Difficulty: 1
+    ShortDefinition: Long-term goals and systems that sit above individual match
+      or session play.
+    SimpleExplanation: The bigger goals that keep players coming back after one round
+      ends.
+    WhyItMatters: A clear metagame turns short sessions into an ongoing habit.
+    Example: Season ranks, collection goals, and weekly challenges that span many
+      matches.
+    CommonMistake: Building a metagame before the session loop itself is fun.
+    PracticePrompt: Define one session goal and one week-long metagame goal that
+      reinforce each other.
+    GameUses:
+    - Live service planning
+    - Retention design
+    - Season structure
+    RelatedTermIds:
+    - progression
+    - live-ops
+    - battle-pass
+    Tags:
+    - design
+    - retention
+    - liveops
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1704672000

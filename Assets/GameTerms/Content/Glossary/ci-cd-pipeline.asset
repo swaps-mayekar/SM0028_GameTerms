@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: ci-cd-pipeline
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: ci-cd-pipeline
+    Term: CI/CD Pipeline
+    Abbreviation: cicd
+    Category: 7
+    Difficulty: 1
+    ShortDefinition: Automated continuous integration and delivery that builds, tests,
+      and packages changes.
+    SimpleExplanation: A robot that builds your game and runs checks every time code
+      lands.
+    WhyItMatters: Pipelines shorten feedback loops and reduce human error in release
+      packaging.
+    Example: Every merge triggers unit tests, a player build, and artifact upload.
+    CommonMistake: Allowing red pipelines to linger so broken main becomes normal.
+    PracticePrompt: Add one failing-gate test to CI and confirm merges are blocked
+      until it passes.
+    GameUses:
+    - Team velocity
+    - Release automation
+    - Quality gates
+    RelatedTermIds:
+    - unit-testing
+    - build-verification
+    - regression-testing
+    Tags:
+    - ci
+    - automation
+    - devops
+    Synonyms:
+    - continuous integration
+    - continuous delivery
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1714348800

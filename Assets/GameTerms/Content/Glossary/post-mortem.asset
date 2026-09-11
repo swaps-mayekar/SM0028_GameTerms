@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: post-mortem
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: post-mortem
+    Term: Post Mortem
+    Abbreviation: 
+    Category: 9
+    Difficulty: 1
+    ShortDefinition: A structured review after a milestone or launch that captures
+      what worked and what failed.
+    SimpleExplanation: A honest team meeting that turns recent pain into future process
+      improvements.
+    WhyItMatters: Post-mortems convert expensive mistakes into institutional learning.
+    Example: After a rocky launch, the team documents root causes for crash triage
+      delays.
+    CommonMistake: Blaming individuals instead of systems, handoffs, and missing
+      safeguards.
+    PracticePrompt: Run a blameless post-mortem with timeline, root causes, and three
+      action items.
+    GameUses:
+    - Launch reviews
+    - Incident response
+    - Process improvement
+    RelatedTermIds:
+    - milestone
+    - crunch
+    - live-ops
+    Tags:
+    - process
+    - learning
+    - production
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1716422400

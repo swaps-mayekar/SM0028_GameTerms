@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: soak-testing
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: soak-testing
+    Term: Soak Testing
+    Abbreviation: 
+    Category: 7
+    Difficulty: 2
+    ShortDefinition: Running a build under realistic load for a long duration to
+      find slow leaks and drift.
+    SimpleExplanation: Leave the game running for hours to catch problems that short
+      tests miss.
+    WhyItMatters: Soak tests reveal memory growth, thermal decay, and rare timing
+      bugs.
+    Example: An overnight idle lobby run shows steadily rising native memory.
+    CommonMistake: Only soak on developer machines that never match shipping hardware.
+    PracticePrompt: Run a two-hour automated combat loop and chart memory every five
+      minutes.
+    GameUses:
+    - Live stability
+    - Mobile thermal QA
+    - Server endurance
+    RelatedTermIds:
+    - stress-testing
+    - memory-pressure
+    - thermal-throttling
+    Tags:
+    - qa
+    - stability
+    - endurance
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1713657600

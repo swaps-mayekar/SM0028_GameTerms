@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: non-diegetic-audio
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: non-diegetic-audio
+    Term: Non Diegetic Audio
+    Abbreviation: 
+    Category: 4
+    Difficulty: 0
+    ShortDefinition: Sound that exists for the audience and not as a source inside
+      the story world.
+    SimpleExplanation: Music or narration the characters would not hear.
+    WhyItMatters: Non-diegetic layers guide emotion and pacing without needing a
+      world emitter.
+    Example: A tense score swells during a chase even though no radio is playing
+      in-world.
+    CommonMistake: Mixing non-diegetic score so loudly that gameplay cues become
+      hard to hear.
+    PracticePrompt: Mark five sounds in your project as diegetic or non-diegetic
+      and justify each choice.
+    GameUses:
+    - Score design
+    - Trailers
+    - Narrative emphasis
+    RelatedTermIds:
+    - diegetic-audio
+    - adaptive-music
+    - audio-ducking
+    Tags:
+    - music
+    - narrative
+    - score
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1710460800

@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: render-pipeline
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: render-pipeline
+    Term: Render Pipeline
+    Abbreviation: 
+    Category: 2
+    Difficulty: 2
+    ShortDefinition: The ordered stages and systems that take scene data and produce
+      the final image.
+    SimpleExplanation: The factory line that turns game objects into pixels on screen.
+    WhyItMatters: Pipeline choice affects quality features, platform support, and
+      performance characteristics.
+    Example: Using a lightweight forward pipeline for mobile and a deferred pipeline
+      for consoles.
+    CommonMistake: Enabling every pipeline feature without checking target device
+      cost.
+    PracticePrompt: Compare one scene's frame time under two quality pipeline settings.
+    GameUses:
+    - Platform targeting
+    - Graphics architecture
+    - Feature planning
+    RelatedTermIds:
+    - shader
+    - post-processing
+    - hdr-rendering
+    Tags:
+    - pipeline
+    - rendering
+    - architecture
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1707264000

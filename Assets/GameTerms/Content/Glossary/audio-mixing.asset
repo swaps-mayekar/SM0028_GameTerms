@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: audio-mixing
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: audio-mixing
+    Term: Audio Mixing
+    Abbreviation: 
+    Category: 4
+    Difficulty: 1
+    ShortDefinition: Balancing buses, levels, and priorities so the soundtrack remains
+      clear under gameplay load.
+    SimpleExplanation: Organizing and leveling music, dialogue, and effects so nothing
+      fights for attention.
+    WhyItMatters: A disciplined mix protects readability during chaotic moments.
+    Example: Separate buses for UI, combat SFX, dialogue, and music with priority
+      rules.
+    CommonMistake: Leaving every sound at default loudness until the mix becomes
+      unreadable.
+    PracticePrompt: Build a four-bus mixer and assign five existing sounds into the
+      correct buses.
+    GameUses:
+    - Combat clarity
+    - Dialogue focus
+    - Platform loudness
+    RelatedTermIds:
+    - audio-ducking
+    - loudness-normalization
+    - sfx-layering
+    Tags:
+    - mixing
+    - buses
+    - loudness
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1709683200

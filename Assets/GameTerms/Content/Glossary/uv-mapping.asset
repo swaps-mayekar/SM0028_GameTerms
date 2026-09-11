@@ -18,10 +18,15 @@ MonoBehaviour:
     Abbreviation: 
     Category: 3
     Difficulty: 0
-    ShortDefinition: Flattening a 3D surface into 2D texture coordinates for painting and shading.
-    SimpleExplanation: Unwrapping a model so textures can be painted on it like wrapping paper.
+    ShortDefinition: Flattening a 3D surface into 2D texture coordinates for painting
+      and shading.
+    SimpleExplanation: Unwrapping a model so textures can be painted on it like wrapping
+      paper.
     WhyItMatters: Good UV layouts improve texture clarity and reduce visible seams.
     Example: A character torso is unwrapped so armor details align across mesh islands.
+    CommonMistake: Stretching UVs unevenly, which makes textures look warped in-game.
+    PracticePrompt: Unwrap a crate and check texel density consistency across all
+      faces.
     GameUses:
     - Texturing
     - Material authoring
@@ -30,13 +35,13 @@ MonoBehaviour:
     - normal-map
     - texture-compression
     - sprite-sheet
+    - texel-density
     Tags:
     - texturing
     - pipeline
     - art
-    Synonyms:
-    - 
+    Synonyms: []
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1706054400
+    AddedAtUnix: 1708214400

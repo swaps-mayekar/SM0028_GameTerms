@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: intellectual-property
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: intellectual-property
+    Term: Intellectual Property
+    Abbreviation: ip
+    Category: 9
+    Difficulty: 1
+    ShortDefinition: Legal rights over creative assets, brands, code, and licenses
+      used or created by a project.
+    SimpleExplanation: Who owns the characters, code, music, and brand names.
+    WhyItMatters: Clear IP ownership prevents legal blocks on shipping, sequels,
+      and merchandising.
+    Example: A studio confirms music licenses allow gameplay streaming before launch
+      marketing.
+    CommonMistake: Using unlicensed assets in a vertical slice that later cannot
+      ship.
+    PracticePrompt: Inventory third-party assets and mark license constraints for
+      commercial release.
+    GameUses:
+    - Contracts
+    - Licensed games
+    - Asset audits
+    RelatedTermIds:
+    - publisher
+    - localization
+    - app-store-guidelines
+    Tags:
+    - legal
+    - ownership
+    - publishing
+    Synonyms:
+    - IP
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1716940800

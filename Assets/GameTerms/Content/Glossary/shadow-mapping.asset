@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: shadow-mapping
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: shadow-mapping
+    Term: Shadow Mapping
+    Abbreviation: 
+    Category: 2
+    Difficulty: 2
+    ShortDefinition: A technique that renders the scene from a light's view to determine
+      which pixels are shadowed.
+    SimpleExplanation: The light takes a depth photo, then the camera checks what
+      is hidden from that light.
+    WhyItMatters: Shadows add realism but are among the most expensive lighting features.
+    Example: Cascaded shadow maps covering near detail and far terrain under sunlight.
+    CommonMistake: Using oversized shadow resolutions on mobile without cascade tuning.
+    PracticePrompt: Toggle shadows on a key light and measure GPU frame-time impact.
+    GameUses:
+    - Directional lights
+    - Indoor lamps
+    - Quality settings
+    RelatedTermIds:
+    - z-buffer
+    - pbr
+    - adaptive-performance
+    Tags:
+    - lighting
+    - shadows
+    - gpu
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1707609600

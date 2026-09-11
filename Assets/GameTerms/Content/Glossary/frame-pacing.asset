@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: frame-pacing
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: frame-pacing
+    Term: Frame Pacing
+    Abbreviation: 
+    Category: 6
+    Difficulty: 1
+    ShortDefinition: Delivering frames at consistent intervals so motion feels smooth
+      even when FPS is capped.
+    SimpleExplanation: Spacing frames evenly so gameplay does not feel stuttery.
+    WhyItMatters: Uneven pacing feels worse than a slightly lower but stable frame
+      rate.
+    Example: Locking presentation to 30 FPS with steady intervals instead of oscillating
+      45 to 25.
+    CommonMistake: Chasing peak FPS while ignoring frame-time variance.
+    PracticePrompt: Capture frame-time graphs before and after enabling consistent
+      pacing.
+    GameUses:
+    - Mobile feel
+    - Performance QA
+    - Display sync
+    RelatedTermIds:
+    - delta-time
+    - adaptive-performance
+    - thermal-throttling
+    Tags:
+    - frames
+    - performance
+    - feel
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1712361600

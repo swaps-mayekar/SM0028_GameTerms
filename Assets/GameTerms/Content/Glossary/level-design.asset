@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: level-design
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: level-design
+    Term: Level Design
+    Abbreviation: 
+    Category: 0
+    Difficulty: 1
+    ShortDefinition: Crafting spaces, encounters, and routes that teach, challenge,
+      and reward players.
+    SimpleExplanation: Building the places where gameplay actually happens.
+    WhyItMatters: Level design translates systems into memorable experiences and
+      readable challenge.
+    Example: A stealth level with safe paths, risky shortcuts, and a scripted discovery
+      moment.
+    CommonMistake: Decorating a map before verifying traversal, sightlines, and encounter
+      flow.
+    PracticePrompt: Greybox one room that teaches a new mechanic using layout alone,
+      with no tutorial text.
+    GameUses:
+    - Encounter layout
+    - Exploration games
+    - Tutorial spaces
+    RelatedTermIds:
+    - difficulty-curve
+    - vertical-slice
+    - onboarding
+    Tags:
+    - levels
+    - space
+    - pacing
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1705190400

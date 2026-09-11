@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: lag-compensation
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: lag-compensation
+    Term: Lag Compensation
+    Abbreviation: 
+    Category: 5
+    Difficulty: 2
+    ShortDefinition: Server-side techniques that account for latency when validating
+      hits or interactions.
+    SimpleExplanation: The server rewinds history a bit so shots still make sense
+      for high-ping players.
+    WhyItMatters: Lag compensation improves fairness in shooters without letting
+      clients decide hits.
+    Example: A hitscan shot is tested against where the target was when the shooter
+      fired.
+    CommonMistake: Rewinding too far, which creates shoot-behind-cover frustration.
+    PracticePrompt: Document a rewind window policy and test it at 50 ms and 150
+      ms latency.
+    GameUses:
+    - FPS netcode
+    - Hit registration
+    - Competitive fairness
+    RelatedTermIds:
+    - latency
+    - client-prediction
+    - server-reconciliation
+    Tags:
+    - netcode
+    - shooters
+    - fairness
+    Synonyms: []
+    CodeExample: 'server.RewindHitboxes(clientTime);
+
+      bool hit = Raycast(...);'
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1710979200

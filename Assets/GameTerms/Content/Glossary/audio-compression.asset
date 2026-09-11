@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: audio-compression
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: audio-compression
+    Term: Audio Compression
+    Abbreviation: 
+    Category: 4
+    Difficulty: 1
+    ShortDefinition: Reducing audio file size or dynamic range for memory, bandwidth,
+      or mix control.
+    SimpleExplanation: Making sounds smaller to store or quieter in the loud parts
+      so they sit better in a mix.
+    WhyItMatters: Compression keeps mobile packages manageable and mixes controlled.
+    Example: Converting long music beds to a compressed format for a mobile build.
+    CommonMistake: Over-compressing effects until they lose punch and clarity.
+    PracticePrompt: Compare file size and quality for one clip at two compression
+      settings.
+    GameUses:
+    - Mobile packaging
+    - Streaming audio
+    - Mix dynamics
+    RelatedTermIds:
+    - texture-compression
+    - loudness-normalization
+    - memory-pressure
+    Tags:
+    - memory
+    - formats
+    - mixing
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1710201600

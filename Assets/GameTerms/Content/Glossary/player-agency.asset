@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: player-agency
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: player-agency
+    Term: Player Agency
+    Abbreviation: 
+    Category: 0
+    Difficulty: 1
+    ShortDefinition: The player's ability to make meaningful choices that change
+      outcomes.
+    SimpleExplanation: Feeling like your decisions actually matter in the game world.
+    WhyItMatters: Agency creates ownership, replay value, and emotional investment.
+    Example: Choosing dialogue that permanently alters which ally joins a late-game
+      mission.
+    CommonMistake: Offering cosmetic choices that look meaningful but never affect
+      gameplay or story.
+    PracticePrompt: Audit one quest and mark which decisions change systems, narrative,
+      or neither.
+    GameUses:
+    - Narrative design
+    - Systems design
+    - UX clarity
+    RelatedTermIds:
+    - onboarding
+    - risk-reward
+    - feedback-loop
+    Tags:
+    - design
+    - choice
+    - ux
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1704844800

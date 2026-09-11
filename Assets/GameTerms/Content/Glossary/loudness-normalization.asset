@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: loudness-normalization
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: loudness-normalization
+    Term: Loudness Normalization
+    Abbreviation: 
+    Category: 4
+    Difficulty: 1
+    ShortDefinition: Matching perceived volume across content to platform loudness
+      targets.
+    SimpleExplanation: Making sure no track or trailer is randomly much louder than
+      another.
+    WhyItMatters: Normalization prevents player fatigue and meets store or console
+      requirements.
+    Example: Dialog and music beds both target the same integrated loudness range.
+    CommonMistake: Normalizing peak level only, which still leaves large loudness
+      swings.
+    PracticePrompt: Measure integrated loudness for three clips and bring them into
+      the same target range.
+    GameUses:
+    - Trailers
+    - In-game mix
+    - Platform compliance
+    RelatedTermIds:
+    - audio-mixing
+    - voice-over
+    - audio-compression
+    Tags:
+    - loudness
+    - compliance
+    - mixing
+    Synonyms: []
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1710288000

@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: unit-testing
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: unit-testing
+    Term: Unit Testing
+    Abbreviation: 
+    Category: 7
+    Difficulty: 0
+    ShortDefinition: Automated tests that verify a small unit of code in isolation.
+    SimpleExplanation: Tiny checks that prove one function or class behaves correctly.
+    WhyItMatters: Unit tests catch logic bugs early and make refactoring safer.
+    Example: A damage calculator test asserts critical hits multiply correctly.
+    CommonMistake: Writing tests that depend on full scene setup and fail for unrelated
+      reasons.
+    PracticePrompt: Add three unit tests around one pure gameplay function and run
+      them in CI.
+    GameUses:
+    - Combat math
+    - Save serialization
+    - Economy rules
+    RelatedTermIds:
+    - integration-testing
+    - ci-cd-pipeline
+    - dependency-injection
+    Tags:
+    - qa
+    - automation
+    - code
+    Synonyms: []
+    CodeExample: 'Assert.AreEqual(20, Damage.Apply(10, multiplier: 2f));'
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1713484800

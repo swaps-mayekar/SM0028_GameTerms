@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: command-pattern
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: command-pattern
+    Term: Command Pattern
+    Abbreviation: 
+    Category: 1
+    Difficulty: 1
+    ShortDefinition: Encapsulating actions as objects so they can be queued, undone,
+      replayed, or networked.
+    SimpleExplanation: Turn each player action into a little package that can be
+      stored and replayed.
+    WhyItMatters: Commands support undo, replays, AI scripting, and deterministic
+      multiplayer inputs.
+    Example: Store move and attack commands for a turn-based match and replay them
+      later.
+    CommonMistake: Mutating game state outside the command, so undo cannot restore
+      the previous state.
+    PracticePrompt: Create UndoableCommand for placing and removing a building tile.
+    GameUses:
+    - Input buffering
+    - Replay systems
+    - Turn-based games
+    RelatedTermIds:
+    - event-system
+    - serialization
+    - client-prediction
+    Tags:
+    - architecture
+    - input
+    - replay
+    Synonyms: []
+    CodeExample: commands.Enqueue(new JumpCommand(player));
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1706140800

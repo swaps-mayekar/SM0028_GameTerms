@@ -18,10 +18,18 @@ MonoBehaviour:
     Abbreviation: 
     Category: 9
     Difficulty: 0
-    ShortDefinition: When a project's feature list grows beyond the original plan without matching time or budget.
-    SimpleExplanation: The game keeps gaining new ideas faster than the team can build them.
-    WhyItMatters: Scope creep delays launches, burns teams out, and dilutes the core experience.
-    Example: A small puzzle game adds multiplayer, crafting, and a battle pass before the first release.
+    ShortDefinition: When a project's feature list grows beyond the original plan
+      without matching time or budget.
+    SimpleExplanation: The game keeps gaining new ideas faster than the team can
+      build them.
+    WhyItMatters: Scope creep delays launches, burns teams out, and dilutes the core
+      experience.
+    Example: A small puzzle game adds multiplayer, crafting, and a battle pass before
+      the first release.
+    CommonMistake: Accepting every stakeholder request without cutting something
+      else.
+    PracticePrompt: List five proposed features and cut two that do not serve the
+      MVP core loop.
     GameUses:
     - Production planning
     - Milestone scoping
@@ -29,14 +37,14 @@ MonoBehaviour:
     RelatedTermIds:
     - mvp
     - vertical-slice
-    - soft-launch
+    - milestone
+    - crunch
     Tags:
     - production
     - scope
     - planning
-    Synonyms:
-    - 
+    Synonyms: []
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0
-    AddedAtUnix: 1708300800
+    AddedAtUnix: 1715990400

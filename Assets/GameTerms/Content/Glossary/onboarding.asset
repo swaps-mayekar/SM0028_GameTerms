@@ -18,10 +18,18 @@ MonoBehaviour:
     Abbreviation: 
     Category: 0
     Difficulty: 0
-    ShortDefinition: The guided early experience that teaches core mechanics and motivates continued play.
-    SimpleExplanation: How the game introduces itself and teaches players what to do in the first minutes.
-    WhyItMatters: Strong onboarding improves day-one retention and reduces early drop-off.
-    Example: A tutorial level that teaches movement, combat, and inventory without long text blocks.
+    ShortDefinition: The guided early experience that teaches core mechanics and
+      motivates continued play.
+    SimpleExplanation: How the game introduces itself and teaches players what to
+      do in the first minutes.
+    WhyItMatters: Strong onboarding improves day-one retention and reduces early
+      drop-off.
+    Example: A tutorial level that teaches movement, combat, and inventory without
+      long text blocks.
+    CommonMistake: Dumping every system into the first ten minutes instead of teaching
+      one skill at a time.
+    PracticePrompt: Rewrite your first five minutes so each new input is practiced
+      before the next is introduced.
     GameUses:
     - First-time user experience
     - Tutorial design
@@ -30,12 +38,12 @@ MonoBehaviour:
     - progression
     - mvp
     - retention
+    - player-agency
     Tags:
     - tutorial
     - retention
     - ux
-    Synonyms:
-    - 
+    Synonyms: []
     CodeExample: 
     HasDiagram: 0
     DiagramType: 0

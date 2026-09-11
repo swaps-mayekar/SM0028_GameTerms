@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692b90636fdb426b9c8f7cd22cafe0f, type: 3}
+  m_Name: arpdau
+  m_EditorClassIdentifier: GameTerms.Runtime::GameTerms.GlossaryTermAsset
+  data:
+    Id: arpdau
+    Term: ARPDAU
+    Abbreviation: arpdau
+    Category: 8
+    Difficulty: 1
+    ShortDefinition: Average Revenue Per Daily Active User for a given day.
+    SimpleExplanation: How much money each daily player is worth on that day.
+    WhyItMatters: ARPDAU is a sensitive daily pulse for live ops and monetization
+      experiments.
+    Example: A weekend event doubles ARPDAU while DAU rises only modestly.
+    CommonMistake: Judging a feature by ARPDAU alone without checking retention side
+      effects.
+    PracticePrompt: Plot ARPDAU for fourteen days and mark each live ops intervention.
+    GameUses:
+    - Daily live ops
+    - Offer testing
+    - Economy health
+    RelatedTermIds:
+    - arpu
+    - dau
+    - battle-pass
+    - in-app-purchase
+    Tags:
+    - revenue
+    - daily
+    - kpi
+    Synonyms:
+    - average revenue per daily active user
+    CodeExample: 
+    HasDiagram: 0
+    DiagramType: 0
+    AddedAtUnix: 1714867200
