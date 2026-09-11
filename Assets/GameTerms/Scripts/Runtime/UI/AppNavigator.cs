@@ -19,6 +19,7 @@ namespace GameTerms.UI
         SearchResults,
         TermDetail,
         StudyHub,
+        PathDetail,
         FlashcardSession,
         QuizSession,
         QuizResults
@@ -31,6 +32,8 @@ namespace GameTerms.UI
         public GlossaryCategory? SelectedCategory { get; private set; }
         public string SearchQuery { get; private set; } = string.Empty;
         public string SelectedTermId { get; private set; }
+        public string SelectedPathId { get; private set; }
+        public string SelectedPathStepId { get; private set; }
         public StudyConfig ActiveStudyConfig { get; private set; }
 
         public event Action Changed;
@@ -38,6 +41,8 @@ namespace GameTerms.UI
         public void ShowTab(AppTab tab)
         {
             CurrentTab = tab;
+            SelectedPathId = null;
+            SelectedPathStepId = null;
             CurrentScreen = tab switch
             {
                 AppTab.Categories => AppScreen.Categories,
@@ -51,6 +56,8 @@ namespace GameTerms.UI
         public void ShowCategory(GlossaryCategory category)
         {
             SelectedCategory = category;
+            SelectedPathId = null;
+            SelectedPathStepId = null;
             CurrentScreen = AppScreen.CategoryTerms;
             Changed?.Invoke();
         }
@@ -58,6 +65,8 @@ namespace GameTerms.UI
         public void ShowSearch(string query)
         {
             SearchQuery = query ?? string.Empty;
+            SelectedPathId = null;
+            SelectedPathStepId = null;
             CurrentScreen = string.IsNullOrWhiteSpace(SearchQuery) ? AppScreen.Home : AppScreen.SearchResults;
             Changed?.Invoke();
         }
@@ -65,6 +74,18 @@ namespace GameTerms.UI
         public void ShowTerm(string termId)
         {
             SelectedTermId = termId;
+            SelectedPathId = null;
+            SelectedPathStepId = null;
+            CurrentScreen = AppScreen.TermDetail;
+            Changed?.Invoke();
+        }
+
+        public void ShowTermFromPath(string pathId, string stepId, string termId)
+        {
+            SelectedPathId = pathId;
+            SelectedPathStepId = stepId;
+            SelectedTermId = termId;
+            CurrentTab = AppTab.Study;
             CurrentScreen = AppScreen.TermDetail;
             Changed?.Invoke();
         }
@@ -72,7 +93,18 @@ namespace GameTerms.UI
         public void ShowStudyHub()
         {
             CurrentTab = AppTab.Study;
+            SelectedPathId = null;
+            SelectedPathStepId = null;
             CurrentScreen = AppScreen.StudyHub;
+            Changed?.Invoke();
+        }
+
+        public void ShowPath(string pathId)
+        {
+            SelectedPathId = pathId;
+            SelectedPathStepId = null;
+            CurrentTab = AppTab.Study;
+            CurrentScreen = AppScreen.PathDetail;
             Changed?.Invoke();
         }
 
@@ -87,6 +119,12 @@ namespace GameTerms.UI
         public void StartQuiz(StudyConfig config)
         {
             ActiveStudyConfig = config ?? new StudyConfig { Mode = StudyMode.Quiz, QuestionCount = 5 };
+            if (!string.IsNullOrWhiteSpace(ActiveStudyConfig.PathId))
+            {
+                SelectedPathId = ActiveStudyConfig.PathId;
+                SelectedPathStepId = ActiveStudyConfig.PathStepId;
+            }
+
             CurrentTab = AppTab.Study;
             CurrentScreen = AppScreen.QuizSession;
             Changed?.Invoke();
@@ -102,6 +140,10 @@ namespace GameTerms.UI
         {
             switch (CurrentScreen)
             {
+                case AppScreen.TermDetail when !string.IsNullOrEmpty(SelectedPathId):
+                    CurrentScreen = AppScreen.PathDetail;
+                    SelectedPathStepId = null;
+                    break;
                 case AppScreen.TermDetail when !string.IsNullOrEmpty(SearchQuery):
                     CurrentScreen = AppScreen.SearchResults;
                     break;
@@ -128,10 +170,25 @@ namespace GameTerms.UI
                     CurrentScreen = AppScreen.Categories;
                     SelectedCategory = null;
                     break;
+                case AppScreen.PathDetail:
+                    SelectedPathId = null;
+                    SelectedPathStepId = null;
+                    CurrentScreen = AppScreen.StudyHub;
+                    break;
                 case AppScreen.FlashcardSession:
+                    CurrentScreen = AppScreen.StudyHub;
+                    break;
                 case AppScreen.QuizSession:
                 case AppScreen.QuizResults:
-                    CurrentScreen = AppScreen.StudyHub;
+                    if (!string.IsNullOrEmpty(ActiveStudyConfig?.PathId) || !string.IsNullOrEmpty(SelectedPathId))
+                    {
+                        SelectedPathId = ActiveStudyConfig?.PathId ?? SelectedPathId;
+                        CurrentScreen = AppScreen.PathDetail;
+                    }
+                    else
+                    {
+                        CurrentScreen = AppScreen.StudyHub;
+                    }
                     break;
                 default:
                     ShowTab(CurrentTab);

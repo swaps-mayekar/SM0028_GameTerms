@@ -14,6 +14,7 @@ namespace GameTerms
         public DailyTermService DailyTerm { get; }
         public RandomTermService RandomTerm { get; }
         public ProgressService Progress { get; }
+        public LearningPathService LearningPaths { get; }
         public QuizService Quiz { get; }
         public FlashcardService Flashcards { get; }
         public IGlossaryRepository Repository { get; }
@@ -30,6 +31,7 @@ namespace GameTerms
             DailyTerm = new DailyTermService(Glossary);
             RandomTerm = new RandomTermService(Glossary, UserData);
             Progress = new ProgressService(Glossary, UserData);
+            LearningPaths = new LearningPathService(UserData, Glossary);
             Quiz = new QuizService(Glossary, Progress, Favorites);
             Flashcards = new FlashcardService(Glossary, Progress, Favorites);
         }

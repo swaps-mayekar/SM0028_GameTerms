@@ -58,5 +58,41 @@ namespace GameTerms.Tests
             Assert.That(navigator.CurrentScreen, Is.EqualTo(AppScreen.QuizResults));
             Assert.That(services.Quiz.GetResults().CorrectCount, Is.EqualTo(1));
         }
+
+        [UnityTest]
+        public IEnumerator StudyHub_OpensLearningPathDetail()
+        {
+            var load = SceneManager.LoadSceneAsync("1_MainScene", LoadSceneMode.Single);
+            while (load != null && !load.isDone)
+            {
+                yield return null;
+            }
+
+            yield return null;
+            yield return null;
+
+            var shell = Object.FindFirstObjectByType<AppShellController>();
+            Assert.That(shell, Is.Not.Null);
+
+            var navigatorField = typeof(AppShellController).GetField("navigator", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            var servicesField = typeof(AppShellController).GetField("services", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            var navigator = (AppNavigator)navigatorField.GetValue(shell);
+            var services = (AppServices)servicesField.GetValue(shell);
+
+            navigator.ShowStudyHub();
+            yield return null;
+            Assert.That(services.LearningPaths.GetPaths().Count, Is.EqualTo(4));
+
+            navigator.ShowPath("beginner");
+            yield return null;
+            Assert.That(navigator.CurrentScreen, Is.EqualTo(AppScreen.PathDetail));
+            Assert.That(navigator.SelectedPathId, Is.EqualTo("beginner"));
+
+            var firstLesson = services.LearningPaths.GetPath("beginner").Steps[0];
+            navigator.ShowTermFromPath("beginner", firstLesson.Id, firstLesson.TermId);
+            yield return null;
+            Assert.That(navigator.CurrentScreen, Is.EqualTo(AppScreen.TermDetail));
+            Assert.That(navigator.SelectedPathId, Is.EqualTo("beginner"));
+        }
     }
 }

@@ -21,12 +21,95 @@ namespace GameTerms.Tests
 
             var normalized = UserDataMigrator.Normalize(snapshot);
 
-            Assert.That(normalized.Version, Is.EqualTo(2));
+            Assert.That(normalized.Version, Is.EqualTo(3));
             Assert.That(normalized.FavoriteTermIds, Does.Contain("draw-call"));
             Assert.That(normalized.RecentlyViewedTermIds, Does.Contain("object-pooling"));
             Assert.That(normalized.TermProgress, Is.Not.Null);
             Assert.That(normalized.TermProgress.Count, Is.EqualTo(0));
+            Assert.That(normalized.PathProgress, Is.Not.Null);
             Assert.That(normalized.LastMissedTermIds, Is.Not.Null);
+        }
+    }
+
+    public class LearningPathServiceTests
+    {
+        [Test]
+        public void Catalog_HasFourPathsWithFifteenStepsEach()
+        {
+            Assert.That(LearningPathCatalog.All.Count, Is.EqualTo(4));
+            foreach (var path in LearningPathCatalog.All)
+            {
+                Assert.That(path.Steps.Count, Is.EqualTo(15), path.Id);
+                Assert.That(path.Steps.Count(step => step.Type == LearningPathStepType.Lesson), Is.EqualTo(12));
+                Assert.That(path.Steps.Count(step => step.Type == LearningPathStepType.Checkpoint), Is.EqualTo(2));
+                Assert.That(path.Steps.Count(step => step.Type == LearningPathStepType.FinalAssessment), Is.EqualTo(1));
+            }
+        }
+
+        [Test]
+        public void CompleteLesson_UnlocksSequentialStepsAndPersists()
+        {
+            var store = new MemoryUserDataStore();
+            var userData = new UserDataService(store);
+            var glossary = new GlossaryService(new InMemoryGlossaryRepository(GlossaryTestData.CreatePathCoverageTerms()));
+            var paths = new LearningPathService(userData, glossary);
+            var beginner = paths.GetPath("beginner");
+
+            Assert.That(paths.IsStepUnlocked("beginner", beginner.Steps[0].Id), Is.True);
+            Assert.That(paths.IsStepUnlocked("beginner", beginner.Steps[1].Id), Is.False);
+
+            Assert.That(paths.CompleteLesson("beginner", beginner.Steps[0].Id), Is.True);
+            Assert.That(paths.IsStepCompleted("beginner", beginner.Steps[0].Id), Is.True);
+            Assert.That(paths.IsStepUnlocked("beginner", beginner.Steps[1].Id), Is.True);
+            Assert.That(store.LastSaved.PathProgress.Any(record => record.PathId == "beginner"), Is.True);
+        }
+
+        [Test]
+        public void RecordAssessmentResult_RequiresPassThreshold()
+        {
+            var userData = new UserDataService(new MemoryUserDataStore());
+            var glossary = new GlossaryService(new InMemoryGlossaryRepository(GlossaryTestData.CreatePathCoverageTerms()));
+            var paths = new LearningPathService(userData, glossary);
+            var beginner = paths.GetPath("beginner");
+
+            for (var i = 0; i < 4; i++)
+            {
+                Assert.That(paths.CompleteLesson("beginner", beginner.Steps[i].Id), Is.True);
+            }
+
+            var checkpoint = beginner.Steps.First(step => step.Type == LearningPathStepType.Checkpoint);
+            var fail = new QuizSessionResult { CorrectCount = 2, TotalQuestions = 4 };
+            Assert.That(paths.RecordAssessmentResult("beginner", checkpoint.Id, fail), Is.False);
+            Assert.That(paths.IsStepCompleted("beginner", checkpoint.Id), Is.False);
+
+            var pass = new QuizSessionResult { CorrectCount = 3, TotalQuestions = 4 };
+            Assert.That(paths.RecordAssessmentResult("beginner", checkpoint.Id, pass), Is.True);
+            Assert.That(paths.IsStepCompleted("beginner", checkpoint.Id), Is.True);
+        }
+
+        [Test]
+        public void QuizService_TermListScope_UsesConfiguredIds()
+        {
+            var harness = StudyTestHarness.Create(seed: 21);
+            harness.Quiz.StartSession(new StudyConfig
+            {
+                Mode = StudyMode.Quiz,
+                Scope = StudyScope.TermList,
+                TermIds = new List<string> { "draw-call", "object-pooling", "core-loop", "latency" },
+                QuestionCount = 4
+            });
+
+            Assert.That(harness.Quiz.QuestionCount, Is.EqualTo(4));
+            var ids = new HashSet<string>();
+            while (harness.Quiz.HasActiveSession)
+            {
+                var question = harness.Quiz.GetCurrentQuestion();
+                ids.Add(question.TermId);
+                harness.Quiz.SubmitAnswer(question.CorrectOptionId);
+                harness.Quiz.Advance();
+            }
+
+            Assert.That(ids.SetEquals(new[] { "draw-call", "object-pooling", "core-loop", "latency" }), Is.True);
         }
     }
 
@@ -497,6 +580,45 @@ namespace GameTerms.Tests
                     ShortDefinition = "How often the server updates simulation."
                 }
             };
+        }
+
+        public static List<GlossaryTermData> CreatePathCoverageTerms()
+        {
+            var terms = CreateSampleTerms().ToDictionary(term => term.Id, term => term);
+            foreach (var path in LearningPathCatalog.All)
+            {
+                foreach (var step in path.Steps)
+                {
+                    if (!string.IsNullOrWhiteSpace(step.TermId) && !terms.ContainsKey(step.TermId))
+                    {
+                        terms[step.TermId] = new GlossaryTermData
+                        {
+                            Id = step.TermId,
+                            Term = step.Title,
+                            Category = GlossaryCategory.GameDesign,
+                            Difficulty = DifficultyLevel.Beginner,
+                            ShortDefinition = $"{step.Title} definition."
+                        };
+                    }
+
+                    foreach (var quizId in step.QuizTermIds ?? Enumerable.Empty<string>())
+                    {
+                        if (!terms.ContainsKey(quizId))
+                        {
+                            terms[quizId] = new GlossaryTermData
+                            {
+                                Id = quizId,
+                                Term = quizId,
+                                Category = GlossaryCategory.GameDesign,
+                                Difficulty = DifficultyLevel.Beginner,
+                                ShortDefinition = $"{quizId} definition."
+                            };
+                        }
+                    }
+                }
+            }
+
+            return terms.Values.ToList();
         }
     }
 }

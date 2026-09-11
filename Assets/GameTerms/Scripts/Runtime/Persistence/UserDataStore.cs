@@ -8,11 +8,12 @@ namespace GameTerms.Persistence
     [Serializable]
     public sealed class UserDataSnapshot
     {
-        public int Version = 2;
+        public int Version = 3;
         public List<string> FavoriteTermIds = new();
         public List<string> RecentlyViewedTermIds = new();
         public string LastRandomTermId;
         public List<TermProgressRecord> TermProgress = new();
+        public List<PathProgressRecord> PathProgress = new();
         public int TotalQuizSessions;
         public int BestQuizScore;
         public int LastQuizScore;
@@ -29,7 +30,7 @@ namespace GameTerms.Persistence
 
     public static class UserDataMigrator
     {
-        public const int CurrentVersion = 2;
+        public const int CurrentVersion = 3;
 
         public static UserDataSnapshot Normalize(UserDataSnapshot snapshot)
         {
@@ -37,11 +38,15 @@ namespace GameTerms.Persistence
             snapshot.FavoriteTermIds ??= new List<string>();
             snapshot.RecentlyViewedTermIds ??= new List<string>();
             snapshot.TermProgress ??= new List<TermProgressRecord>();
+            snapshot.PathProgress ??= new List<PathProgressRecord>();
             snapshot.LastMissedTermIds ??= new List<string>();
 
-            if (snapshot.Version < CurrentVersion)
+            foreach (var path in snapshot.PathProgress)
             {
-                snapshot.Version = CurrentVersion;
+                if (path != null)
+                {
+                    path.CompletedStepIds ??= new List<string>();
+                }
             }
 
             snapshot.Version = CurrentVersion;

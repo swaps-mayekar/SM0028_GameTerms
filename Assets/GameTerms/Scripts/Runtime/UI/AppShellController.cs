@@ -24,6 +24,8 @@ namespace GameTerms.UI
         private TermSortMode currentSortMode = TermSortMode.Alphabetical;
         private readonly List<NavTabButton> navButtons = new();
         private bool quizAdvanceQueued;
+        private bool pathAssessmentRecorded;
+        private bool pathAssessmentPassed;
 
         private void Awake()
         {
@@ -81,6 +83,8 @@ namespace GameTerms.UI
                     Scope = StudyScope.All
                 });
                 quizAdvanceQueued = false;
+                pathAssessmentRecorded = false;
+                pathAssessmentPassed = false;
             }
 
             Refresh();
@@ -287,6 +291,9 @@ namespace GameTerms.UI
                 case AppScreen.StudyHub:
                     BuildStudyHubPanel();
                     break;
+                case AppScreen.PathDetail:
+                    BuildPathDetailPanel(navigator.SelectedPathId);
+                    break;
                 case AppScreen.FlashcardSession:
                     BuildFlashcardSessionPanel();
                     break;
@@ -441,6 +448,18 @@ namespace GameTerms.UI
                 });
             });
 
+            factory.CreateSectionHeader(content, "Learning Paths");
+            foreach (var path in services.LearningPaths.GetPaths())
+            {
+                var completed = services.LearningPaths.GetCompletedStepCount(path.Id);
+                var total = path.Steps.Count;
+                var ratio = services.LearningPaths.GetCompletionRatio(path.Id);
+                var status = services.LearningPaths.IsPathComplete(path.Id)
+                    ? "Completed"
+                    : $"{completed}/{total} steps · {(int)(ratio * 100f)}%";
+                BuildStudyModeCard(content, UiIconId.Study, path.Title, $"{path.Subtitle} — {status}", () => navigator.ShowPath(path.Id));
+            }
+
             if (stats.LastMissedTermIds.Count > 0)
             {
                 factory.CreateSectionHeader(content, "Review Missed Terms");
@@ -452,6 +471,101 @@ namespace GameTerms.UI
                         BuildTermRow(content, term, null);
                     }
                 }
+            }
+        }
+
+        private void BuildPathDetailPanel(string pathId)
+        {
+            var path = services.LearningPaths.GetPath(pathId);
+            if (path == null)
+            {
+                navigator.ShowStudyHub();
+                return;
+            }
+
+            var content = CreateScrollPanel("PathDetailPanel");
+            AddBackButton(content);
+            factory.CreateScreenHeader(content, path.Title, path.Description);
+            factory.CreateProgressBar(content, services.LearningPaths.GetCompletionRatio(path.Id));
+            factory.CreateText(
+                content,
+                $"{services.LearningPaths.GetCompletedStepCount(path.Id)} of {path.Steps.Count} steps complete",
+                theme.TextMuted,
+                theme.MetaSize,
+                theme.SansRegular,
+                TextAlignmentOptions.MidlineLeft);
+
+            var resumeId = services.LearningPaths.GetResumeStepId(path.Id);
+            if (!string.IsNullOrEmpty(resumeId) && !services.LearningPaths.IsPathComplete(path.Id))
+            {
+                factory.CreateButton(content, "Continue Path", () => StartPathStep(path.Id, resumeId), primary: true);
+            }
+
+            factory.CreateSectionHeader(content, "Steps");
+            foreach (var step in path.Steps)
+            {
+                BuildPathStepRow(content, path, step);
+            }
+        }
+
+        private void BuildPathStepRow(RectTransform parent, LearningPathDefinition path, LearningPathStep step)
+        {
+            var completed = services.LearningPaths.IsStepCompleted(path.Id, step.Id);
+            var unlocked = services.LearningPaths.IsStepUnlocked(path.Id, step.Id);
+            var card = factory.CreateCard(parent, $"Step_{step.Id}");
+            var layout = card.gameObject.AddComponent<VerticalLayoutGroup>();
+            layout.padding = new RectOffset(14, 14, 14, 14);
+            layout.spacing = 8f;
+            layout.childControlWidth = true;
+            layout.childForceExpandWidth = true;
+
+            var status = completed ? "Completed" : unlocked ? "Ready" : "Locked";
+            var typeLabel = step.Type switch
+            {
+                LearningPathStepType.Checkpoint => "Checkpoint",
+                LearningPathStepType.FinalAssessment => "Final Assessment",
+                _ => "Lesson"
+            };
+
+            factory.CreateText(card, $"{typeLabel}: {step.Title}", theme.TextPrimary, theme.BodySize, theme.SansSemiBold, TextAlignmentOptions.MidlineLeft);
+            factory.CreateText(card, status, unlocked ? theme.TextSecondary : theme.TextMuted, theme.MetaSize, theme.SansRegular, TextAlignmentOptions.MidlineLeft);
+
+            if (!unlocked)
+            {
+                return;
+            }
+
+            if (step.Type == LearningPathStepType.Lesson)
+            {
+                var label = completed ? "Review Lesson" : "Open Lesson";
+                factory.CreateButton(card, label, () => navigator.ShowTermFromPath(path.Id, step.Id, step.TermId), primary: !completed);
+            }
+            else
+            {
+                var label = completed ? "Retake Quiz" : step.Type == LearningPathStepType.FinalAssessment ? "Start Final" : "Start Checkpoint";
+                factory.CreateButton(card, label, () => StartPathStep(path.Id, step.Id), primary: !completed);
+            }
+        }
+
+        private void StartPathStep(string pathId, string stepId)
+        {
+            var path = services.LearningPaths.GetPath(pathId);
+            var step = path?.Steps.Find(entry => entry.Id == stepId);
+            if (step == null || !services.LearningPaths.IsStepUnlocked(pathId, stepId))
+            {
+                return;
+            }
+
+            if (step.Type == LearningPathStepType.Lesson)
+            {
+                navigator.ShowTermFromPath(pathId, stepId, step.TermId);
+                return;
+            }
+
+            var config = services.LearningPaths.CreateQuizConfig(pathId, stepId);
+            if (config != null)
+            {
+                navigator.StartQuiz(config);
             }
         }
 
@@ -635,6 +749,7 @@ namespace GameTerms.UI
             {
                 if (services.Quiz.IsComplete)
                 {
+                    RecordActivePathAssessmentIfNeeded();
                     navigator.ShowQuizResults();
                 }
                 else
@@ -644,12 +759,39 @@ namespace GameTerms.UI
             }
         }
 
+        private void RecordActivePathAssessmentIfNeeded()
+        {
+            if (pathAssessmentRecorded)
+            {
+                return;
+            }
+
+            var pathId = navigator.ActiveStudyConfig?.PathId;
+            var stepId = navigator.ActiveStudyConfig?.PathStepId;
+            if (string.IsNullOrWhiteSpace(pathId) || string.IsNullOrWhiteSpace(stepId))
+            {
+                return;
+            }
+
+            pathAssessmentPassed = services.LearningPaths.RecordAssessmentResult(pathId, stepId, services.Quiz.GetResults());
+            pathAssessmentRecorded = true;
+        }
+
         private void BuildQuizResultsPanel()
         {
             var content = CreateScrollPanel("QuizResultsPanel");
             AddBackButton(content);
 
             var result = services.Quiz.GetResults();
+            var pathId = navigator.ActiveStudyConfig?.PathId;
+            var stepId = navigator.ActiveStudyConfig?.PathStepId;
+            var pathStep = !string.IsNullOrWhiteSpace(pathId) && !string.IsNullOrWhiteSpace(stepId)
+                ? services.LearningPaths.GetPath(pathId)?.Steps.Find(step => step.Id == stepId)
+                : null;
+
+            RecordActivePathAssessmentIfNeeded();
+            var passedPathStep = pathStep != null && pathAssessmentPassed;
+
             factory.CreateScreenHeader(content, "Quiz Results", $"You scored {result.CorrectCount} of {result.TotalQuestions}");
 
             var summary = factory.CreateCard(content, "Summary");
@@ -658,7 +800,26 @@ namespace GameTerms.UI
             summaryLayout.spacing = 8f;
             summaryLayout.childControlWidth = true;
             summaryLayout.childForceExpandWidth = true;
-            factory.CreateText(summary, result.CorrectCount >= 4 ? "Strong recall." : result.CorrectCount >= 2 ? "Good start — keep practicing." : "Review the missed terms and try again.", theme.TextSecondary, theme.BodySize, theme.SansRegular, TextAlignmentOptions.MidlineLeft);
+
+            string summaryText;
+            if (pathStep != null)
+            {
+                summaryText = passedPathStep
+                    ? pathStep.Type == LearningPathStepType.FinalAssessment
+                        ? "Path assessment passed. Great work."
+                        : "Checkpoint passed. The next step is unlocked."
+                    : $"Need {pathStep.PassScore}/{pathStep.QuestionCount} to pass. Review and try again.";
+            }
+            else
+            {
+                summaryText = result.CorrectCount >= 4
+                    ? "Strong recall."
+                    : result.CorrectCount >= 2
+                        ? "Good start — keep practicing."
+                        : "Review the missed terms and try again.";
+            }
+
+            factory.CreateText(summary, summaryText, theme.TextSecondary, theme.BodySize, theme.SansRegular, TextAlignmentOptions.MidlineLeft);
             factory.CreateProgressBar(summary, result.TotalQuestions == 0 ? 0f : (float)result.CorrectCount / result.TotalQuestions);
 
             if (result.MissedTermIds.Count > 0)
@@ -679,16 +840,43 @@ namespace GameTerms.UI
             actionsLayout.spacing = 8f;
             actionsLayout.childControlWidth = true;
             actionsLayout.childForceExpandWidth = true;
-            factory.CreateButton(actions, "Back to Study", () => navigator.ShowStudyHub());
-            factory.CreateButton(actions, "Try Again", () =>
+
+            if (!string.IsNullOrWhiteSpace(pathId))
             {
-                navigator.StartQuiz(navigator.ActiveStudyConfig ?? new StudyConfig
+                factory.CreateButton(actions, "Back to Path", () => navigator.ShowPath(pathId));
+                factory.CreateButton(actions, passedPathStep ? "Continue Path" : "Retry", () =>
                 {
-                    Mode = StudyMode.Quiz,
-                    QuestionCount = 5,
-                    Scope = StudyScope.All
-                });
-            }, primary: true);
+                    if (passedPathStep)
+                    {
+                        var resumeId = services.LearningPaths.GetResumeStepId(pathId);
+                        if (services.LearningPaths.IsPathComplete(pathId) || string.IsNullOrEmpty(resumeId))
+                        {
+                            navigator.ShowPath(pathId);
+                        }
+                        else
+                        {
+                            StartPathStep(pathId, resumeId);
+                        }
+                    }
+                    else
+                    {
+                        navigator.StartQuiz(navigator.ActiveStudyConfig);
+                    }
+                }, primary: true);
+            }
+            else
+            {
+                factory.CreateButton(actions, "Back to Study", () => navigator.ShowStudyHub());
+                factory.CreateButton(actions, "Try Again", () =>
+                {
+                    navigator.StartQuiz(navigator.ActiveStudyConfig ?? new StudyConfig
+                    {
+                        Mode = StudyMode.Quiz,
+                        QuestionCount = 5,
+                        Scope = StudyScope.All
+                    });
+                }, primary: true);
+            }
         }
 
         private void BuildCategoriesPanel()
@@ -862,6 +1050,35 @@ namespace GameTerms.UI
 
             var mastery = services.Progress.GetMasteryLevel(term.Id);
             factory.CreateText(content, $"Mastery: {mastery}/5", theme.TextMuted, theme.MetaSize, theme.SansRegular, TextAlignmentOptions.MidlineLeft);
+
+            if (!string.IsNullOrWhiteSpace(navigator.SelectedPathId) && !string.IsNullOrWhiteSpace(navigator.SelectedPathStepId))
+            {
+                var pathId = navigator.SelectedPathId;
+                var stepId = navigator.SelectedPathStepId;
+                var alreadyComplete = services.LearningPaths.IsStepCompleted(pathId, stepId);
+                if (alreadyComplete)
+                {
+                    factory.CreateText(content, "Lesson marked complete for this path.", theme.Success, theme.MetaSize, theme.SansSemiBold, TextAlignmentOptions.MidlineLeft);
+                    factory.CreateButton(content, "Back to Path", () => navigator.ShowPath(pathId));
+                }
+                else
+                {
+                    factory.CreateButton(content, "Mark Complete & Continue", () =>
+                    {
+                        services.LearningPaths.CompleteLesson(pathId, stepId);
+                        services.Progress.MarkKnown(term.Id);
+                        var resumeId = services.LearningPaths.GetResumeStepId(pathId);
+                        if (string.IsNullOrEmpty(resumeId) || services.LearningPaths.IsPathComplete(pathId))
+                        {
+                            navigator.ShowPath(pathId);
+                        }
+                        else
+                        {
+                            StartPathStep(pathId, resumeId);
+                        }
+                    }, primary: true);
+                }
+            }
 
             factory.CreateButton(content, "Quiz This Term", () =>
             {

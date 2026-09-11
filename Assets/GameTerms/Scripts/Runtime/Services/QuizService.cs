@@ -222,6 +222,12 @@ namespace GameTerms
                     var dueIds = new HashSet<string>(progress.GetDueTermIds(), StringComparer.Ordinal);
                     pool = glossary.GetAllTerms().Where(term => dueIds.Contains(term.Id));
                     break;
+                case StudyScope.TermList:
+                    var termIds = studyConfig.TermIds ?? new List<string>();
+                    pool = termIds
+                        .Select(id => glossary.GetTerm(id))
+                        .Where(term => term != null);
+                    break;
             }
 
             return pool.Where(term => !string.IsNullOrWhiteSpace(term.ShortDefinition) || !string.IsNullOrWhiteSpace(term.SimpleExplanation));
