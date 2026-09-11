@@ -113,17 +113,25 @@ namespace GameTerms.UI
             }
         }
 
+        private const float ReferenceWidth = 390f;
+        private const float ReferenceHeight = 844f;
+
         private void BuildUi()
         {
-            factory = new UiFactory(theme, Screen.width);
-
             var canvasGo = new GameObject("Canvas", typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
             var canvas = canvasGo.GetComponent<Canvas>();
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
             var scaler = canvasGo.GetComponent<CanvasScaler>();
             scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-            scaler.referenceResolution = new Vector2(390f, 844f);
-            scaler.matchWidthOrHeight = 0f;
+            scaler.referenceResolution = new Vector2(ReferenceWidth, ReferenceHeight);
+            scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
+            // Balance width/height so phone and tablet aspect ratios keep content on-screen.
+            scaler.matchWidthOrHeight = 0.5f;
+
+            // Layout sizes must use canvas/reference units — not raw Screen.width pixels —
+            // otherwise retina widths (>=768px) force a 720-wide frame into a ~390-wide canvas.
+            var canvasWidth = GetCanvasWidth(scaler);
+            factory = new UiFactory(theme, canvasWidth);
 
             if (FindFirstObjectByType<UnityEngine.EventSystems.EventSystem>() == null)
             {
@@ -137,7 +145,7 @@ namespace GameTerms.UI
             UiFactory.Stretch(background.rectTransform);
 
             var contentFrame = factory.CreateRoot(contentRoot, "ContentFrame");
-            ApplyContentMaxWidth(contentFrame);
+            ApplyContentMaxWidth(contentFrame, canvasWidth);
 
             panelHost = factory.CreateRoot(contentFrame, "PanelHost");
             contentCanvasGroup = panelHost.gameObject.AddComponent<CanvasGroup>();
@@ -145,10 +153,26 @@ namespace GameTerms.UI
             ApplyPanelInsets(true);
         }
 
-        private void ApplyContentMaxWidth(RectTransform frame)
+        private static float GetCanvasWidth(CanvasScaler scaler)
         {
-            var maxWidth = theme.GetContentMaxWidth(Screen.width);
-            if (maxWidth >= Screen.width - 1f)
+            var refSize = scaler.referenceResolution;
+            if (refSize.x <= 0f || refSize.y <= 0f || Screen.width <= 0 || Screen.height <= 0)
+            {
+                return ReferenceWidth;
+            }
+
+            // Mirrors Unity CanvasScaler ScaleWithScreenSize + MatchWidthOrHeight.
+            var logWidth = Mathf.Log(Screen.width / refSize.x, 2f);
+            var logHeight = Mathf.Log(Screen.height / refSize.y, 2f);
+            var logWeightedAverage = Mathf.Lerp(logWidth, logHeight, scaler.matchWidthOrHeight);
+            var scaleFactor = Mathf.Pow(2f, logWeightedAverage);
+            return Screen.width / scaleFactor;
+        }
+
+        private void ApplyContentMaxWidth(RectTransform frame, float canvasWidth)
+        {
+            var maxWidth = theme.GetContentMaxWidth(canvasWidth);
+            if (maxWidth >= canvasWidth - 1f)
             {
                 UiFactory.Stretch(frame);
                 return;

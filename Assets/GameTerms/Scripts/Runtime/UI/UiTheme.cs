@@ -51,15 +51,17 @@ namespace GameTerms.UI
         public float NavLabelSize = 10f;
         public float NavHeight = 54f;
 
-        public float GetResponsiveSize(float baseSize, float screenWidth)
+        /// <param name="canvasWidth">Width in Canvas Scaler reference units (not Screen.width pixels).</param>
+        public float GetResponsiveSize(float baseSize, float canvasWidth)
         {
-            var scale = screenWidth >= 768f ? 1.12f : 1f;
+            var scale = canvasWidth >= 768f ? 1.12f : 1f;
             return baseSize * scale;
         }
 
-        public float GetContentMaxWidth(float screenWidth)
+        /// <param name="canvasWidth">Width in Canvas Scaler reference units (not Screen.width pixels).</param>
+        public float GetContentMaxWidth(float canvasWidth)
         {
-            return screenWidth >= 768f ? 720f : screenWidth;
+            return canvasWidth >= 768f ? 720f : canvasWidth;
         }
 
         public string GetSearchHighlightHex()
