@@ -8,6 +8,10 @@ namespace GameTerms.UI
         HeartOutline,
         Search,
         Back,
-        Dot
+        Dot,
+        Study,
+        Check,
+        Cross,
+        Flip
     }
 }

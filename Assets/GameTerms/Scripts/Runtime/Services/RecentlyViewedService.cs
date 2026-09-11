@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using GameTerms.Persistence;
 
 namespace GameTerms
 {
@@ -9,19 +8,17 @@ namespace GameTerms
     {
         public const int MaxRecentCount = 20;
 
-        private readonly IUserDataStore dataStore;
-        private UserDataSnapshot snapshot;
+        private readonly UserDataService userData;
 
         public event Action Changed;
 
-        public RecentlyViewedService(IUserDataStore dataStore)
+        public RecentlyViewedService(UserDataService userData)
         {
-            this.dataStore = dataStore;
-            snapshot = dataStore.Load();
-            snapshot.RecentlyViewedTermIds ??= new List<string>();
+            this.userData = userData;
+            userData.Snapshot.RecentlyViewedTermIds ??= new List<string>();
         }
 
-        public IReadOnlyList<string> GetRecentIds() => snapshot.RecentlyViewedTermIds.ToList();
+        public IReadOnlyList<string> GetRecentIds() => userData.Snapshot.RecentlyViewedTermIds.ToList();
 
         public void RecordView(string termId)
         {
@@ -30,7 +27,8 @@ namespace GameTerms
                 return;
             }
 
-            var index = snapshot.RecentlyViewedTermIds.IndexOf(termId);
+            var ids = userData.Snapshot.RecentlyViewedTermIds;
+            var index = ids.IndexOf(termId);
             if (index == 0)
             {
                 return;
@@ -38,19 +36,17 @@ namespace GameTerms
 
             if (index > 0)
             {
-                snapshot.RecentlyViewedTermIds.RemoveAt(index);
+                ids.RemoveAt(index);
             }
 
-            snapshot.RecentlyViewedTermIds.Insert(0, termId);
+            ids.Insert(0, termId);
 
-            if (snapshot.RecentlyViewedTermIds.Count > MaxRecentCount)
+            if (ids.Count > MaxRecentCount)
             {
-                snapshot.RecentlyViewedTermIds = snapshot.RecentlyViewedTermIds
-                    .Take(MaxRecentCount)
-                    .ToList();
+                userData.Snapshot.RecentlyViewedTermIds = ids.Take(MaxRecentCount).ToList();
             }
 
-            dataStore.Save(snapshot);
+            userData.Save();
             Changed?.Invoke();
         }
     }

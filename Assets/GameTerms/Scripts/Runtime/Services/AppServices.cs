@@ -6,24 +6,32 @@ namespace GameTerms
 {
     public sealed class AppServices
     {
+        public UserDataService UserData { get; }
         public GlossaryService Glossary { get; }
         public SearchService Search { get; }
         public FavoritesService Favorites { get; }
         public RecentlyViewedService RecentlyViewed { get; }
         public DailyTermService DailyTerm { get; }
         public RandomTermService RandomTerm { get; }
+        public ProgressService Progress { get; }
+        public QuizService Quiz { get; }
+        public FlashcardService Flashcards { get; }
         public IGlossaryRepository Repository { get; }
 
         public AppServices(GlossaryDatabaseAsset database, TextAsset glossaryJson = null)
         {
             var dataStore = new JsonUserDataStore();
+            UserData = new UserDataService(dataStore);
             Repository = CreateRepository(database, glossaryJson);
             Glossary = new GlossaryService(Repository);
             Search = new SearchService(Repository);
-            Favorites = new FavoritesService(dataStore);
-            RecentlyViewed = new RecentlyViewedService(dataStore);
+            Favorites = new FavoritesService(UserData);
+            RecentlyViewed = new RecentlyViewedService(UserData);
             DailyTerm = new DailyTermService(Glossary);
-            RandomTerm = new RandomTermService(Glossary, dataStore);
+            RandomTerm = new RandomTermService(Glossary, UserData);
+            Progress = new ProgressService(Glossary, UserData);
+            Quiz = new QuizService(Glossary, Progress, Favorites);
+            Flashcards = new FlashcardService(Glossary, Progress, Favorites);
         }
 
         private static IGlossaryRepository CreateRepository(GlossaryDatabaseAsset database, TextAsset glossaryJson)

@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 
 namespace GameTerms.UI
 {
@@ -7,6 +6,7 @@ namespace GameTerms.UI
     {
         Home,
         Categories,
+        Study,
         Favorites
     }
 
@@ -17,7 +17,11 @@ namespace GameTerms.UI
         CategoryTerms,
         Favorites,
         SearchResults,
-        TermDetail
+        TermDetail,
+        StudyHub,
+        FlashcardSession,
+        QuizSession,
+        QuizResults
     }
 
     public sealed class AppNavigator
@@ -27,6 +31,7 @@ namespace GameTerms.UI
         public GlossaryCategory? SelectedCategory { get; private set; }
         public string SearchQuery { get; private set; } = string.Empty;
         public string SelectedTermId { get; private set; }
+        public StudyConfig ActiveStudyConfig { get; private set; }
 
         public event Action Changed;
 
@@ -37,6 +42,7 @@ namespace GameTerms.UI
             {
                 AppTab.Categories => AppScreen.Categories,
                 AppTab.Favorites => AppScreen.Favorites,
+                AppTab.Study => AppScreen.StudyHub,
                 _ => AppScreen.Home
             };
             Changed?.Invoke();
@@ -63,6 +69,35 @@ namespace GameTerms.UI
             Changed?.Invoke();
         }
 
+        public void ShowStudyHub()
+        {
+            CurrentTab = AppTab.Study;
+            CurrentScreen = AppScreen.StudyHub;
+            Changed?.Invoke();
+        }
+
+        public void StartFlashcards(StudyConfig config)
+        {
+            ActiveStudyConfig = config ?? new StudyConfig { Mode = StudyMode.Flashcards };
+            CurrentTab = AppTab.Study;
+            CurrentScreen = AppScreen.FlashcardSession;
+            Changed?.Invoke();
+        }
+
+        public void StartQuiz(StudyConfig config)
+        {
+            ActiveStudyConfig = config ?? new StudyConfig { Mode = StudyMode.Quiz, QuestionCount = 5 };
+            CurrentTab = AppTab.Study;
+            CurrentScreen = AppScreen.QuizSession;
+            Changed?.Invoke();
+        }
+
+        public void ShowQuizResults()
+        {
+            CurrentScreen = AppScreen.QuizResults;
+            Changed?.Invoke();
+        }
+
         public void GoBack()
         {
             switch (CurrentScreen)
@@ -73,11 +108,15 @@ namespace GameTerms.UI
                 case AppScreen.TermDetail when SelectedCategory.HasValue:
                     CurrentScreen = AppScreen.CategoryTerms;
                     break;
+                case AppScreen.TermDetail when CurrentTab == AppTab.Study:
+                    CurrentScreen = AppScreen.StudyHub;
+                    break;
                 case AppScreen.TermDetail:
                     CurrentScreen = CurrentTab switch
                     {
                         AppTab.Categories => AppScreen.Categories,
                         AppTab.Favorites => AppScreen.Favorites,
+                        AppTab.Study => AppScreen.StudyHub,
                         _ => AppScreen.Home
                     };
                     break;
@@ -88,6 +127,11 @@ namespace GameTerms.UI
                 case AppScreen.CategoryTerms:
                     CurrentScreen = AppScreen.Categories;
                     SelectedCategory = null;
+                    break;
+                case AppScreen.FlashcardSession:
+                case AppScreen.QuizSession:
+                case AppScreen.QuizResults:
+                    CurrentScreen = AppScreen.StudyHub;
                     break;
                 default:
                     ShowTab(CurrentTab);

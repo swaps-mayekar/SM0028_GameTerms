@@ -416,6 +416,68 @@ namespace GameTerms.UI
             return divider.rectTransform;
         }
 
+        public RectTransform CreateProgressBar(RectTransform parent, float progress, string name = "ProgressBar")
+        {
+            progress = Mathf.Clamp01(progress);
+            var track = CreatePanel(parent, theme.SurfaceElevated, name);
+            var trackLayout = track.gameObject.GetComponent<LayoutElement>();
+            trackLayout.minHeight = 10f;
+            trackLayout.preferredHeight = 10f;
+
+            var fill = CreateImage(track, theme.Primary, "Fill");
+            fill.raycastTarget = false;
+            RoundedRectUtility.Apply(fill);
+            var fillRect = fill.rectTransform;
+            fillRect.anchorMin = new Vector2(0f, 0f);
+            fillRect.anchorMax = new Vector2(progress, 1f);
+            fillRect.offsetMin = Vector2.zero;
+            fillRect.offsetMax = Vector2.zero;
+            return track;
+        }
+
+        public RectTransform CreateStatChip(RectTransform parent, string label, string value)
+        {
+            var chip = CreateCard(parent, "StatChip");
+            var layout = chip.gameObject.AddComponent<VerticalLayoutGroup>();
+            layout.padding = new RectOffset(12, 12, 12, 12);
+            layout.spacing = 4f;
+            layout.childControlWidth = true;
+            layout.childForceExpandWidth = true;
+
+            CreateText(chip, value, theme.TextPrimary, theme.SectionSize, theme.SansSemiBold, TextAlignmentOptions.Center);
+            CreateText(chip, label, theme.TextMuted, theme.MetaSize, theme.SansRegular, TextAlignmentOptions.Center);
+            return chip;
+        }
+
+        public Button CreateQuizOption(RectTransform parent, string label, Action onClick, Color? backgroundOverride = null, Color? textOverride = null)
+        {
+            var buttonGo = new GameObject("QuizOption", typeof(RectTransform), typeof(Image), typeof(Button));
+            var rect = buttonGo.GetComponent<RectTransform>();
+            rect.SetParent(parent, false);
+            var image = buttonGo.GetComponent<Image>();
+            var normalColor = backgroundOverride ?? theme.SurfaceElevated;
+            image.color = normalColor;
+            image.raycastTarget = true;
+            RoundedRectUtility.Apply(image);
+
+            var button = buttonGo.GetComponent<Button>();
+            button.targetGraphic = image;
+            button.onClick.AddListener(() => onClick?.Invoke());
+            ApplyButtonColors(button, normalColor);
+            buttonGo.AddComponent<ScrollDragForwarder>();
+
+            var layout = buttonGo.AddComponent<LayoutElement>();
+            layout.minHeight = theme.MinTouchTarget;
+            layout.flexibleWidth = 1f;
+
+            var textColor = textOverride ?? theme.TextPrimary;
+            var text = CreateText(rect, label, textColor, theme.BodySize, theme.SansSemiBold, TextAlignmentOptions.Center);
+            Stretch(text.rectTransform);
+            text.margin = new Vector4(12f, 8f, 12f, 8f);
+
+            return button;
+        }
+
         public static void Stretch(RectTransform rect)
         {
             rect.anchorMin = Vector2.zero;

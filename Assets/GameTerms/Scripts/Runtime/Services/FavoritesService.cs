@@ -1,23 +1,20 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using GameTerms.Persistence;
 
 namespace GameTerms
 {
     public sealed class FavoritesService
     {
         private readonly HashSet<string> favoriteIds = new(StringComparer.Ordinal);
-        private readonly IUserDataStore dataStore;
-        private UserDataSnapshot snapshot;
+        private readonly UserDataService userData;
 
         public event Action Changed;
 
-        public FavoritesService(IUserDataStore dataStore)
+        public FavoritesService(UserDataService userData)
         {
-            this.dataStore = dataStore;
-            snapshot = dataStore.Load();
-            foreach (var id in snapshot.FavoriteTermIds)
+            this.userData = userData;
+            foreach (var id in userData.Snapshot.FavoriteTermIds)
             {
                 favoriteIds.Add(id);
             }
@@ -25,7 +22,7 @@ namespace GameTerms
 
         public bool IsFavorite(string termId) => favoriteIds.Contains(termId);
 
-        public IReadOnlyList<string> GetFavoriteIds() => snapshot.FavoriteTermIds.ToList();
+        public IReadOnlyList<string> GetFavoriteIds() => userData.Snapshot.FavoriteTermIds.ToList();
 
         public void ToggleFavorite(string termId)
         {
@@ -37,21 +34,16 @@ namespace GameTerms
             if (favoriteIds.Contains(termId))
             {
                 favoriteIds.Remove(termId);
-                snapshot.FavoriteTermIds.Remove(termId);
+                userData.Snapshot.FavoriteTermIds.Remove(termId);
             }
             else
             {
                 favoriteIds.Add(termId);
-                snapshot.FavoriteTermIds.Insert(0, termId);
+                userData.Snapshot.FavoriteTermIds.Insert(0, termId);
             }
 
-            Persist();
+            userData.Save();
             Changed?.Invoke();
-        }
-
-        private void Persist()
-        {
-            dataStore.Save(snapshot);
         }
     }
 }

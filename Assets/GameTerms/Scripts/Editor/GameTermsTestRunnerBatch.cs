@@ -14,7 +14,7 @@ namespace GameTerms.Editor
 
         public static void RunPlayModeTests()
         {
-            RunTests(TestMode.EditMode, "GameTerms.Tests.PlayMode", "TestResults-PlayMode.xml");
+            RunTests(TestMode.PlayMode, "GameTerms.Tests.PlayMode", "TestResults-PlayMode.xml");
         }
 
         private static void RunTests(TestMode mode, string assemblyName, string resultsFileName)
@@ -49,10 +49,15 @@ namespace GameTerms.Editor
 
             public void RunFinished(ITestResultAdaptor result)
             {
+                if (finished)
+                {
+                    return;
+                }
+
                 finished = true;
                 var path = System.IO.Path.Combine(Application.dataPath, "..", resultsFileName);
                 Debug.Log($"Tests finished. Passed: {result.PassCount}, Failed: {result.FailCount}, Skipped: {result.SkipCount}. Results: {path}");
-                EditorApplication.Exit(result.FailCount > 0 ? 1 : 0);
+                EditorApplication.delayCall += () => EditorApplication.Exit(result.FailCount > 0 ? 1 : 0);
             }
 
             public void TestStarted(ITestAdaptor test) { }

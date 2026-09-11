@@ -27,6 +27,10 @@ MonoBehaviour:
   Shadow: {r: 0, g: 0, b: 0, a: 0.25}
   NavActive: {r: 0.36, g: 0.78, b: 1, a: 1}
   NavInactive: {r: 0.5, g: 0.56, b: 0.64, a: 1}
+  Success: {r: 0.36, g: 0.78, b: 0.52, a: 1}
+  SuccessMuted: {r: 0.36, g: 0.78, b: 0.52, a: 0.18}
+  Error: {r: 0.96, g: 0.42, b: 0.52, a: 1}
+  ErrorMuted: {r: 0.96, g: 0.42, b: 0.52, a: 0.18}
   SansRegular: {fileID: 11400000, guid: 8e47c7180cb5a4bd59f2c6a047350f99, type: 2}
   SansSemiBold: {fileID: 11400000, guid: df8399570b67e4e0ea9d085fbf7f8758, type: 2}
   SansBold: {fileID: 11400000, guid: 464527f6a53034f7bb2965be2ed728fa, type: 2}

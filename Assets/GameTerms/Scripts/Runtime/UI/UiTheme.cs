@@ -22,6 +22,10 @@ namespace GameTerms.UI
         public Color Shadow = new(0f, 0f, 0f, 0.25f);
         public Color NavActive = new(0.36f, 0.78f, 1f);
         public Color NavInactive = new(0.5f, 0.56f, 0.64f);
+        public Color Success = new(0.36f, 0.78f, 0.52f);
+        public Color SuccessMuted = new(0.36f, 0.78f, 0.52f, 0.18f);
+        public Color Error = new(0.96f, 0.42f, 0.52f);
+        public Color ErrorMuted = new(0.96f, 0.42f, 0.52f, 0.18f);
 
         [Header("Typography")]
         public TMP_FontAsset SansRegular;

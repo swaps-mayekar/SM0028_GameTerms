@@ -66,6 +66,10 @@ namespace GameTerms.UI
                 UiIconId.Search => SearchAlpha(x, y),
                 UiIconId.Back => BackAlpha(x, y),
                 UiIconId.Dot => SoftCircle(x, y, 0.22f),
+                UiIconId.Study => StudyAlpha(x, y),
+                UiIconId.Check => CheckAlpha(x, y),
+                UiIconId.Cross => CrossAlpha(x, y),
+                UiIconId.Flip => FlipAlpha(x, y),
                 _ => 0f
             };
         }
@@ -141,6 +145,44 @@ namespace GameTerms.UI
             var top = Capsule(x, y, new Vector2(-0.05f, 0.22f), new Vector2(-0.34f, 0f), 0.08f);
             var bottom = Capsule(x, y, new Vector2(-0.05f, -0.22f), new Vector2(-0.34f, 0f), 0.08f);
             return Mathf.Max(shaft, Mathf.Max(top, bottom));
+        }
+
+        private static float StudyAlpha(float x, float y)
+        {
+            const float stroke = 0.07f;
+            var spine = Capsule(x, y, new Vector2(-0.42f, 0.48f), new Vector2(-0.42f, -0.48f), stroke);
+            var top = Capsule(x, y, new Vector2(-0.42f, 0.48f), new Vector2(0.42f, 0.36f), stroke);
+            var bottom = Capsule(x, y, new Vector2(-0.42f, -0.48f), new Vector2(0.42f, -0.36f), stroke);
+            var edge = Capsule(x, y, new Vector2(0.42f, 0.36f), new Vector2(0.42f, -0.36f), stroke);
+            var mark = Capsule(x, y, new Vector2(-0.08f, 0.12f), new Vector2(0.18f, 0.02f), stroke * 0.8f);
+            return Mathf.Max(Mathf.Max(spine, top), Mathf.Max(bottom, Mathf.Max(edge, mark)));
+        }
+
+        private static float CheckAlpha(float x, float y)
+        {
+            var shortArm = Capsule(x, y, new Vector2(-0.34f, 0.02f), new Vector2(-0.08f, -0.28f), 0.08f);
+            var longArm = Capsule(x, y, new Vector2(-0.08f, -0.28f), new Vector2(0.4f, 0.34f), 0.08f);
+            return Mathf.Max(shortArm, longArm);
+        }
+
+        private static float CrossAlpha(float x, float y)
+        {
+            var a = Capsule(x, y, new Vector2(-0.32f, 0.32f), new Vector2(0.32f, -0.32f), 0.08f);
+            var b = Capsule(x, y, new Vector2(0.32f, 0.32f), new Vector2(-0.32f, -0.32f), 0.08f);
+            return Mathf.Max(a, b);
+        }
+
+        private static float FlipAlpha(float x, float y)
+        {
+            var left = Capsule(x, y, new Vector2(-0.28f, -0.18f), new Vector2(-0.28f, 0.28f), 0.07f);
+            var right = Capsule(x, y, new Vector2(0.28f, 0.18f), new Vector2(0.28f, -0.28f), 0.07f);
+            var topArrow = Capsule(x, y, new Vector2(-0.28f, 0.28f), new Vector2(0.08f, 0.28f), 0.07f);
+            var bottomArrow = Capsule(x, y, new Vector2(0.28f, -0.28f), new Vector2(-0.08f, -0.28f), 0.07f);
+            var tipTop = Capsule(x, y, new Vector2(0.08f, 0.28f), new Vector2(-0.02f, 0.12f), 0.07f);
+            var tipBottom = Capsule(x, y, new Vector2(-0.08f, -0.28f), new Vector2(0.02f, -0.12f), 0.07f);
+            return Mathf.Max(
+                Mathf.Max(left, right),
+                Mathf.Max(Mathf.Max(topArrow, bottomArrow), Mathf.Max(tipTop, tipBottom)));
         }
 
         private static float RoundedBox(float x, float y, float halfWidth, float halfHeight, Vector2 center, float radius)

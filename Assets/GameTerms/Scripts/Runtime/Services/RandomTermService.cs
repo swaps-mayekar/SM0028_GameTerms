@@ -1,22 +1,18 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using GameTerms.Persistence;
 
 namespace GameTerms
 {
     public sealed class RandomTermService
     {
         private readonly GlossaryService glossaryService;
-        private readonly IUserDataStore dataStore;
+        private readonly UserDataService userData;
         private readonly Random random = new();
-        private UserDataSnapshot snapshot;
 
-        public RandomTermService(GlossaryService glossaryService, IUserDataStore dataStore)
+        public RandomTermService(GlossaryService glossaryService, UserDataService userData)
         {
             this.glossaryService = glossaryService;
-            this.dataStore = dataStore;
-            snapshot = dataStore.Load();
+            this.userData = userData;
         }
 
         public GlossaryTermData GetRandomTerm()
@@ -33,7 +29,7 @@ namespace GameTerms
             }
 
             var candidates = terms
-                .Where(term => term.Id != snapshot.LastRandomTermId)
+                .Where(term => term.Id != userData.Snapshot.LastRandomTermId)
                 .ToList();
 
             if (candidates.Count == 0)
@@ -42,8 +38,8 @@ namespace GameTerms
             }
 
             var selected = candidates[random.Next(candidates.Count)];
-            snapshot.LastRandomTermId = selected.Id;
-            dataStore.Save(snapshot);
+            userData.Snapshot.LastRandomTermId = selected.Id;
+            userData.Save();
             return selected;
         }
     }
